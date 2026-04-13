@@ -1,36 +1,81 @@
 * {
-    color: orange;
-}
-body {
-    inset: 0;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
 }
 
-header {
+.home header {
     display: flex;
     align-items: center;
     justify-content: space-between;
     height: 10%;
     border-bottom: solid 5px orange;
 }
-
-ul {
+.home ul {
     display: flex;
     justify-content: center;
-    list-style: none;
-    margin-right: 40px;
+    align-items: center;
+    margin-right: 10px;
 }
-
-li {
+.home li {
     font-size: 23px;
-    padding: 25px; 
+    padding: 15px; 
 }
-
-a {
-    text-decoration: none;
+.home a {
+    color: orange;
 }
-
-img {
+header img {
     height: 5%;
     width: 10%;
     margin-left: 40px;
 }
+.botaoHeader{
+    background-color: orange;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    height: 43px;
+    width: 100px;
+    font-size: 20px;
+    margin-left: 12px;
+    padding: 5px 15px 5px 15px;
+}
+
+.fundoHome {
+    height: 80%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    border-bottom: solid 5px orange;
+}
+.fundoHome img {
+    height: 60%;
+    width: 80%;
+    border-left: solid 4px orange;
+    border-right: solid 4px orange;
+}
+
+.parte1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+.parte1 h1 {
+    font-size: 50px;   
+    color: orange;
+    padding: 50px;
+}
+.parte1 hr {
+    background-color: orange;
+    padding: 3px;
+    width: 100%;
+}
+
+.parte2 {
+    display: flex;
+    width: 40%;
+    height: 30%;
+}
+
