@@ -9,28 +9,23 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 10%;
+    height: 15vh;
     border-bottom: solid 5px orange;
 }
-.home ul {
+.home header ul {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-right: 10px;
 }
-.home li {
+.home header li {
     font-size: 23px;
     padding: 15px; 
 }
-.home a {
+.home header a {
     color: orange;
 }
-header img {
-    height: 5%;
-    width: 10%;
-    margin-left: 40px;
-}
-.botaoHeader{
+.home header button {
     background-color: orange;
     color: white;
     border: none;
@@ -41,6 +36,11 @@ header img {
     margin-left: 12px;
     padding: 5px 15px 5px 15px;
 }
+header img {
+    height: 15vh;
+    width: 25vh;
+    margin-left: 40px;
+}
 
 .fundoHome {
     height: 80%;
@@ -50,7 +50,7 @@ header img {
     border-bottom: solid 5px orange;
 }
 .fundoHome img {
-    height: 60%;
+    height: 100%;
     width: 80%;
     border-left: solid 4px orange;
     border-right: solid 4px orange;
@@ -74,8 +74,31 @@ header img {
 }
 
 .parte2 {
+    width: 100vw;
+    height: 80%;
     display: flex;
-    width: 40%;
-    height: 30%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(255, 255, 255);
+    margin-top: 30px;
 }
-
+.parte2 .partes {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 100%;
+    width: 80%;
+    margin: 30px;   
+    border-left: solid 7px orange;
+    border-right: solid 7px orange;
+    border-radius: 20px;
+    background-color: rgb(211, 208, 208);
+}
+.parte2 .partes img { 
+    border-radius: 20px;
+}
+.parte2 .partes p {
+    padding: 20px;
+    
+}
