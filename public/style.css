@@ -54,6 +54,7 @@ header img {
     width: 80%;
     border-left: solid 4px orange;
     border-right: solid 4px orange;
+    /* box-shadow: 0 0 7px 7px rgba(0, 0, 0, 0.479); */
 }
 
 .parte1 {
@@ -96,9 +97,38 @@ header img {
     background-color: rgb(211, 208, 208);
 }
 .parte2 .partes img { 
+    height: 100%;
+    width: 55%;
     border-radius: 20px;
+}
+.parte2 .partes span {
+    font-size: 42px;
 }
 .parte2 .partes p {
     padding: 20px;
-    
+    font-size: 20px;
+}
+
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    background-color: orange;
+}
+footer img{
+    width: 30%; 
+    height: 20%;
+}
+footer ul{
+    display: flex;
+    width: 40%;
+}
+footer a {
+    font-size: 20px;
+    position: relative;
+    padding: 20px;
+    top: 20%;
+    right: 10%;
 }
