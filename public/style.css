@@ -6,7 +6,9 @@
 }
 
 /* Página home */
-
+.home {
+    background-color: var(--AzulEscuro);
+}
 /* header*/
 .home header {
     display: flex;
@@ -190,58 +192,51 @@ footer .Links {
 }
 
 /* Tela de Cadastro */
-.Cadastro {
+.LoginCadastro {
     background-image: url(../imgs/imagemFundoHome.jpg);
+    object-fit: cover;
 }
 
-.Cadastro header {
+.LoginCadastro header {
+    background-color: var(--AzulEscuro);
     display: flex;
     align-items: center;
     justify-content: space-between;
     border-bottom: solid 5px var(--Laranja);
 }
 
-.Cadastro header ul {
+.LoginCadastro header ul {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-right: 10px;
 }
 
-.Cadastro header li {
+.LoginCadastro header li {
     font-size: 23px;
     padding: 15px;
 }
 
-.Cadastro header a {
+.LoginCadastro header a {
     color: var(--Laranja);
 }
 
-.Cadastro header button {
-    background-color: var(--Laranja);
-    color: white;
-    border: none;
-    border-radius: 20px;
-    height: 43px;
-    width: 100px;
-    font-size: 20px;
-    margin-left: 12px;
-    padding: 5px 15px 5px 15px;
-}
-
-.Cadastro header img {
+.LoginCadastro header img {
     height: 15%;
     width: 10%;
     margin-left: 30px;
 }
 
 /* Formulario */
-.Organizar {
+.LoginCadastro .formularioPai {
     display: flex;
     justify-content: center;
+    align-items: center;
+    height: 80vh;
+    width: 100vw;
 }
 
-.Cadastro .formulario {
+.LoginCadastro .formulario {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -250,43 +245,50 @@ footer .Links {
 
     background-color: var(--AzulEscuro);
     border: solid var(--Laranja);
-    border-radius: 0 60px;
+    border-radius: 40px;
 }
 
-.Cadastro input {
+.LoginCadastro input {
     background-color: transparent;
     border: solid transparent;
     border-bottom: solid var(--Laranja);
     color: white;
-    height: 67px;
-    width: 570px;
+    height: 55px;
+    width: 470px;
     padding: 0 0 0 16px;
-    margin: 0px 50px 5px 50px;
-    font-size: 23px;
+    margin: 1px 40px;
+    font-size: 20px;
     transition: 0.5s;
 }
 
-.Cadastro input:hover {
+.LoginCadastro input:hover {
     transform: translateY(-5px);
-    width: 600px;
+    width: 500px;
     margin: 0 25px;
     border: solid 2px rgb(255, 255, 255);
     border-radius: 15px;
 }
-
-.Cadastro .formulario h1 {
+.LoginCadastro input::placeholder {
     color: white;
-    margin: 30px 0 25px 0;
 }
 
-.Cadastro .formulario button {
+.LoginCadastro .formulario h1 {
+    color: white;
+    margin: 25px 0 10px 0;
+}
+.LoginCadastro .formulario p {
+    color: white;    
+}
+
+.LoginCadastro .formulario button {
     background-color: var(--Laranja);
     color: white;
     border-radius: 20px;
     font-size: 23px;
     padding: 12px;
-    margin: 20px 0 30px 0;
+    margin: 20px 0 20px 0;
 }
+
 
 :root {
     --Laranja: #FC6625;
