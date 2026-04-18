@@ -6,15 +6,14 @@
 }
 
 /* Página home */
-.home {
-    background-color: var(--AzulEscuro);
-}
+
 /* header*/
 .home header {
     display: flex;
     align-items: center;
     justify-content: space-between;
     border-bottom: solid 5px var(--Laranja);
+    background-color: var(--AzulEscuro);
 }
 
 .home header ul {
@@ -42,7 +41,6 @@
     width: 100px;
     font-size: 20px;
     margin-left: 12px;
-    padding: 5px 15px 5px 15px;
 }
 
 .home header img {
@@ -54,19 +52,42 @@
 
 /* Fundo da home */
 .fundoHome {
-    height: 80%;
+    height: 70vh;
     width: 100%;
     display: flex;
     justify-content: center;
     border-bottom: solid 5px var(--Laranja);
+    overflow: hidden;
 }
 
+.fundoHome .carrossel {
+    display: flex; 
+    width: 300%;
+    height: 150%;
+    animation: CarrosselAnimado 20s infinite; /* chamando a animação */
+}
+
+@keyframes CarrosselAnimado { /* keyframes cria uma animação */
+    0% { transform: translateX(-70%); }
+    10% { transform: translateX(-70%); }
+    20% { transform: translateX(-70%); }
+    30% { transform: translateX(-140%); }
+    40% { transform: translateX(-140%); }
+    50% { transform: translateX(-70%); }
+    60% { transform: translateX(-70%); }
+    70% { transform: translateX(0); }
+    80% { transform: translateX(0); }
+    90% { transform: translateX(-70%); }
+    100% { transform: translateX(-70%); }
+}
 .fundoHome img {
     height: 100%;
     width: 80%;
     border-left: solid 4px var(--Laranja);
     border-right: solid 4px var(--Laranja);
-    /* box-shadow: 0 0 7px 7px rgba(0, 0, 0, 0.479); */
+}
+.fundoHome img:hover {
+    opacity: 0.4;
 }
 
 /* Parte debaixo da home, abaixo da tela principal*/
@@ -76,6 +97,7 @@
     flex-direction: column;
     justify-content: center;
     text-align: center;
+    background-color: var(--AzulEscuro);
 }
 
 .parte1 h1 {
@@ -100,7 +122,7 @@
     justify-content: center;
     background-color: rgb(255, 255, 255);
     color: white;
-    margin-top: 30px;
+    margin-top: 60px;
 }
 
 .parte2 .partes {
@@ -164,8 +186,9 @@ footer {
 }
 
 footer img {
-    width: 30%;
-    height: 20%;
+    width: 20%;
+    height: 10%;
+    padding: 4% 0 3% 4%;
 }
 
 footer .contato {
@@ -194,7 +217,7 @@ footer .Links {
 
 /* Tela de Cadastro/Login, estilizando ambas juntas */
 .LoginCadastro {
-    background-image: url(../imgs/imagemFundoHome.jpg);
+    background-image: url(../assets/igs/imagemFundoHome.jpg);
     object-fit: cover;
 }
 
@@ -229,7 +252,9 @@ footer .Links {
     padding: 10px;
 }
 
-/* Formulario */
+/* ===============*/
+/*   FORMULÁRIO   */
+/* ===============*/
 .LoginCadastro .formularioPai {
     display: flex;
     justify-content: center;
@@ -244,15 +269,17 @@ footer .Links {
 
 .LoginCadastro .formulario h1 {
     color: white;
-    margin: 25px 0 10px 0;
+    margin: 20px 0 10px 0;
 }
+
 .LoginCadastro .formulario p {
-    color: white; 
-    font-size: 18px;   
+    color: white;
+    font-size: 20px;
 }
+
 .LoginCadastro .formulario a {
-    color: var(--Laranja); 
-    font-size: 18px;   
+    color: var(--Laranja);
+    font-size: 18px;
 }
 
 .LoginCadastro .formulario button {
@@ -261,7 +288,7 @@ footer .Links {
     border-radius: 20px;
     font-size: 23px;
     padding: 12px;
-    margin: 20px 0 20px 0;
+    margin: 20px 0 10px 0;
 }
 
 /* Tela de cadastro */
@@ -272,21 +299,22 @@ footer .Links {
     justify-content: center;
     align-items: center;
     position: absolute;
-    height: 80%;
-    width: 38%;
+    height: 600px;
+    width: 620px;
 
     background-color: var(--AzulEscuro);
     border: solid var(--Laranja);
-    border-radius: 40px;
+    border-radius: 8%;
 }
+
 .Cadastro input {
     background-color: transparent;
     border: solid transparent;
     border-bottom: solid var(--Laranja);
     color: white;
-    height: 10%;
-    width: 80%;
-    padding: 0 0 0 16px;
+    height: 67px;
+    width: 500px;
+    padding: 0 0 0 3%;
     margin: 1px 40px;
     font-size: 20px;
     transition: 0.5s;
@@ -307,20 +335,21 @@ footer .Links {
     justify-content: center;
     align-items: center;
     position: absolute;
-    height: 52%;
-    width: 35%;
+    height: 400px;
+    width: 620px;
 
     background-color: var(--AzulEscuro);
     border: solid var(--Laranja);
     border-radius: 40px;
 }
+
 .Login input {
     background-color: transparent;
     border: solid transparent;
     border-bottom: solid var(--Laranja);
     color: white;
-    height: 30%;
-    width: 80%;
+    height: 67px;
+    width: 500px;
     padding: 0 0 0 16px;
     margin: 1px 40px;
     font-size: 20px;
