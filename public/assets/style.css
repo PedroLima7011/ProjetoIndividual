@@ -99,7 +99,7 @@ header img {
 
 /* Parte debaixo da home, abaixo da tela principal*/
 /* Parte do texto */
-.parte1 {
+.intro_title {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -107,13 +107,13 @@ header img {
     background-color: var(--AzulEscuro);
 }
 
-.parte1 h1 {
+.intro_title h1 {
     font-size: 3vw;
     color: var(--Laranja);
     padding: 3vw;
 }
 
-.parte1 hr {
+.intro_title hr {
     background-color: var(--Laranja);
     padding: 0.2vw;
     width: 98.6vw;
@@ -121,7 +121,7 @@ header img {
 }
 
 /* Informações sobre o basquete */
-.parte2 {
+.content {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -133,7 +133,7 @@ header img {
     margin-top: 60px;
 }
 
-.parte2 .partes {
+.content .content_section {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -146,38 +146,34 @@ header img {
     background-color: var(--AzulEscuro);
 }
 
-.parte2 .partes span {
+.content .content_section span {
     font-size: 2vw;
 }
 
-.parte2 .partes p {
+.content .content_section p {
     padding: 1vw;
     font-size: 1.15vw;
 }
 
-.parte2 .partes #imagemParte1 {
-    /* Como surgiu */
+.content .content_section #image_section_1 { /* Como surgiu */
     height: 50vh;
     width: 45vw;
     border-radius: 20px;
 }
 
-.parte2 .partes #imagemParte2 {
-    /* Como era jogado */
+.content .content_section #image_section_2 { /* Como era jogado */
     height: 65vh;
     width: 50vw;
     border-radius: 20px;
 }
 
-.parte2 .partes #imagemParte3 {
-    /* Chegada ao Brasil */
+.content .content_section #image_section_3 { /* Chegada ao Brasil */
     height: 62vh;
     width: 50vw;
     border-radius: 20px;
 }
 
-.parte2 .partes #imagemParte4 {
-    /* Crescimento */
+.content .content_section #image_section_4 { /* Crescimento */
     height: 55vh;
     width: 50vw;
     border-radius: 20px;
@@ -199,7 +195,7 @@ footer img {
     padding: 4vw 0 3vw 4vw;
 }
 
-footer .contato {
+footer .footer_column {
     display: flex;
     width: 50%;
     margin-top: 4vw;
@@ -219,25 +215,25 @@ footer a {
     color: white;
 }
 
-footer .Links {
+footer .footer_links {
     font-weight: bolder;
 }
 
 /* Tela de Cadastro/Login, estilizando ambas juntas */
-.LoginCadastro {
-    background-image: url(../assets/igs/imagemFundoHome.jpg);
-    object-fit: cover;
+.authentication {
+    display: flex;
+    flex-direction: row;
 }
-
 /* ===============*/
 /*   FORMULÁRIO   */
 /* ===============*/
-.LoginCadastro .formularioPai {
+.LoginCadastro .container {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 80vh;
-    width: 100vw;
+    height: 86.2vh; /* Vou alterar */
+    width: 50vw;
+    background-color: var(--CinzaClaro);
 }
 
 .LoginCadastro input::placeholder {
@@ -260,16 +256,14 @@ footer .Links {
     font-size: 1.2vw;
 }
 
-.LoginCadastro .formulario button {
-    background-color: var(--Laranja);
-    color: white;
-    border-radius: 30px;
-    font-size: 1.3vw;
-    padding: 0.7vw 0.9vw;
-    margin: 1.2vw;
-}
 
 /* Tela de cadastro */
+.LoginCadastro .fundoCadastro {
+    height: 86.2vh; /* Vou alterar */
+    width: 50vw;
+    background-image: url(../assets/imgs/fundoHome1.jpg);
+    filter: brightness(0.7);
+}
 
 .Cadastro .formulario {
     display: flex;
@@ -306,7 +300,31 @@ footer .Links {
     border-radius: 15px;
 }
 
+.Cadastro .formulario button {
+    background-color: var(--Laranja);
+    color: white;
+    border: solid 2px var(--Laranja);
+    border-radius: 30px;
+    font-size: 1.3vw;
+    padding: 0.7vw 0.9vw;
+    margin: 1.2vw;
+    transition: 0.7s;
+}
+.Cadastro .formulario button:hover {
+    background-color: white;
+    color:var(--Laranja);
+    border: solid 2px var(--Laranja);
+    padding: 0.7vw 1vw;
+}
+
 /*Tela de Login*/
+.LoginCadastro .background_login {
+    height: 86.2vh; /* Vou alterar */
+    width: 50vw;
+    background-image: url(../assets/imgs/fundoHome1.jpg);
+    filter: brightness(0.7);
+}
+
 .Login .formulario {
     display: flex;
     flex-direction: column;
@@ -340,6 +358,32 @@ footer .Links {
     margin: 0 1.4vw;
     border: solid 2px rgb(255, 255, 255);
     border-radius: 15px;
+}
+
+.Login .formulario button {
+    background-color: var(--Laranja);
+    color: white;
+    border: solid 2px var(--Laranja);
+    border-radius: 30px;
+    font-size: 1.3vw;
+    padding: 0.5vw 1.6vw;
+    margin: 1.2vw;
+    transition: 0.7s;
+}
+
+.Login .formulario button:hover {
+    background-color: white;
+    color:var(--Laranja);
+    border: solid 2px var(--Laranja);
+    padding: 0.5vw 1.7vw;
+}
+
+.Login .formulario p {
+    font-size: 1vw;
+}
+
+.Login .formulario a {
+    font-size: 1vw;
 }
 
 :root {

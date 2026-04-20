@@ -5,34 +5,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PHA | Login</title>
+    <link rel="shortcut icon" href="../public/assets/imgs/icon.png" type="image/x-icon">
     <link rel="stylesheet" href="../public/assets/style.css">
     </style>
 </head>
 
 <body class="LoginCadastro">
-    <div class="Login">
-    <header>
-        <img src="../public/assets/imgs/Logo_PHA.png">
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="">Como Jogar</a></li>
-            <li><a href="#">Regras</a></li>
-            <li><a href="#">Quiz</a></li>   
-        </ul>
-    </header>
-    
-    <div class="formularioPai">
-        <div class="formulario">
-            <h1> Login </h1>
-            <input type="email" id="input_email" placeholder="Email">
-            <input type="password" id="input_senha" placeholder="Senha">
-            <br>
-            <p> Ainda não possui uma conta? <a href="cadastro.html">Cadastro</a></p>
-            <div id="div_mensagem"></div>
-            <button> Logar </button>
+    <main class="Login">
+
+        <header>
+            <img src="../public/assets/imgs/Logo_PHA.png">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="">Como Jogar</a></li>
+                <li><a href="#">Regras</a></li>
+                <li><a href="#">Quiz</a></li>
+            </ul>
+        </header>
+
+        <div class="authentication">
+
+            <div class="background_login">
+
+            </div>
+            <form class="container">
+                <div class="formulario">
+                    <h1> Login </h1>
+                    <input type="email" id="input_email" placeholder="Email">
+                    <input type="password" id="input_senha" placeholder="Senha">
+                    <br>
+                    <p> Ainda não possui uma conta? <a href="cadastro.html">Cadastro</a></p>
+                    <div id="div_mensagem"></div>
+                    <button> Logar </button>
+                </div>
+            </form>
         </div>
-    </div>
-</div>
+    </main>
 </body>
 
 </html>
