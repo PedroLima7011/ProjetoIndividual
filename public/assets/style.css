@@ -8,7 +8,7 @@
 /* Página home */
 
 /* header*/
-.home header {
+header {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -16,38 +16,44 @@
     background-color: var(--AzulEscuro);
 }
 
-.home header ul {
+header ul {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-right: 10px;
 }
 
-.home header li {
-    font-size: 23px;
-    padding: 15px;
+header li {
+    font-size: 1.3vw;
+    padding: 1vw;
 }
 
-.home header a {
+header a {
     color: var(--Laranja);
 }
 
-.home header button {
+header button {
     background-color: var(--Laranja);
     color: white;
     border: none;
     border-radius: 20px;
-    height: 43px;
-    width: 100px;
-    font-size: 20px;
+    height: 4.5vh;
+    width: 6vw;
+    font-size: 1.1vw;
     margin-left: 12px;
+    transition: 0.8s;
+}
+header button:hover {
+    background-color: white;
+    color: var(--Laranja);
+    border: solid 2px var(--Laranja);
 }
 
-.home header img {
-    height: 10%;
-    width: 8%;
+header img {
+    height: 9%;
+    width: 7%;
     margin-left: 30px;
-    padding: 10px;
+    padding: 0.5vw;
 }
 
 /* Fundo da home */
@@ -85,9 +91,10 @@
     width: 80%;
     border-left: solid 4px var(--Laranja);
     border-right: solid 4px var(--Laranja);
+    filter: brightness(40%); /* Escurece a imagem*/
 }
 .fundoHome img:hover {
-    opacity: 0.4;
+    filter: brightness(70%); 
 }
 
 /* Parte debaixo da home, abaixo da tela principal*/
@@ -101,15 +108,16 @@
 }
 
 .parte1 h1 {
-    font-size: 50px;
+    font-size: 3vw;
     color: var(--Laranja);
-    padding: 50px;
+    padding: 3vw;
 }
 
 .parte1 hr {
     background-color: var(--Laranja);
-    padding: 3px 8px;
-    width: 99%;
+    padding: 0.2vw;
+    width: 98.6vw;
+    border: none;
 }
 
 /* Informações sobre o basquete */
@@ -139,39 +147,39 @@
 }
 
 .parte2 .partes span {
-    font-size: 42px;
+    font-size: 2vw;
 }
 
 .parte2 .partes p {
-    padding: 20px;
-    font-size: 20px;
+    padding: 1vw;
+    font-size: 1.15vw;
 }
 
 .parte2 .partes #imagemParte1 {
     /* Como surgiu */
-    height: 100%;
-    width: 55%;
+    height: 50vh;
+    width: 45vw;
     border-radius: 20px;
 }
 
 .parte2 .partes #imagemParte2 {
     /* Como era jogado */
-    height: 100%;
-    width: 40%;
+    height: 65vh;
+    width: 50vw;
     border-radius: 20px;
 }
 
 .parte2 .partes #imagemParte3 {
     /* Chegada ao Brasil */
-    height: 100%;
-    width: 55%;
+    height: 62vh;
+    width: 50vw;
     border-radius: 20px;
 }
 
 .parte2 .partes #imagemParte4 {
     /* Crescimento */
-    height: 100%;
-    width: 55%;
+    height: 55vh;
+    width: 50vw;
     border-radius: 20px;
 }
 
@@ -188,14 +196,14 @@ footer {
 footer img {
     width: 20%;
     height: 10%;
-    padding: 4% 0 3% 4%;
+    padding: 4vw 0 3vw 4vw;
 }
 
 footer .contato {
     display: flex;
     width: 50%;
-    margin-top: 80px;
-    margin-right: 30px;
+    margin-top: 4vw;
+    margin-right: 2vw;
 }
 
 footer .mensagens {
@@ -203,7 +211,7 @@ footer .mensagens {
     justify-content: space-between;
     width: 100%;
     height: 100%;
-    font-size: 23px;
+    font-size: 1.3vw;
     margin: 0 20px;
 }
 
@@ -219,37 +227,6 @@ footer .Links {
 .LoginCadastro {
     background-image: url(../assets/igs/imagemFundoHome.jpg);
     object-fit: cover;
-}
-
-.LoginCadastro header {
-    background-color: var(--AzulEscuro);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-bottom: solid 5px var(--Laranja);
-}
-
-.LoginCadastro header ul {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-right: 10px;
-}
-
-.LoginCadastro header li {
-    font-size: 23px;
-    padding: 15px;
-}
-
-.LoginCadastro header a {
-    color: var(--Laranja);
-}
-
-.LoginCadastro header img {
-    height: 10%;
-    width: 8%;
-    margin-left: 30px;
-    padding: 10px;
 }
 
 /* ===============*/
@@ -269,26 +246,27 @@ footer .Links {
 
 .LoginCadastro .formulario h1 {
     color: white;
-    margin: 20px 0 10px 0;
+    font-size: 2vw;
+    margin: 1.5vw 0 1vw 0;
 }
 
 .LoginCadastro .formulario p {
     color: white;
-    font-size: 20px;
+    font-size: 1.2vw;
 }
 
 .LoginCadastro .formulario a {
     color: var(--Laranja);
-    font-size: 18px;
+    font-size: 1.2vw;
 }
 
 .LoginCadastro .formulario button {
     background-color: var(--Laranja);
     color: white;
-    border-radius: 20px;
-    font-size: 23px;
-    padding: 12px;
-    margin: 20px 0 10px 0;
+    border-radius: 30px;
+    font-size: 1.3vw;
+    padding: 0.7vw 0.9vw;
+    margin: 1.2vw;
 }
 
 /* Tela de cadastro */
@@ -299,8 +277,8 @@ footer .Links {
     justify-content: center;
     align-items: center;
     position: absolute;
-    height: 600px;
-    width: 620px;
+    height: 60vh;
+    width: 32vw;
 
     background-color: var(--AzulEscuro);
     border: solid var(--Laranja);
@@ -310,20 +288,20 @@ footer .Links {
 .Cadastro input {
     background-color: transparent;
     border: solid transparent;
-    border-bottom: solid var(--Laranja);
+    border-bottom: solid 0.2vw var(--Laranja);
     color: white;
-    height: 67px;
-    width: 500px;
-    padding: 0 0 0 3%;
-    margin: 1px 40px;
-    font-size: 20px;
+    height: 10vh;
+    width: 26vw;
+    padding: 0 0 0 0.8vw;
+    margin: 0.15vw 2vw;
+    font-size: 1.1vw;
     transition: 0.5s;
 }
 
 .Cadastro input:hover {
     transform: translateY(-5px);
-    width: 86%;
-    margin: 0 25px;
+    width: 27.3vw;
+    margin: 0 1.4vw;
     border: solid 2px rgb(255, 255, 255);
     border-radius: 15px;
 }
@@ -335,31 +313,31 @@ footer .Links {
     justify-content: center;
     align-items: center;
     position: absolute;
-    height: 400px;
-    width: 620px;
+    height: 38vh;
+    width: 28vw;
 
     background-color: var(--AzulEscuro);
     border: solid var(--Laranja);
-    border-radius: 40px;
+    border-radius: 8%;
 }
 
 .Login input {
     background-color: transparent;
     border: solid transparent;
-    border-bottom: solid var(--Laranja);
+    border-bottom: solid 0.2vw var(--Laranja);
     color: white;
-    height: 67px;
-    width: 500px;
-    padding: 0 0 0 16px;
-    margin: 1px 40px;
-    font-size: 20px;
+    height: 30vh;
+    width: 24vw;
+    padding: 0 0 0 0.8vw;
+    margin: 0.15vw 2vw;
+    font-size: 1.1vw;
     transition: 0.5s;
 }
 
 .Login input:hover {
     transform: translateY(-5px);
-    width: 86%;
-    margin: 0 25px;
+    width: 25.3vw;
+    margin: 0 1.4vw;
     border: solid 2px rgb(255, 255, 255);
     border-radius: 15px;
 }
