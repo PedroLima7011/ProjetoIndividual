@@ -28,8 +28,14 @@ header li {
     padding: 1vw;
 }
 
-header a {
+header li a {
     color: var(--Laranja);
+    transition: width 0.5s ease-in-out;
+}
+
+header li a:hover {
+    border-bottom: solid var(--Laranja);
+    padding-bottom: 1vh;
 }
 
 header button {
@@ -70,7 +76,7 @@ header img {
     display: flex; 
     width: 300%;
     height: 150%;
-    animation: CarrosselAnimado 20s infinite; /* chamando a animação */
+    animation: CarrosselAnimado 18s infinite; /* chamando a animação */
 }
 
 @keyframes CarrosselAnimado { /* keyframes cria uma animação */
@@ -91,7 +97,7 @@ header img {
     width: 80%;
     border-left: solid 4px var(--Laranja);
     border-right: solid 4px var(--Laranja);
-    filter: brightness(40%); /* Escurece a imagem*/
+    filter: brightness(30%); /* Escurece a imagem*/
 }
 .fundoHome img:hover {
     filter: brightness(70%); 
@@ -233,11 +239,11 @@ footer .footer_links {
     align-items: center;
     height: 86.2vh; /* Vou alterar */
     width: 50vw;
-    background-color: var(--CinzaClaro);
+    background-color: var(--Bege);
 }
 
 .LoginCadastro input::placeholder {
-    color: white;
+    color: rgba(255, 255, 255, 0.707);
 }
 
 .LoginCadastro .formulario h1 {
@@ -259,6 +265,9 @@ footer .footer_links {
 
 /* Tela de cadastro */
 .LoginCadastro .fundoCadastro {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 86.2vh; /* Vou alterar */
     width: 50vw;
     background-image: url(../assets/imgs/fundoHome1.jpg);
@@ -314,15 +323,18 @@ footer .footer_links {
     background-color: white;
     color:var(--Laranja);
     border: solid 2px var(--Laranja);
-    padding: 0.7vw 1vw;
 }
 
 /*Tela de Login*/
 .LoginCadastro .background_login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 86.2vh; /* Vou alterar */
     width: 50vw;
     background-image: url(../assets/imgs/fundoHome1.jpg);
     filter: brightness(0.7);
+    color: white;
 }
 
 .Login .formulario {
@@ -375,7 +387,6 @@ footer .footer_links {
     background-color: white;
     color:var(--Laranja);
     border: solid 2px var(--Laranja);
-    padding: 0.5vw 1.7vw;
 }
 
 .Login .formulario p {
@@ -391,4 +402,5 @@ footer .footer_links {
     --CinzaClaro: #8F9491;
     --CinzaEscuro: #474747;
     --AzulEscuro: rgb(2, 4, 42);
+    --Bege: #FFF4ED;
 }
