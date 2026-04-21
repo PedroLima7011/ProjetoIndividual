@@ -262,16 +262,29 @@ footer .footer_links {
     font-size: 1.2vw;
 }
 
+.campo {
+    margin: 0.2vw 2vw;
+    height: 6vh;
+}
+
+.campo i {
+    position: absolute;
+    color: var(--Laranja);
+    font-size: 16px;
+    margin-top: 2.3vh;
+}
 
 /* Tela de cadastro */
-.LoginCadastro .fundoCadastro {
+.LoginCadastro .background_cadastro {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 86.2vh; /* Vou alterar */
     width: 50vw;
     background-image: url(../assets/imgs/fundoHome1.jpg);
+    background-size: cover;
     filter: brightness(0.7);
+    color: rgb(255, 255, 255);
 }
 
 .Cadastro .formulario {
@@ -293,20 +306,15 @@ footer .footer_links {
     border: solid transparent;
     border-bottom: solid 0.2vw var(--Laranja);
     color: white;
-    height: 10vh;
+    padding: 0 0 0 1.2vw;
+    height: 6vh;
     width: 26vw;
-    padding: 0 0 0 0.8vw;
-    margin: 0.15vw 2vw;
     font-size: 1.1vw;
     transition: 0.5s;
 }
-
 .Cadastro input:hover {
-    transform: translateY(-5px);
-    width: 27.3vw;
-    margin: 0 1.4vw;
-    border: solid 2px rgb(255, 255, 255);
-    border-radius: 15px;
+    border-bottom: solid 0.2vw white;
+    transition: 0.7s ease-in-out;
 }
 
 .Cadastro .formulario button {
@@ -333,6 +341,7 @@ footer .footer_links {
     height: 86.2vh; /* Vou alterar */
     width: 50vw;
     background-image: url(../assets/imgs/fundoHome1.jpg);
+    background-size: cover;
     filter: brightness(0.7);
     color: white;
 }
@@ -352,24 +361,20 @@ footer .footer_links {
 }
 
 .Login input {
-    background-color: transparent;
+     background-color: transparent;
     border: solid transparent;
     border-bottom: solid 0.2vw var(--Laranja);
     color: white;
-    height: 30vh;
-    width: 24vw;
-    padding: 0 0 0 0.8vw;
-    margin: 0.15vw 2vw;
+    padding: 0 0 0 1.2vw;
+    height: 6vh;
+    width: 22vw;
     font-size: 1.1vw;
     transition: 0.5s;
 }
 
 .Login input:hover {
-    transform: translateY(-5px);
-    width: 25.3vw;
-    margin: 0 1.4vw;
-    border: solid 2px rgb(255, 255, 255);
-    border-radius: 15px;
+    border-bottom: solid 0.2vw white;
+    transition: 0.7s ease-in-out;
 }
 
 .Login .formulario button {
