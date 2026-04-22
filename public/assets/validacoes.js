@@ -22,7 +22,7 @@ function cadastrar() {
         if (sobrenome != '') {
             criterios ++; /* 2° critério */
             
-            if (validoEmail = true || email.includes('@') && email.endsWith('.com')) {
+            if (validoEmail ==  true) {
                 criterios ++; /* 3° critério */
                 
                 if (confirmarSenha == senha) {

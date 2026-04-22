@@ -9,11 +9,17 @@
 
 /* header*/
 header {
+    position: fixed;
     display: flex;
     align-items: center;
     justify-content: space-between;
     border-bottom: solid 5px var(--Laranja);
     background-color: var(--AzulEscuro);
+    z-index: 1;
+    width: 95vw;
+    border-radius: 15px;
+    top: 2%;
+    left: 2%;
 }
 
 header ul {
@@ -64,7 +70,7 @@ header img {
 
 /* Fundo da home */
 .fundoHome {
-    height: 80vh;
+    height: 92vh;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -136,7 +142,7 @@ header img {
     justify-content: center;
     background-color: rgb(255, 255, 255);
     color: white;
-    margin-top: 60px;
+    margin-top: 7vh;
 }
 
 .content .content_section {
@@ -145,7 +151,7 @@ header img {
     justify-content: center;
     height: 100%;
     width: 80%;
-    margin: 30px 0;
+    margin: 5vh 0;
     border-left: solid 7px var(--Laranja);
     border-right: solid 7px var(--Laranja);
     border-radius: 33px;
@@ -250,7 +256,7 @@ footer .footer_links {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 86.2vh; /* Vou alterar */
+    height: 100vh; /* Vou alterar */
     width: 50vw;
     background-color: var(--Bege);
 }
@@ -302,7 +308,7 @@ footer .footer_links {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 86.2vh; /* Vou alterar */
+    height: 100vh; /* Vou alterar */
     width: 50vw;
     background-image: url(../assets/imgs/fundoHome1.jpg);
     background-size: cover;
@@ -315,7 +321,8 @@ footer .footer_links {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    position: absolute;
+    position: relative;
+    top: 5%;
     height: 67vh;
     width: 32vw;
 
@@ -329,9 +336,9 @@ footer .footer_links {
     border: solid transparent;
     border-bottom: solid 0.2vw var(--Laranja);
     color: white;
-    padding: 0 0 0 1.2vw;
+    padding: 0 0 0 1.5vw;
     height: 6vh;
-    width: 26vw;
+    width: 25.5vw;
     font-size: 1.1vw;
     transition: 0.5s;
 }
@@ -361,7 +368,7 @@ footer .footer_links {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 86.2vh; /* Vou alterar */
+    height: 100vh; /* Vou alterar */
     width: 50vw;
     background-image: url(../assets/imgs/fundoHome1.jpg);
     background-size: cover;
@@ -374,7 +381,8 @@ footer .footer_links {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    position: absolute;
+    position: relative;
+    top: 5%;    
     height: 45vh;
     width: 28vw;
 
@@ -388,9 +396,9 @@ footer .footer_links {
     border: solid transparent;
     border-bottom: solid 0.2vw var(--Laranja);
     color: white;
-    padding: 0 0 0 1.2vw;
+    padding: 0 0 0 1.5vw;
     height: 6vh;
-    width: 22vw;
+    width: 21.5vw;
     font-size: 1.1vw;
     transition: 0.5s;
 }
