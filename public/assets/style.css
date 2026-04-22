@@ -256,7 +256,11 @@ footer .footer_links {
 }
 
 .LoginCadastro input::placeholder {
-    color: rgba(255, 255, 255, 0.707);
+    color: rgba(242, 186, 165, 0.707);
+}
+
+.LoginCadastro input:hover::placeholder {
+    color: white;
 }
 
 .LoginCadastro .formulario h1 {
@@ -310,7 +314,7 @@ footer .footer_links {
     width: 32vw;
 
     background-color: var(--AzulEscuro);
-    border: solid var(--Laranja);
+    border: solid 0.25vw var(--Laranja);
     border-radius: 8%;
 }
 
@@ -327,7 +331,7 @@ footer .footer_links {
 }
 .Cadastro input:hover {
     border-bottom: solid 0.2vw white;
-    transition: 0.7s ease-in-out;
+    transition: 0.6s ease-in-out;
 }
 
 .Cadastro .formulario button {
@@ -369,7 +373,7 @@ footer .footer_links {
     width: 28vw;
 
     background-color: var(--AzulEscuro);
-    border: solid var(--Laranja);
+    border: solid 0.25vw var(--Laranja);
     border-radius: 8%;
 }
 
