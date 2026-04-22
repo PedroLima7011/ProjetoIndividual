@@ -266,7 +266,7 @@ footer .footer_links {
 .LoginCadastro .formulario h1 {
     color: white;
     font-size: 2vw;
-    margin: 1.5vw 0 1vw 0;
+    margin: 1.5vw 0 0.5vw 0;
 }
 
 .LoginCadastro .formulario p {
@@ -281,6 +281,7 @@ footer .footer_links {
 
 .campo {
     margin: 0.2vw 2vw;
+    margin-top: 1vh;
     height: 6vh;
 }
 
