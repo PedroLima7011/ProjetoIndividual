@@ -11,33 +11,36 @@ function cadastrar() {
     let criterios = 0;
 
     for (let i = 0; i < finalEmail.length; i++) {
-        if (email.endsWith(validaEmail[i])) {
+        if (email.endsWith(finalEmail[i])) {
             validoEmail = true;
         }
     }
 
     if (nome != '') {
         criterios ++; /* 1° critério */
+        
+        if (sobrenome != '') {
+            criterios ++; /* 2° critério */
+            
+            if (validoEmail = true || email.includes('@') && email.endsWith('.com')) {
+                criterios ++; /* 3° critério */
+                
+                if (confirmarSenha == senha) {
+                    criterios ++; /* 4° critério */
+                } else {
+                    div_mensagem.innerHTML = `<span style='color: white'>As senhas não coincidem`;
+                }
+            
+            } else {
+                div_mensagem.innerHTML = `<span style='color: white'>Insira um email válido`;
+            }
+        
+        } else {
+            div_mensagem.innerHTML = `<span style='color: white'>Insira seu sobrenome`;
+        }
+    
     } else {
-        div_mensagem.innerHTML = `Insira seu nome`;
-    }
-
-    if (sobrenome != '') {
-        criterios ++; /* 2° critério */
-    } else {
-        div_mensagem.innerHTML = `Insira seu sobrenome`;
-    }
-
-    if (validoEmail = true || email.includes('@') && email.endsWith('.com')) {
-        criterios ++; /* 3° critério */
-    } else {
-        div_mensagem.innerHTML = `Insira um email válido`;
-    }
-
-    if (confirmarSenha == senha) {
-        criterios ++; /* 4° critério */
-    } else {
-        div_mensagem.innerHTML = `As senhas não coincidem`;
+        div_mensagem.innerHTML = `<span style='color: white'>Insira seu nome`;
     }
 
     if (criterios == 4) {
@@ -56,6 +59,6 @@ function logar() {
     if (email == emailFicticio && senha == senhaFicticia) {
         alert('Login realizado com sucesso!')
     } else {
-        div_mensagem.innerHTML = `Email ou senha inválidos`;
+        div_mensagem.innerHTML = `<span style='color: white'>Email ou senha inválidos`;
     }
 }
