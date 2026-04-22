@@ -122,7 +122,7 @@ header img {
 .intro_title hr {
     background-color: var(--Laranja);
     padding: 0.2vw;
-    width: 98.6vw;
+    width: 98.4vw;
     border: none;
 }
 
@@ -186,13 +186,13 @@ header img {
 }
 
 .content .content_section #image_section_5 { /* Oscar */
-    height: 75vh;
+    height: 65vh;
     width: 50vw;
     border-radius: 30px 0 0 30px;
 }
 
 .content .content_section #image_section_6 { /* Schmidt */
-    height: 75vh;
+    height: 65vh;
     width: 50vw;
     border-radius: 0 30px 30px 0;
 }
@@ -216,7 +216,7 @@ footer img {
 
 footer .footer_column {
     display: flex;
-    width: 50%;
+    width: 55%;
     margin-top: 4vw;
     margin-right: 2vw;
 }
@@ -226,7 +226,7 @@ footer .mensagens {
     justify-content: space-between;
     width: 100%;
     height: 100%;
-    font-size: 1.3vw;
+    font-size: 1.5vw;
     margin: 0 20px;
 }
 
