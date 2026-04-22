@@ -28,23 +28,23 @@ function cadastrar() {
                 if (confirmarSenha == senha) {
                     criterios ++; /* 4° critério */
                 } else {
-                    div_mensagem.innerHTML = `<span style='color: white'>As senhas não coincidem`;
+                    div_mensagem.innerHTML = `<span class="erro"> As senhas não coincidem`;
                 }
             
             } else {
-                div_mensagem.innerHTML = `<span style='color: white'>Insira um email válido`;
+                div_mensagem.innerHTML = `<span class="erro"> Insira um email válido`;
             }
         
         } else {
-            div_mensagem.innerHTML = `<span style='color: white'>Insira seu sobrenome`;
+            div_mensagem.innerHTML = `<span class="erro"> Insira seu sobrenome`;
         }
     
     } else {
-        div_mensagem.innerHTML = `<span style='color: white'>Insira seu nome`;
+        div_mensagem.innerHTML = `<span class="erro"> Insira seu nome`;
     }
 
     if (criterios == 4) {
-        alert('Cadastro realizado com sucesso!')
+        div_mensagem.innerHTML = '<span class="realizado">Cadastro realizado com sucesso!'
     }
 }
 
@@ -57,8 +57,8 @@ function logar() {
     let senha = input_senha.value;
 
     if (email == emailFicticio && senha == senhaFicticia) {
-        alert('Login realizado com sucesso!')
+        window.location.href = "dashboard.html"
     } else {
-        div_mensagem.innerHTML = `<span style='color: white'>Email ou senha inválidos`;
+        div_mensagem.innerHTML = `<span class="erro"> Email ou senha inválidos`;
     }
 }

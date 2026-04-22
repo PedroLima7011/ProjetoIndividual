@@ -49,9 +49,9 @@ header button {
     color: white;
     border: none;
     border-radius: 20px;
-    height: 4.6vh;
-    width: 6.2vw;
-    font-size: 1.1vw;
+    height: 4.8vh;
+    width: 6.4vw;
+    font-size: 1.2vw;
     margin-left: 12px;
     transition: 0.8s;
 }
@@ -258,7 +258,7 @@ footer .footer_links {
     align-items: center;
     height: 100vh; /* Vou alterar */
     width: 50vw;
-    background-color: var(--Bege);
+    background: radial-gradient(circle,rgba(171, 230, 245, 1) 0%, rgba(29, 29, 168, 1) 74%, rgba(19, 36, 99, 1) 100%);
 }
 
 .LoginCadastro input::placeholder {
@@ -302,18 +302,41 @@ footer .footer_links {
     display: block;
     color: var(--AzulEscuro);
     margin: 14px 0 5px 0;
+    padding: 4px;
+    border-radius: 5px;
 }
+
+.erro {
+    color: white;
+    background-color: rgba(255, 19, 19, 0.582);
+    border: solid 2px rgb(44, 1, 1);  
+    margin: 14px 0 5px 0;
+    padding: 4px;
+    border-radius: 5px;  
+}
+
+.realizado {
+    color: white;
+    background-color: rgba(15, 216, 106, 0.582);
+    border: solid 2px rgb(7, 80, 4);  
+    margin: 14px 0 5px 0;
+    padding: 4px;
+    border-radius: 5px;  
+}
+
+
 /* Tela de cadastro */
-.LoginCadastro .background_cadastro {
+.Cadastro .background_cadastro {
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
     height: 100vh; /* Vou alterar */
     width: 50vw;
-    background-image: url(../assets/imgs/fundoHome1.jpg);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7)), url(../assets/imgs/Anthony-Edwards-Dillon-Brooks.jpg);
     background-size: cover;
-    filter: brightness(0.7);
     color: rgb(255, 255, 255);
+    font-size: 2.2vw;
 }
 
 .Cadastro .formulario {
@@ -323,9 +346,9 @@ footer .footer_links {
     align-items: center;
     position: relative;
     top: 5%;
-    height: 67vh;
+    height: 69vh;
     width: 32vw;
-
+    
     background-color: var(--AzulEscuro);
     border: solid 0.25vw var(--Laranja);
     border-radius: 8%;
@@ -363,17 +386,23 @@ footer .footer_links {
     border: solid 2px var(--Laranja);
 }
 
+.Cadastro .separa {
+    width: 30vw;
+    margin: 2vh;
+}
+
 /*Tela de Login*/
-.LoginCadastro .background_login {
+.Login .background_login {
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
     height: 100vh; /* Vou alterar */
     width: 50vw;
-    background-image: url(../assets/imgs/fundoHome1.jpg);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7)), url(../assets/imgs/imagemLogin.jpg);    
     background-size: cover;
-    filter: brightness(0.7);
     color: white;
+    font-size: 2.1vw;
 }
 
 .Login .formulario {
@@ -433,6 +462,10 @@ footer .footer_links {
     font-size: 1.2vw;
 }
 
+.Login .separa {
+    width: 30vw;
+    margin: 2vh;
+}
 :root {
     --Laranja: #FC6625;
     --CinzaClaro: #8F9491;
