@@ -15,7 +15,7 @@ CREATE TABLE usuario (
 	nome VARCHAR(50),
 	sobrenome VARCHAR(50),
 	email VARCHAR(50),
-	senha VARCHAR(50),
+	senha VARCHAR(50)
 );
 
 CREATE TABLE quiz (
@@ -23,6 +23,7 @@ CREATE TABLE quiz (
 	acertos VARCHAR(2),
 	erros VARCHAR(2),
 	pontuacao VARCHAR(3),
+	fkUsuario INT,
 	CONSTRAINT chFkUsuario FOREIGN KEY (fkUsuario)
 		REFERENCES usuario (id)
 );
