@@ -80,34 +80,71 @@ header img {
 }
 
 .fundoHome .carrossel {
-    display: flex; 
+    display: flex;
     width: 300%;
     height: 150%;
-    animation: CarrosselAnimado 18s infinite; /* chamando a animação */
+    animation: CarrosselAnimado 18s infinite;
+    /* chamando a animação */
+}
+/* keyframes cria uma animação */
+@keyframes CarrosselAnimado {
+    
+    0% {
+        transform: translateX(-70%);
+    }
+
+    10% {
+        transform: translateX(-70%);
+    }
+
+    20% {
+        transform: translateX(-70%);
+    }
+
+    30% {
+        transform: translateX(-140%);
+    }
+    
+    40% {
+        transform: translateX(-140%);
+    }
+    
+    50% {
+        transform: translateX(-70%);
+    }
+    
+    60% {
+        transform: translateX(-70%);
+    }
+    
+    70% {
+        transform: translateX(0);
+    }
+
+    80% {
+        transform: translateX(0);
+    }
+
+    90% {
+        transform: translateX(-70%);
+    }
+
+    100% {
+        transform: translateX(-70%);
+    }
 }
 
-@keyframes CarrosselAnimado { /* keyframes cria uma animação */
-    0% { transform: translateX(-70%); }
-    10% { transform: translateX(-70%); }
-    20% { transform: translateX(-70%); }
-    30% { transform: translateX(-140%); }
-    40% { transform: translateX(-140%); }
-    50% { transform: translateX(-70%); }
-    60% { transform: translateX(-70%); }
-    70% { transform: translateX(0); }
-    80% { transform: translateX(0); }
-    90% { transform: translateX(-70%); }
-    100% { transform: translateX(-70%); }
-}
 .fundoHome img {
     height: 100%;
     width: 80%;
     border-left: solid 4px var(--Laranja);
     border-right: solid 4px var(--Laranja);
-    filter: brightness(30%); /* Escurece a imagem*/
+    filter: brightness(30%);
+    /* Escurece a imagem*/
 }
+
 .fundoHome img:hover {
-    filter: brightness(70%); 
+    filter: brightness(70%);
 }
 
 /* Parte debaixo da home, abaixo da tela principal*/
@@ -141,7 +178,6 @@ header img {
     height: 80%;
     align-items: center;
     justify-content: center;
-    background-color: rgb(255, 255, 255);
     color: white;
     margin-top: 7vh;
 }
@@ -161,44 +197,51 @@ header img {
 
 .content-history .content-section span {
     font-size: 2vw;
+    font-weight: bold;
 }
 
 .content-history .content-section p {
-    padding: 1vw;
+    padding: 1.3vw;
     font-size: 1.3vw;
 }
 
-.content-history .content-section #image-section-1 { /* Como surgiu */
+.content-history .content-section #image-section-1 {
+    /* Como surgiu */
     height: 50vh;
     width: 45vw;
     border-radius: 30px;
 }
 
-.content-history .content-section #image-section-2 { /* Como era jogado */
+.content-history .content-section #image-section-2 {
+    /* Como era jogado */
     height: 65vh;
     width: 50vw;
     border-radius: 30px;
 }
 
-.content-history .content-section #image-section-3 { /* Chegada ao Brasil */
+.content-history .content-section #image-section-3 {
+    /* Chegada ao Brasil */
     height: 62vh;
     width: 50vw;
     border-radius: 30px;
 }
 
-.content-history .content-section #image-section-4 { /* Crescimento */
+.content-history .content-section #image-section-4 {
+    /* Crescimento */
     height: 65vh;
     width: 50vw;
     border-radius: 30px;
 }
 
-.content-history .content-section #image-section-5 { /* Oscar */
+.content-history .content-section #image-section-5 {
+    /* Oscar */
     height: 65vh;
     width: 50vw;
     border-radius: 30px 0 0 30px;
 }
 
-.content-history .content-section #image-section-6 { /* Schmidt */
+.content-history .content-section #image-section-6 {
+    /* Schmidt */
     height: 65vh;
     width: 50vw;
     border-radius: 0 30px 30px 0;
@@ -207,12 +250,12 @@ header img {
 .content-history hr {
     background-color: var(--Laranja);
     padding: 0.2vw;
-    margin: 5vh 0;
+    margin: 5vh 0 0 0;
     width: 98.4vw;
     border: none;
 }
- /* Regras do basquete */
 
+/* Regras do basquete */
 .content-rules {
     display: flex;
     flex-direction: column;
@@ -220,7 +263,6 @@ header img {
     height: 100%;
     align-items: center;
     justify-content: center;
-    background-color: rgb(226, 123, 123);
     color: white;
 }
 
@@ -231,23 +273,47 @@ header img {
     height: 100%;
     align-items: center;
     justify-content: center;
-    background-color: rgb(59, 33, 33);
     color: white;
+    margin-top: 4vh;
 }
 
 .content-rules .content-section {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    height: 100%;
+    align-items: center;
+    height: 70vh;
     width: 40%;
-    margin: 4.5vh 3vw;
+    margin: 4.5vh 3vw 0 3vw;
     border-left: solid 7px var(--Laranja);
     border-right: solid 7px var(--Laranja);
     border-radius: 33px;
     background-color: var(--AzulEscuro);
 }
- 
+.content-rules .content-section:hover {
+    transform: translateY(-10px);
+    transition: 0.4s;
+  box-shadow: 0 0 20px 0 var(--AzulEscuro);
+}
+
+.content-rules #image {
+    height: 30vh;
+    width: 30vw;
+    border-radius: 30px;
+    margin: 1.5vh;
+    margin-bottom: 0;
+}
+
+.content-rules .content-section span {
+    font-size: 2vw;
+    margin: 2vh 0;  
+    font-weight: bold;
+}
+
+.content-rules .content-section p {
+    padding: 1vw;
+    font-size: 1.3vw;
+}
+
 /* footer */
 footer {
     display: flex;
@@ -294,6 +360,7 @@ footer .footer-links {
     display: flex;
     flex-direction: row;
 }
+
 /* ===============*/
 /*   FORMULÁRIO   */
 /* ===============*/
@@ -301,9 +368,10 @@ footer .footer-links {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh; /* Vou alterar */
+    height: 100vh;
+    /* Vou alterar */
     width: 50vw;
-    background: radial-gradient(circle,rgba(171, 230, 245, 1) 0%, rgba(29, 29, 168, 1) 74%, rgba(19, 36, 99, 1) 100%);
+    background: radial-gradient(circle, rgba(171, 230, 245, 1) 0%, rgba(29, 29, 168, 1) 74%, rgba(19, 36, 99, 1) 100%);
 }
 
 .LoginCadastro input::placeholder {
@@ -354,19 +422,19 @@ footer .footer-links {
 .erro {
     color: white;
     background-color: rgba(255, 19, 19, 0.582);
-    border: solid 2px rgb(44, 1, 1);  
+    border: solid 2px rgb(44, 1, 1);
     margin: 14px 0 5px 0;
     padding: 4px;
-    border-radius: 5px;  
+    border-radius: 5px;
 }
 
 .realizado {
     color: white;
     background-color: rgba(15, 216, 106, 0.582);
-    border: solid 2px rgb(7, 80, 4);  
+    border: solid 2px rgb(7, 80, 4);
     margin: 14px 0 5px 0;
     padding: 4px;
-    border-radius: 5px;  
+    border-radius: 5px;
 }
 
 
@@ -376,7 +444,8 @@ footer .footer-links {
     justify-content: center;
     align-items: center;
     text-align: center;
-    height: 100vh; /* Vou alterar */
+    height: 100vh;
+    /* Vou alterar */
     width: 50vw;
     background-image: linear-gradient(rgba(0, 0, 0, 0.7)), url(../assets/imgs/Anthony-Edwards-Dillon-Brooks.jpg);
     background-size: cover;
@@ -393,7 +462,7 @@ footer .footer-links {
     top: 5%;
     height: 69vh;
     width: 32vw;
-    
+
     background-color: var(--AzulEscuro);
     border: solid 0.25vw var(--Laranja);
     border-radius: 8%;
@@ -410,6 +479,7 @@ footer .footer-links {
     font-size: 1.1vw;
     transition: 0.5s;
 }
+
 .Cadastro input:hover {
     border-bottom: solid 0.2vw white;
     transition: 0.3s ease-in-out;
@@ -425,9 +495,10 @@ footer .footer-links {
     margin: 1.2vw;
     transition: 0.7s;
 }
+
 .Cadastro .formulario button:hover {
     background-color: white;
-    color:var(--Laranja);
+    color: var(--Laranja);
     border: solid 2px var(--Laranja);
 }
 
@@ -442,9 +513,10 @@ footer .footer-links {
     justify-content: center;
     align-items: center;
     text-align: center;
-    height: 100vh; /* Vou alterar */
+    height: 100vh;
+    /* Vou alterar */
     width: 50vw;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.7)), url(../assets/imgs/imagemLogin.jpg);    
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7)), url(../assets/imgs/imagemLogin.jpg);
     background-size: cover;
     color: white;
     font-size: 2.1vw;
@@ -456,7 +528,7 @@ footer .footer-links {
     justify-content: center;
     align-items: center;
     position: relative;
-    top: 5%;    
+    top: 5%;
     height: 45vh;
     width: 28vw;
 
@@ -466,7 +538,7 @@ footer .footer-links {
 }
 
 .Login input {
-     background-color: transparent;
+    background-color: transparent;
     border: solid transparent;
     border-bottom: solid 0.2vw var(--Laranja);
     color: white;
@@ -495,7 +567,7 @@ footer .footer-links {
 
 .Login .formulario button:hover {
     background-color: white;
-    color:var(--Laranja);
+    color: var(--Laranja);
     border: solid 2px var(--Laranja);
 }
 
@@ -511,6 +583,7 @@ footer .footer-links {
     width: 30vw;
     margin: 2vh;
 }
+
 :root {
     --Laranja: #FC6625;
     --CinzaClaro: #8F9491;
