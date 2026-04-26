@@ -305,7 +305,6 @@ header img {
 
 .content-rules .content-section span {
     font-size: 2vw;
-    margin: 2vh 0;  
     font-weight: bold;
 }
 
@@ -411,12 +410,13 @@ footer .footer-links {
     margin-top: 2.3vh;
 }
 
-#div-mensagem {
+#div_mensagem {
     display: block;
     color: var(--AzulEscuro);
     margin: 14px 0 5px 0;
     padding: 4px;
     border-radius: 5px;
+    font-size: 1.1vw;
 }
 
 .erro {
@@ -447,7 +447,7 @@ footer .footer-links {
     height: 100vh;
     /* Vou alterar */
     width: 50vw;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.7)), url(../assets/imgs/Anthony-Edwards-Dillon-Brooks.jpg);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7)), url(../assets/imgs/imagemCadastro.jpg);
     background-size: cover;
     color: rgb(255, 255, 255);
     font-size: 2.2vw;
