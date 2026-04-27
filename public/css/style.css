@@ -302,6 +302,7 @@ header img {
     margin: 1.5vh;
     margin-bottom: 0;
     box-shadow: 0 0 5px 0 white;
+    object-fit: cover;
 }
 
 .content-rules .content-section span {
@@ -312,6 +313,99 @@ header img {
 .content-rules .content-section p {
     padding: 1vw;
     font-size: 1.3vw;
+}
+
+.content-rules hr {
+    background-color: var(--Laranja);
+    padding: 0.2vw;
+    margin: 5vh 0 0 0;
+    width: 98.4vw;
+    border: none;
+}
+
+/* Fundamentos do basquete */
+.content-fundamentals {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.content-fundamentals .content-group{
+    display: flex;
+    flex-direction: row;
+    width: 50%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    margin-top: 8vh;
+}
+
+.content-fundamentals .content-group .content-text{
+    display: flex;
+    flex-direction: row;
+    width: 85%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--AzulEscuro);
+    border-radius: 30px;
+    border-left: solid 7px var(--Laranja);
+    border-right: solid 7px var(--Laranja);
+}
+
+.content-fundamentals span {
+    font-size: 2vw;
+    font-weight: bold;
+}
+
+.content-fundamentals p {
+    padding: 3vw;
+    font-size: 1.3vw;
+}
+
+.content-quiz-card {
+    background-color: #020a3a;
+    color: white;
+    border-radius: 20px;
+    width: 85%;
+    height: 100%;
+    border: 7px solid #ff6a00;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center;
+}
+
+.content-quiz-card img {
+    width: 95%;
+    height: 30vh;
+    object-fit: cover;
+    border-radius: 30px;
+    filter: brightness(0.7);
+    padding: 20px 20px 0 20px;
+}
+
+.content-fundamentals button {
+    background-color: var(--Laranja);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    height: 7vh;
+    width: 11vw;
+    font-size: 1.3vw;
+    margin-left: 10px;
+    margin-bottom: 1.3vw;
+    transition: 0.8s;
+}
+
+.content-fundamentals button:hover {
+    background-color: white;
+    color: var(--Laranja);
+    border: solid 2px var(--Laranja);
 }
 
 /* footer */
