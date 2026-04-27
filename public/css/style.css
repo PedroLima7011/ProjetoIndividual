@@ -341,7 +341,7 @@ header img {
     height: 100%;
     align-items: center;
     justify-content: center;
-    margin-top: 8vh;
+    margin: 8vh 0;
 }
 
 .content-fundamentals .content-group .content-text{
@@ -351,6 +351,7 @@ header img {
     height: 100%;
     align-items: center;
     justify-content: center;
+    margin-left: 5vw;
     background-color: var(--AzulEscuro);
     border-radius: 30px;
     border-left: solid 7px var(--Laranja);
@@ -371,7 +372,7 @@ header img {
     background-color: #020a3a;
     color: white;
     border-radius: 20px;
-    width: 85%;
+    width: 75%;
     height: 100%;
     border: 7px solid #ff6a00;
     display: flex;
