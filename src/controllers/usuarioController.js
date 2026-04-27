@@ -17,25 +17,19 @@ function autenticar(req, res) {
                     console.log(`Resultados: ${JSON.stringify(resultadoAutenticar)}`); // transforma JSON em String
 
                     if (resultadoAutenticar.length == 1) {
-                        console.log(resultadoAutenticar);
 
-                        aquarioModel.buscarAquariosPorEmpresa(resultadoAutenticar[0].empresaId)
-                            .then((resultadoAquarios) => {
-                                if (resultadoAquarios.length > 0) {
-                                    res.json({
-                                        id: resultadoAutenticar[0].id,
-                                        email: resultadoAutenticar[0].email,
-                                        nome: resultadoAutenticar[0].nome,
-                                        sobrenome: resultadoAutenticar[0].sobrenome,
-                                        senha: resultadoAutenticar[0].senha                                    });
-                                } else {
-                                    res.status(204).json({ aquarios: [] });
-                                }
-                            })
+                        res.json({
+                            id: resultadoAutenticar[0].id,
+                            email: resultadoAutenticar[0].email,
+                            nome: resultadoAutenticar[0].nome,
+                            sobrenome: resultadoAutenticar[0].sobrenome,
+                            senha: resultadoAutenticar[0].senha
+                        });
+
                     } else if (resultadoAutenticar.length == 0) {
-                        res.status(403).send("Email e/ou senha inválido(s)");
+                        div_mensagem.innerHTML = `<span class="erro"> Email e/ou senha inválido(s)`;
                     } else {
-                        res.status(403).send("Mais de um usuário com o mesmo login e senha!");
+                        div_mensagem.innerHTML = `<span class="erro"> Mais de um usuário com o mesmo login e senha!`;
                     }
                 }
             ).catch(
