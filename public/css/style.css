@@ -367,6 +367,13 @@ transform: translateY(-12px);
     border-left: solid 7px var(--Laranja);
     border-right: solid 7px var(--Laranja);
 }
+.content-fundamentals .content-group .content-text:hover {
+    transform: translateY(-12px);
+    transition: 0.4s;
+    box-shadow: 0 0 20px 5px var(--AzulEscuro);
+    border-left: solid 7px white;
+    border-right: solid 7px white;
+}
 
 .content-fundamentals span {
     font-size: 2vw;
@@ -384,11 +391,18 @@ transform: translateY(-12px);
     border-radius: 20px;
     width: 75%;
     height: 100%;
-    border: 7px solid #ff6a00;
+    border: 7px solid var(--Laranja);
     display: flex;
     flex-direction: column;
     justify-content: center; 
     align-items: center;
+}
+
+.content-quiz-card:hover {
+    transform: translateY(-12px);
+    transition: 0.4s;
+    box-shadow: 0 0 20px 5px var(--AzulEscuro);
+    border: solid 7px white;
 }
 
 .content-quiz-card img {
