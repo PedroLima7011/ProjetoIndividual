@@ -195,6 +195,14 @@ header img {
     background-color: var(--AzulEscuro);
 }
 
+.content-history .content-section:hover {
+transform: translateY(-12px);
+    transition: 0.4s;
+    box-shadow: 0 0 20px 5px var(--AzulEscuro);
+    border-left: solid 7px white;
+    border-right: solid 7px white;
+}
+
 .content-history .content-section span {
     font-size: 2vw;
     font-weight: bold;
@@ -293,6 +301,8 @@ header img {
     transform: translateY(-12px);
     transition: 0.4s;
     box-shadow: 0 0 20px 5px var(--AzulEscuro);
+    border-left: solid 7px white;
+    border-right: solid 7px white;
 }
 
 .content-rules #image {
