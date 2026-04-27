@@ -68,7 +68,7 @@ function cadastrar() {
         if (resposta.ok) {
           cardErro.style.display = "block";
     
-          mensagem_erro.innerHTML =
+          div_mensagem.innerHTML =
             "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
     
           setTimeout(() => {
@@ -76,14 +76,12 @@ function cadastrar() {
           }, "2000");
     
           limparFormulario();
-          finalizarAguardar();
         } else {
           throw "Houve um erro ao tentar realizar o cadastro!";
         }
       })
       .catch(function (resposta) {
         console.log(`#ERRO: ${resposta}`);
-        finalizarAguardar();
       });
     
     return false;
