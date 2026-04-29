@@ -7,11 +7,10 @@ comandos para mysql server
 */
 
 CREATE DATABASE ProjetoIndividual;
-
 USE ProjetoIndividual;
 
 CREATE TABLE usuario (
-	id INT PRIMARY KEY AUTO_INCREMENT,
+	idUsuario INT PRIMARY KEY AUTO_INCREMENT,
 	nome VARCHAR(50),
 	sobrenome VARCHAR(50),
 	email VARCHAR(50),
@@ -19,11 +18,17 @@ CREATE TABLE usuario (
 );
 
 CREATE TABLE quiz (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	acertos VARCHAR(2),
+	idQuiz INT AUTO_INCREMENT,
+	fkUsuario INT,
+    acertos VARCHAR(2),
 	erros VARCHAR(2),
 	pontuacao VARCHAR(3),
-	fkUsuario INT,
+	CONSTRAINT pkQuiz PRIMARY KEY (idQuiz, fkUsuario),
 	CONSTRAINT chFkUsuario FOREIGN KEY (fkUsuario)
-		REFERENCES usuario (id)
+		REFERENCES usuario (idUsuario)
 );
+
+SELECT * FROM usuario;
+SELECT * FROM quiz;
+
+TRUNCATE usuario;
