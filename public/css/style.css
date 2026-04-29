@@ -491,6 +491,7 @@ footer .footer-links {
     /* Vou alterar */
     width: 50vw;
     background: radial-gradient(circle, rgba(171, 230, 245, 1) 0%, rgba(29, 29, 168, 1) 74%, rgba(19, 36, 99, 1) 100%);
+    text-align: center;
 }
 
 .LoginCadastro input::placeholder {
@@ -555,6 +556,10 @@ footer .footer-links {
     margin: 14px 0 5px 0;
     padding: 4px;
     border-radius: 5px;
+}
+
+.senha {
+    color: white;
 }
 
 

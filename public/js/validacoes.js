@@ -1,3 +1,27 @@
+function verificarSenha() { // Para a senha ser forte, ela tem que cumprir 3 critérios 
+    let senha = input_senha.value; // ter letras Maiusculas, minuscula e ter pelo menos 8 caracteres
+    let tamanho = senha.length >= 8;
+    let maiusculas = senha != senha.toLowerCase();
+    let minusculas = senha != senha.toUpperCase();
+    let criterios = 0;
+
+    if (tamanho) criterios++;
+    if (maiusculas) criterios++;
+    if (minusculas) criterios++;
+
+    if (criterios == 3) {
+        div_mensagem.innerHTML = `<span class="senha"> Senha Forte!`  // atingiu todos os critérios de segurança
+    } else if (criterios == 2 && senha.length > 4) {
+        div_mensagem.innerHTML = `<span class="senha">Senha Média. Utilize maiúsculas, minúsculas <br> e pelo menos 8 caracteres.`  // atingiu 2 critérios de segurança
+    } else if (criterios == 2) {
+        div_mensagem.innerHTML = `<span class="senha">Senha Fraca. Utilize maiúsculas, minúsculas <br> e pelo menos 8 caracteres.`  // atingiu 2 critérios de segurança
+    } else if (criterios == 1) {
+        div_mensagem.innerHTML = `<span class="senha">Senha Insegura. Utilize maiúsculas, minúsculas <br> e pelo menos 8 caracteres.`  // atingiu 1 critério de segurança
+    } else {
+        div_mensagem.innerHTML = `<span class="senha">Senha Insegura. Utilize maiúsculas, minúsculas <br> e pelo menos 8 caracteres.`  // não atingiu nenhum critério de segurança  
+    }
+}
+
 /* Cadastro */
 function cadastrar() {
     let nome = input_nome.value;
@@ -25,10 +49,18 @@ function cadastrar() {
             if (validoEmail == true) {
                 criterios++; /* 3° critério */
 
-                if (confirmarSenha == senha) {
+                if (senha != '') {
                     criterios++; /* 4° critério */
+
+                    if (confirmarSenha == senha) {
+                        criterios++; /* 5° critério */
+                        div_mensagem.innerHTML = `<span class="realizado"> Cadastro realizado com sucesso!...`;
+
+                    } else {
+                        div_mensagem.innerHTML = `<span class="erro"> As senhas não coincidem`;
+                    }
                 } else {
-                    div_mensagem.innerHTML = `<span class="erro"> As senhas não coincidem`;
+                    div_mensagem.innerHTML = `<span class="erro"> Insira uma senha`;
                 }
 
             } else {
@@ -43,7 +75,7 @@ function cadastrar() {
         div_mensagem.innerHTML = `<span class="erro"> Insira seu nome`;
     }
 
-    if (criterios == 4) {
+    if (criterios == 5) {
         
         // Enviando o valor da nova input
         fetch("/usuarios/cadastrar", {

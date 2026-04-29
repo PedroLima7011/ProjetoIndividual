@@ -10,7 +10,7 @@ CREATE DATABASE ProjetoIndividual;
 USE ProjetoIndividual;
 
 CREATE TABLE usuario (
-	idUsuario INT PRIMARY KEY AUTO_INCREMENT,
+	id INT PRIMARY KEY AUTO_INCREMENT,
 	nome VARCHAR(50),
 	sobrenome VARCHAR(50),
 	email VARCHAR(50),
