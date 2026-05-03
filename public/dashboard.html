@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHA | Dashboard</title>
+    <link rel="shortcut icon" href="./assets/imgs/icon.png" type="image/x-icon">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body class="dashboard">
+
+    <nav>
+        <div class="user">
+            <img src="./assets/imgs/perfil-de-usuario-Ambas.png" alt="">
+            <h1>Usuário</h1>
+            <h2>usuario@gmail.com</h2>
+        </div>
+
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#rules">Regras</a></li>
+            <li><a href="index.html#fundamentals">Como Jogar</a></li>
+            <li><a href="login.html">Quiz</a></li>
+        </ul>
+    </nav>
+
+    <div class="containers">
+        <div class="chart-container">
+            <canvas id="myChart"></canvas>
+        </div>
+        <div class="chart-container">
+            <canvas id="mySecondChart"></canvas>
+        </div>
+    </div>
+
+</body>
+<script>
+    const ctx = document.getElementById('myChart');
+
+    new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: ['1° Tentativa', '2° Tentativa', '3° Tentativa', '4° Tentativa', '5° Tentativa'],
+            datasets: [{
+                label: 'Acertos',
+                data: [7, 6, 8, 7, 10],
+                borderWidth: 7,
+                backgroundColor: 'Green',
+                borderColor: 'Green'
+            },
+            {
+                label: 'Erros',
+                data: [3, 4, 2, 3, 0],
+                borderWidth: 7,
+                backgroundColor: 'Red',
+                borderColor: 'Red'
+            }],
+        },
+
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: false
+                }
+            }
+        }
+    });
+
+    const ctx2 = document.getElementById('mySecondChart');
+
+    new Chart(ctx2, {
+        type: 'bar',
+        data: {
+            labels: ['Ana', 'Nicolas', 'David', 'Matheus', 'Pedro'],
+            datasets: [
+                {
+                    label: 'Acertos',
+                    data: [5, 6, 7, 8, 10],
+                    borderWidth: 7,
+                    backgroundColor: 'Orange',
+                    borderColor: 'Orange'
+                }],
+        },
+
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+</script>
+
+</html>
