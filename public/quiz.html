@@ -5,11 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Exemplo - Quiz</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 
 
-<body onload="onloadEsconder()">
+<body onload="onloadEsconder()" class="quiz">
     <div id="pontuacaoEJogo">
         <button id="btnIniciarQuiz" onclick="iniciarQuiz()">INICIAR QUIZ</button>
 
@@ -75,33 +75,95 @@
 <script>
     const listaDeQuestoes = [
 
-        {
-            pergunta: "Qual mês tem 30 dias?",
-            alternativaA: "Janeiro",
-            alternativaB: "Dezembro",
-            alternativaC: "Junho",
-            alternativaD: "Agosto",
+        { // 1 - Pergunta
+            pergunta: "Em qual ano o basquete foi criado?",
+            alternativaA: "1889",
+            alternativaB: "1891",
+            alternativaC: "2001",
+            alternativaD: "1994",
+            alternativaCorreta: "alternativaB"
+        },
+
+        { // 2 - Pergunta
+            pergunta: "No começo do esporte, qual utensílio era utilizado como cesta?",
+            alternativaA: "Balde",
+            alternativaB: "Aros modernos",
+            alternativaC: "Cestas de pêssego",
+            alternativaD: "Não havia uma cesta",
             alternativaCorreta: "alternativaC"
         },
 
-        {
-            pergunta: "Quantas horas tem em um dia?",
-            alternativaA: "30 horas",
-            alternativaB: "38 horas",
-            alternativaC: "48 horas",
-            alternativaD: "24 horas",
+        { // 3 - Pergunta
+            pergunta: "Qual destas regras não fazia parte das regras iniciais do basquete?",
+            alternativaA: "Proibia agarrar a bola com as mãos",
+            alternativaB: "Não podia chutar a bola",
+            alternativaC: "Não podia passar a bola entre a equipe",
+            alternativaD: "Correr com a bola",
+            alternativaCorreta: "alternativaC"
+        },
+
+        { // 4 - Pergunta
+            pergunta: "Sobre a chegada ao Brasil, escolha a alternativa correta",
+            alternativaA: "O Brasileiro Augusti Shaw que inventou o esporte já no Brasil",
+            alternativaB: "Logo de inicio, o esporte caiu no gosto dos homens e somente depois, as mulheres começaram a praticar",
+            alternativaC: "Em 1912 foi convocada a primeira seleção brasileira",
+            alternativaD: "O país foi campeão dos jogos Latino-Americanos, logo quando havia sido convocado",
             alternativaCorreta: "alternativaD"
         },
 
-        {
-            pergunta: "Qual destes números é ímpar?",
-            alternativaA: "Dez",
-            alternativaB: "Doze",
-            alternativaC: "Oito",
-            alternativaD: "Onze",
-            alternativaCorreta: "alternativaD"
-        }
+        { // 5 - Pergunta
+            pergunta: "Quantos jogadores cada equipe tem em quadra durante o jogo?",
+            alternativaA: "7 jogadores",
+            alternativaB: "6 jogadores",
+            alternativaC: "5 jogadores",
+            alternativaD: "4 jogadores",
+            alternativaCorreta: "alternativaC"
+        },
 
+        { // 6 - Pergunta
+            pergunta: "Quantos quartos tem uma partida de basquete?",
+            alternativaA: "2 quartos",
+            alternativaB: "3 quartos",
+            alternativaC: "4 quartos",
+            alternativaD: "5 quartos",
+            alternativaCorreta: "alternativaC"
+        },
+
+        { // 7 - Pergunta
+            pergunta: "Quanto tempo dura cada quarto em uma partida oficial (FIBA)?",
+            alternativaA: "8 minutos",
+            alternativaB: "10 minutos",
+            alternativaC: "12 minutos",
+            alternativaD: "15 minutos",
+            alternativaCorreta: "alternativaB"
+        },
+
+        { // 8 - Pergunta
+            pergunta: "O que acontece quando um jogador comete 'andar'?",
+            alternativaA: "Ele pode continuar jogando normalmente",
+            alternativaB: "Ele dá passos sem quicar a bola",
+            alternativaC: "Ele segura a bola por muito tempo",
+            alternativaD: "Ele passa a bola errado",
+            alternativaCorreta: "alternativaB"
+        },
+
+        { // 9 - Pergunta
+            pergunta: "Quantos segundos uma equipe tem para arremessar após ter a posse de bola?",
+            alternativaA: "12 segundos",
+            alternativaB: "30 segundos",
+            alternativaC: "24 segundos",
+            alternativaD: "15 segundos",
+            alternativaCorreta: "alternativaC"
+        },
+
+        { // 10 - Pergunta
+            pergunta: "Quantos pontos vale um arremesso feito fora da linha de três pontos?",
+            alternativaA: "1 ponto",
+            alternativaB: "2 pontos",
+            alternativaC: "3 pontos",
+            alternativaD: "4 pontos",
+            alternativaCorreta: "alternativaC"
+        }
     ]
 
     // variáveis globais    
