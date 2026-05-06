@@ -735,13 +735,19 @@ footer .footer-links {
 /* Quiz */
 /*======*/
 .quiz {
+    display: flex;
+    flex-direction: row;
+}
+
+.PosicaoQuiz {
     color: var(--new-black);
-    background-color: var(--new-white);
+    background-color: rgb(97, 97, 107);
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 90vh;
+    height: 100vh;
+    width: 80vw;
 }
 
 .quiz #pontuacaoEJogo {
@@ -846,6 +852,55 @@ footer .footer-links {
 
 #btnIniciarQuiz {
     padding: 0;
+    margin-bottom: 30px;
+}
+
+#imagemQuiz {
+    height: 300px;
+    width: 550px;
+    margin: 30px 0;
+    border-radius: 20px;
+    object-fit: cover;
+}
+
+#fraseQuiz {
+    text-align: center;
+    color: white;
+    font-size: 21px;
+    margin-bottom: 15px;
+}
+
+.quiz nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: 100vh;
+    width: 25vw;
+    color: white;
+    background-color: var(--AzulEscuro);
+    border-right: solid 5px var(--Laranja);
+    padding: 0;
+}
+
+.quiz .user {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.quiz ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 30%;
+    width: 70%;
+}
+
+.quiz ul a {
+    padding: 10px;
+    font-size: 30px;
+    color: white;
 }
 
 /*===========*/
@@ -858,7 +913,7 @@ footer .footer-links {
     align-items: center;
     height: 100vh;
     margin: 0;
-    background-color: var(--AzulEscuro);
+    background-color: rgb(97, 97, 107);
 }
 
 .dashboard nav {
@@ -867,9 +922,9 @@ footer .footer-links {
     align-items: center;
     justify-content: space-around;
     height: 100vh;
-    width: 25vw;
+    width: 30vw;
     color: white;
-    background-color: rgb(42, 42, 125);
+    background-color: var(--AzulEscuro);
     border-right: solid 5px var(--Laranja);
     padding: 0;
 }
