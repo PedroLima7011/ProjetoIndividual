@@ -889,6 +889,15 @@ footer .footer-links {
     align-items: center;
 }
 
+.quiz .user img {
+    margin-bottom: 10px;
+}
+
+.quiz .user div {
+    font-size: 25px;
+    margin-top: 10px;
+}
+
 .quiz ul {
     display: flex;
     flex-direction: column;
@@ -933,6 +942,15 @@ footer .footer-links {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.quiz .user img {
+    margin-bottom: 10px;
+}
+
+.dashboard .user div {
+    font-size: 25px;
+    margin-top: 10px;
 }
 
 .dashboard ul {

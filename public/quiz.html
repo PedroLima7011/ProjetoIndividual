@@ -14,8 +14,8 @@
     <nav>
         <div class="user">
             <img src="./assets/imgs/perfil-de-usuario-Ambas.png" alt="">
-            <h1>Usuário</h1>
-            <h2>usuario@gmail.com</h2>
+            <div id="div_nome"></div>
+            <div id="div_email"></div>
         </div>
 
         <ul>
@@ -95,6 +95,9 @@
 
 </html>
 <script>
+    div_nome.innerHTML = sessionStorage.NOME_USUARIO + ' ' + sessionStorage.SOBRENOME_USUARIO;
+    div_email.innerHTML = sessionStorage.EMAIL_USUARIO;
+
     const listaDeQuestoes = [
 
         { // 1 - Pergunta
