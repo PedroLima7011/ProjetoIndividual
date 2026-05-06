@@ -715,15 +715,8 @@ footer .footer-links {
     --CinzaEscuro: #474747;
     --AzulEscuro: rgb(2, 4, 42);
     --Bege: #FFF4ED;
-}
 
-/*======*/
-/* Quiz */
-/*======*/
-    
-:root {
-    --primary-brand-color: #ED145B;
-    --secondary-brand-color: #0762C8;
+    /* Usa no quiz */
     --success: #198754;
     --success-dark: #095c36;
     --success-light: #9dd3ba;
@@ -738,15 +731,66 @@ footer .footer-links {
     --new-white: #E8E8E8;
 }
 
-.quiz body {
+/*======*/
+/* Quiz */
+/*======*/
+.quiz {
     color: var(--new-black);
     background-color: var(--new-white);
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+}
+
+.quiz #pontuacaoEJogo {
+    background-color: var(--AzulEscuro);
+    color: white;
+    border-radius: 20px;
+    width: 40vw;
+    border: 7px solid var(--Laranja);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s;
+}
+
+#pontuacao {
+    width: 95%;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+#jogo {
+    width: 95%;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .quiz button {
     font-family: monospace;
     font-weight: bold;
+    margin: 10px;
+    width: 50%;
+    height: 45px;
+    background-color: var(--Laranja);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    font-size: 15px;    
+    margin-left: 10px;
+    transition: 0.8s;
+}
+
+.quiz button:hover {
+    background-color: white;
+    color: var(--Laranja);
+    border: solid 2px var(--Laranja);
 }
 
 .quiz .flex-colunar {
@@ -754,16 +798,15 @@ footer .footer-links {
     flex-direction: column;
 }
 
+.botoes {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .quiz .width-fit-content {
     width: fit-content;
-}
-
-.quiz .border-primary {
-    border: 3px solid var(--primary-brand-color);
-}
-
-.quiz .border-secondary {
-    border: 3px solid var(--secondary-brand-color);
 }
 
 .quiz .padding-8 {
@@ -791,6 +834,18 @@ footer .footer-links {
 
 .quiz .text-new-gray {
     color: var(--new-gray);
+}
+
+.quiz #div_mensagem {
+    color: white;
+}
+
+.quiz .radio {
+    margin-top: 15px;
+}
+
+#btnIniciarQuiz {
+    padding: 0;
 }
 
 /*===========*/

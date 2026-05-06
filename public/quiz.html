@@ -14,7 +14,7 @@
     <div id="pontuacaoEJogo">
         <button id="btnIniciarQuiz" onclick="iniciarQuiz()">INICIAR QUIZ</button>
 
-        <div id="pontuacao" class="flex-colunar width-fit-content border-primary">
+        <div id="pontuacao" class="flex-colunar width-fit-content">
             <div id="pontuacaoDuranteJogo" class="flex-colunar padding-8">
                 <span class="width-fit-content">Quantidade de acertos: <span id="spanCertas"></span></span>
                 <span class="width-fit-content">Quantidade de erros: <span id="spanErradas"></span></span>
@@ -27,7 +27,7 @@
             </div>
         </div>
 
-        <div id="jogo" class="width-fit-content flex-colunar border-secondary">
+        <div id="jogo" class="width-fit-content flex-colunar">
 
             <div id="infoQuestao" class="padding-8">
                 <span>Questão atual: <span id="spanNumeroDaQuestaoAtual"></span> de <span id="qtdQuestoes"></span>
@@ -61,7 +61,10 @@
                 </span>
             </div>
 
-            <div id="botoes" class="flex-colunar padding-8">
+            
+            <div class="botoes">
+                <div id="div_mensagem"></div>
+
                 <button onclick="submeter()" id="btnSubmeter">Submeter resposta</button>
                 <button onclick="avancar()" id="btnProx" disabled>Avançar para próxima questão</button>
                 <!-- <button onclick="finalizar()" id="btnConcluir" disabled>Finalizar Quiz</button> -->
@@ -211,6 +214,8 @@
     }
 
     function submeter() {
+        div_mensagem.innerHTML = ``
+
         const options = document.getElementsByName("option"); // recupera alternativas no html
 
         let hasChecked = false
@@ -222,7 +227,7 @@
         }
 
         if (!hasChecked) {
-            alert("Não há alternativas escolhidas. Escolha uma opção.")
+            div_mensagem.innerHTML = "Não há alternativas escolhidas. Escolha uma opção."
         } else {
             btnSubmeter.disabled = true
             btnProx.disabled = false
@@ -244,6 +249,8 @@
     }
 
     function avancar() {
+        div_mensagem.innerHTML = ``
+
         btnProx.disabled = true
         btnSubmeter.disabled = false
 
@@ -252,7 +259,7 @@
         if (numeroDaQuestaoAtual < quantidadeDeQuestoes - 1) {
             preencherHTMLcomQuestaoAtual(numeroDaQuestaoAtual)
         } else if (numeroDaQuestaoAtual == quantidadeDeQuestoes - 1) {
-            alert("Atenção... a próxima é a ultima questão!")
+            div_mensagem.innerHTML = "Atenção... essa é a ultima questão!"
             preencherHTMLcomQuestaoAtual(numeroDaQuestaoAtual)
         } else {
             finalizarJogo()
@@ -261,6 +268,8 @@
     }
 
     function tentarNovamente() {
+        div_mensagem.innerHTML = ``
+
         // atualiza a página
         window.location.reload()
     }
