@@ -960,6 +960,7 @@ footer .footer-links {
     flex-direction: column;
     height: 30%;
     width: 70%;
+    margin-bottom: 5vh;
 }
 
 .dashboard li {
@@ -980,18 +981,19 @@ footer .footer-links {
 .dashboard .containers {
     display: flex;
     justify-content: space-between;
+    margin: 20px;
 }
 
-.dashboard .containers .kpi-content {
+.dashboard .kpi-content {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
     background-color: white;
-    height: 31vh;
-    width: 25vw;
+    height: 35vh;
+    width: 24vw;
     border-radius: 20px;
-    margin: 20px 25px 0 25px;
+    margin: 0.2vw 0.5vw;
 }
 
 .dashboard .containers .kpi-content a {
@@ -1009,10 +1011,13 @@ footer .footer-links {
     margin: 25px 0 5px 0;
 }
 
+#media_usuario {
+    margin: 25px 0 5px 0;
+}
+
 #mensagem_usuario {
     font-size: 1.3vw;
     margin: 0 0 35px 0;
-    color: green;
 }
 
 .dashboard .chart-container {
@@ -1020,10 +1025,9 @@ footer .footer-links {
     display: flex;
     justify-content: center;
     height: 40vh;
-    width: 35vw;
+    width: 34vw;
     background: white;
     border-radius: 20px;
     padding: 20px 25px 0 25px;
-    margin: 20px;
     border: solid 2x var(--Laranja);
 }

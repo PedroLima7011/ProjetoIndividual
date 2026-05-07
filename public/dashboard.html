@@ -59,7 +59,7 @@
 </body>
 <script>
     function media() {
-        let mediaUsuario = 12;
+        let mediaUsuario = 18;
         let mediaGeral = 15;
 
         // let mediaUsuario = Number(media_usuario.value);
@@ -68,6 +68,8 @@
         if (mediaUsuario > mediaGeral) { // Se a media do usuario passar a geral fica verde
             document.getElementById('media_usuario').style.color = "green";
             mensagem_usuario.innerHTML += `<br> Você está acima da média`
+            document.getElementById('mensagem_usuario').style.color = "green";
+
         } else {
             document.getElementById('media_usuario').style.color = "red";
             mensagem_usuario.innerHTML += `<br> Você está abaixo da média`
