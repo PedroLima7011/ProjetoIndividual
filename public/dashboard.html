@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="./css/style.css">
 </head>
 
-<body class="dashboard">
+<body class="dashboard" onload="media()">
 
     <nav>
         <div class="user">
@@ -28,17 +28,54 @@
         </ul>
     </nav>
 
-    <div class="containers">
-        <div class="chart-container">
-            <canvas id="myChart"></canvas>
+    <div class="dashboard-content">
+        
+        <div class="containers">
+            <div class="kpi-content">
+                <a>Média geral de acertos</a>
+                <div class="kpi-information" id="media_geral"> 8 </div>
+            </div>
+            <div class="kpi-content">
+                <a>Média de acertos do Usuário</a>
+                <div class="kpi-information" id="media_usuario"> 7.5 </div>
+                <div id="mensagem_usuario"></div>
+            </div>
+            <div class="kpi-content">
+                <a>Melhor jogador(a) do Quiz</a>
+                <div class="kpi-information" id="melhor_jogador"> Pedro </div>
+            </div>
         </div>
-        <div class="chart-container">
-            <canvas id="mySecondChart"></canvas>
-        </div>
-    </div>
 
+        <div class="containers">
+            <div class="chart-container">
+                <canvas id="myChart"></canvas>
+            </div>
+            <div class="chart-container">
+                <canvas id="mySecondChart"></canvas>
+            </div>
+        </div>
+
+    </div>
 </body>
 <script>
+    function media() {
+        let mediaUsuario = 12;
+        let mediaGeral = 15;
+
+        // let mediaUsuario = Number(media_usuario.value);
+        // let mediaGeral = Number(media_geral.value);
+
+        if (mediaUsuario > mediaGeral) { // Se a media do usuario passar a geral fica verde
+            document.getElementById('media_usuario').style.color = "green";
+            mensagem_usuario.innerHTML += `<br> Você está acima da média`
+        } else {
+            document.getElementById('media_usuario').style.color = "red";
+            mensagem_usuario.innerHTML += `<br> Você está abaixo da média`
+            document.getElementById('mensagem_usuario').style.color = "red";
+
+        }
+    }
+    
     div_nome.innerHTML = sessionStorage.NOME_USUARIO + ' ' + sessionStorage.SOBRENOME_USUARIO;
     div_email.innerHTML = sessionStorage.EMAIL_USUARIO;
 

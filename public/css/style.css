@@ -901,13 +901,15 @@ footer .footer-links {
 .quiz ul {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
     height: 30%;
     width: 70%;
 }
 
+.quiz li {
+    margin: 30px 0 0 30px;
+}
+
 .quiz ul a {
-    padding: 10px;
     font-size: 30px;
     color: white;
 }
@@ -956,21 +958,61 @@ footer .footer-links {
 .dashboard ul {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
     height: 30%;
     width: 70%;
 }
 
+.dashboard li {
+    margin: 30px 0 0 30px;
+}
+
 .dashboard ul a {
-    padding: 10px;
     font-size: 30px;
     color: white;
+}
+
+.dashboard .dashboard-content {
+    display: flex;
+    flex-direction: column;
+    width: 87vw;
 }
 
 .dashboard .containers {
     display: flex;
     justify-content: space-between;
-    width: 87vw;
+}
+
+.dashboard .containers .kpi-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    height: 31vh;
+    width: 25vw;
+    border-radius: 20px;
+    margin: 20px 25px 0 25px;
+}
+
+.dashboard .containers .kpi-content a {
+    font-size: 1.8vw;
+    margin: 30px 10px 0 10px;
+    color: var(--AzulEscuro);
+}
+
+.dashboard .containers .kpi-content .kpi-information {
+    font-size: 5vw;
+    margin: 50px 0 60px 0;
+}
+
+#media_usuario {
+    margin: 25px 0 5px 0;
+}
+
+#mensagem_usuario {
+    font-size: 1.3vw;
+    margin: 0 0 35px 0;
+    color: green;
 }
 
 .dashboard .chart-container {
