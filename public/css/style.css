@@ -764,17 +764,16 @@ footer .footer-links {
 }
 
 #pontuacao {
-    width: 95%;
+    width: 90%;
     display: flex;
     justify-content: center;
     margin-top: 20px;
 }
 
 #jogo {
-    width: 95%;
+    width: 90%;
     display: flex;
     justify-content: center;
-    margin-top: 20px;
     margin-bottom: 20px;
 }
 
@@ -806,9 +805,10 @@ footer .footer-links {
 
 .botoes {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
+    margin-top: 2vh;
 }
 
 .quiz .width-fit-content {
@@ -844,6 +844,7 @@ footer .footer-links {
 
 .quiz #div_mensagem {
     color: white;
+    text-align: center;
 }
 
 .quiz .radio {
@@ -857,7 +858,7 @@ footer .footer-links {
 
 #imagemQuiz {
     height: 300px;
-    width: 550px;
+    width: 80%;
     margin: 30px 0;
     border-radius: 20px;
     object-fit: cover;
