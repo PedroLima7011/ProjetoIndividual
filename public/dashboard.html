@@ -37,7 +37,7 @@
             </div>
             <div class="kpi-content">
                 <a>Média de acertos do Usuário</a>
-                <div class="kpi-information" id="media_usuario"> 7.5 </div>
+                <div class="kpi-information" id="media_usuario"></div>
                 <div id="mensagem_usuario"></div>
             </div>
             <div class="kpi-content">
@@ -95,7 +95,7 @@
             })
             .then(function (data) {
                 console.log(data);
-                if(data.length > 0){
+                if (data.length > 0) {
                     plotarGraficoLinha(data);
                     plotarGraficoBarra(data);
                 } else {
@@ -113,19 +113,28 @@
         var erros = [];
         var tentativas = [];
 
+        let somaAcertos = 0;
+        let mediaAcertos = 0;
+
+        for (var j = 0; j < dados.length; j++) {
+            somaAcertos += Number(dados[j].acertos);
+        }
+        mediaAcertos = somaAcertos / dados.length;
+        media_usuario.innerHTML = mediaAcertos;
+
         //Preenchendo os arrays com os dados
         for (var i = dados.length - 5; i < dados.length; i++) {
             acertos.push(dados[i].acertos);
             erros.push(dados[i].erros);
-            
+
             tentativas.push(`${i + 1}ª Tentativa`);
         }
-        
+
         // Capturando o elemento canvas pelo id 
         var ctx = document.getElementById('myChart');
         // Criando o gráfico de linha usando o Chart.js
         var myChart = new Chart(ctx, {
-            type: 'line', // Tipo de gráfico: linha
+            type: 'bar', // Tipo de gráfico: Barra
             data: { // Dados para o gráfico
                 labels: tentativas, // Rótulos no eixo X
                 datasets: [
