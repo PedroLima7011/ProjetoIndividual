@@ -83,17 +83,24 @@
 
     // Função chamada ao carregar a página para obter e processar os dados
     function obterDados() {
+        let id = sessionStorage.ID_USUARIO;
         // Aqui seria a função que obteria os dados do banco de dados
         // No caso, aqui você colocaria o fetch que teria o endereço da sua rota que você criou na pasta /routes e chamaria a função plotarGraficoLinha nessa função. Exemplo:
 
-        fetch('/dados/obterDados')
+        console.log(id)
+
+        fetch(`/dados/obterDados/${id}`)
             .then(function (response) {
                 return response.json();
             })
             .then(function (data) {
                 console.log(data);
-                plotarGraficoLinha(data);
-                plotarGraficoBarra(data);
+                if(data.length > 0){
+                    plotarGraficoLinha(data);
+                    plotarGraficoBarra(data);
+                } else {
+
+                }
             })
             .catch(function (err) {
                 console.log(err);
@@ -106,13 +113,14 @@
         var erros = [];
         var tentativas = [];
 
-        // Preenchendo os arrays com os dados
-        for (var i = 0; i < dados.length; i++) {
+        //Preenchendo os arrays com os dados
+        for (var i = dados.length - 5; i < dados.length; i++) {
             acertos.push(dados[i].acertos);
             erros.push(dados[i].erros);
+            
             tentativas.push(`${i + 1}ª Tentativa`);
         }
-
+        
         // Capturando o elemento canvas pelo id 
         var ctx = document.getElementById('myChart');
         // Criando o gráfico de linha usando o Chart.js

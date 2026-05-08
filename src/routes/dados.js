@@ -4,7 +4,7 @@ var router = express.Router();
 var dadosController = require("../controllers/dadosController");
 
 // ROTA DOS GRÁFICOS DASH
-router.get("/obterDados", function (req, res) {
+router.get("/obterDados/:id", function (req, res) {
     dadosController.obterDados(req, res);
 });
 

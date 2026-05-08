@@ -1,32 +1,38 @@
 var dadosModel = require("../models/dadosModel");
 
 function obterDados(req, res) {
-    // var acertos = req.body.acertosServer;
-    // var erros = req.body.errosServer;
+    var id = req.params.id;
+    // var id = req.body.idServer;
+    console.log(id);
 
-    dadosModel.obterDados()
-        .then(
-            function (resultadoDados) {
-                console.log(`\nResultados encontrados: ${resultadoDados.length}`);
-                console.log(`Resultados: ${JSON.stringify(resultadoDados)}`); // transforma JSON em String
-
-                if (resultadoDados.length > 0) {
-
-                    // res.json({
-                    //     acertos: resultadoDados[0].acertos,
-                    //     erros: resultadoDados[0].erros
-                    // });
-                    res.json(resultadoDados);
-
+    if(id == undefined){
+        res.status(400).send("O id esta undefined");
+    }else{
+        dadosModel.obterDados(id)
+            .then(
+                function (resultadoDados) {
+                    console.log(`\nResultados encontrados: ${resultadoDados.length}`);
+                    console.log(`Resultados: ${JSON.stringify(resultadoDados)}`); // transforma JSON em String
+    
+                    if (resultadoDados.length > 0) {
+    
+                        // res.json({
+                        //     acertos: resultadoDados[0].acertos,
+                        //     erros: resultadoDados[0].erros
+                        // });
+                        res.json(resultadoDados);
+    
+                    }
                 }
-            }
-        ).catch(
-            function (erro) {
-                console.log(erro);
-                console.log("\nHouve um erro ao realizar o login! Erro: ", erro.sqlMessage);
-                res.status(500).json(erro.sqlMessage);
-            }
-        );
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log("\nHouve um erro ao puxar os dados! Erro: ", erro.sqlMessage);
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    }
+
 }
 
 

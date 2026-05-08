@@ -76,7 +76,7 @@ function cadastrar() {
     }
 
     if (criterios == 5) {
-        
+
         // Enviando o valor da nova input
         fetch("/usuarios/cadastrar", {
             method: "POST",
@@ -94,16 +94,16 @@ function cadastrar() {
         })
             .then(function (resposta) {
                 console.log("resposta: ", resposta);
-    
+
                 if (resposta.ok) {
-    
+
                     div_mensagem.innerHTML =
                         `<span class="realizado"> Cadastro realizado com sucesso!...`;
-    
+
                     setTimeout(() => {
                         window.location = "login.html";
                     }, "2000");
-    
+
                     limparFormulario();
                 } else {
                     throw "Houve um erro ao tentar realizar o cadastro!";
@@ -112,7 +112,7 @@ function cadastrar() {
             .catch(function (resposta) {
                 console.log(`#ERRO: ${resposta}`);
             });
-    
+
         return false;
     }
 
@@ -192,8 +192,6 @@ function obterDados() {
                 console.log(JSON.stringify(json));
                 sessionStorage.ACERTOS_USUARIO = json.acertos;
                 sessionStorage.ERROS_USUARIO = json.erros;
-                // sessionStorage.NOME_USUARIO = json.nome;
-                // sessionStorage.ID_USUARIO = json.id;
 
             });
 
