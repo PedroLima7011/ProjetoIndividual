@@ -168,3 +168,45 @@ function logar() {
     return false;
 
 }
+
+/* Login */
+function obterDados() {
+
+    fetch("/usuarios/obterDados", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            acertosServer: acertos,
+            errosServer: erros
+        })
+    }).then(function (resposta) {
+        console.log("ESTOU NO THEN DO entrar()!")
+
+        if (resposta.ok) {
+            console.log(resposta);
+
+            resposta.json().then(json => {
+                console.log(json);
+                console.log(JSON.stringify(json));
+                sessionStorage.ACERTOS_USUARIO = json.acertos;
+                sessionStorage.ERROS_USUARIO = json.erros;
+                // sessionStorage.NOME_USUARIO = json.nome;
+                // sessionStorage.ID_USUARIO = json.id;
+
+            });
+
+        } else {
+            resposta.text().then(texto => {
+                console.error(texto);
+            });
+        }
+
+    }).catch(function (erro) {
+        console.log(erro);
+    })
+
+    return false;
+
+}

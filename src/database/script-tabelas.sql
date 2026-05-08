@@ -20,13 +20,20 @@ CREATE TABLE usuario (
 CREATE TABLE quiz (
 	idQuiz INT AUTO_INCREMENT,
 	fkUsuario INT,
-    acertos VARCHAR(2),
-	erros VARCHAR(2),
-	pontuacao VARCHAR(3),
+    acertos INT,
+	erros INT,
+	pontuacao INT,
 	CONSTRAINT pkQuiz PRIMARY KEY (idQuiz, fkUsuario),
 	CONSTRAINT chFkUsuario FOREIGN KEY (fkUsuario)
-		REFERENCES usuario (idUsuario)
+		REFERENCES usuario (id)
 );
+
+INSERT INTO quiz (fkUsuario, acertos, erros, pontuacao) VALUES 
+(1, 8, 5, 10),
+(1, 4, 9, 10),
+(1, 5, 5, 10),
+(1, 5, 8, 10),
+(1, 5, 5, 10);
 
 SELECT * FROM usuario;
 SELECT * FROM quiz;
