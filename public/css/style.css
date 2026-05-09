@@ -709,28 +709,6 @@ footer .footer-links {
     margin: 2vh;
 }
 
-:root {
-    --Laranja: #FC6625;
-    --CinzaClaro: #8F9491;
-    --CinzaEscuro: #474747;
-    --AzulEscuro: rgb(2, 4, 42);
-    --Bege: #FFF4ED;
-
-    /* Usa no quiz */
-    --success: #198754;
-    --success-dark: #095c36;
-    --success-light: #9dd3ba;
-    --warning: #ffc107;
-    --warning-dark: #705400;
-    --warning-light: #fdebb3;
-    --danger: #dc3545;
-    --danger-dark: #990c19;
-    --danger-light: #f0c1c6;
-    --new-gray: #CCCCCC;
-    --new-black: #212427;
-    --new-white: #E8E8E8;
-}
-
 /*======*/
 /* Quiz */
 /*======*/
@@ -741,13 +719,14 @@ footer .footer-links {
 
 .PosicaoQuiz {
     color: var(--new-black);
-    background-color: rgb(97, 97, 107);
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     width: 80vw;
+    background: linear-gradient(rgba(0, 0, 0, 0.5)), url('../assets/gifs/gifQuiz.gif');
+    background-size: cover;
 }
 
 .quiz #pontuacaoEJogo {
@@ -787,7 +766,7 @@ footer .footer-links {
     color: white;
     border: none;
     border-radius: 20px;
-    font-size: 15px;    
+    font-size: 15px;
     margin-left: 10px;
     transition: 0.8s;
 }
@@ -1031,4 +1010,26 @@ footer .footer-links {
     border-radius: 20px;
     padding: 20px 25px 0 25px;
     border: solid 2x var(--Laranja);
+}
+
+:root {
+    --Laranja: #FC6625;
+    --CinzaClaro: #8F9491;
+    --CinzaEscuro: #474747;
+    --AzulEscuro: rgb(2, 4, 42);
+    --Bege: #FFF4ED;
+
+    /* Usa no quiz */
+    --success: #198754;
+    --success-dark: #095c36;
+    --success-light: #9dd3ba;
+    --warning: #ffc107;
+    --warning-dark: #705400;
+    --warning-light: #fdebb3;
+    --danger: #dc3545;
+    --danger-dark: #990c19;
+    --danger-light: #f0c1c6;
+    --new-gray: #CCCCCC;
+    --new-black: #212427;
+    --new-white: #E8E8E8;
 }
