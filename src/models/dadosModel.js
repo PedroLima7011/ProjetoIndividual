@@ -8,6 +8,16 @@ function obterDados(id) {
     return database.executar(instrucaoSql);
 }
 
+function obterDadosRanking() {
+    var instrucaoSql = `
+        SELECT nome, MAX(pontuacao) AS pontuacao FROM usuario 
+            JOIN quiz ON id = fkUsuario 
+        GROUP BY nome ORDER BY pontuacao DESC LIMIT 5;
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
 // Coloque os mesmos parâmetros aqui. Vá para a var instrucaoSql
 function inserirDados(id, acertos, erros, pontuacao) {
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", id, acertos, erros, pontuacao);
@@ -21,5 +31,6 @@ function inserirDados(id, acertos, erros, pontuacao) {
 
 module.exports = {
     obterDados,
-    inserirDados
+    inserirDados,
+    obterDadosRanking
 };

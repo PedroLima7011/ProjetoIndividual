@@ -8,6 +8,10 @@ router.get("/obterDados/:id", function (req, res) {
     dadosController.obterDados(req, res);
 });
 
+router.get("/obterDadosRanking", function (req, res) {
+    dadosController.obterDadosRanking(req, res);
+});
+
 router.post("/inserirDados", function (req, res) {
     dadosController.inserirDados(req, res);
 });

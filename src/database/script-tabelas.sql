@@ -28,6 +28,11 @@ CREATE TABLE quiz (
 		REFERENCES usuario (id)
 );
 
+INSERT INTO usuario (nome, sobrenome, email, senha) VALUES 
+('Arthur', 'Lima', 'arthur@gmail.com', 'aa'),
+('Sema', 'Lima', 'sema@gmail.com', 'aa'),
+('Souza', 'Barbosa', 'lima@gmail.com', 'aa');
+
 INSERT INTO quiz (fkUsuario, acertos, erros, pontuacao) VALUES 
 (1, 10, 10, 10),
 (1, 4, 9, 10),
@@ -42,16 +47,26 @@ INSERT INTO quiz (fkUsuario, acertos, erros, pontuacao) VALUES
 (1, 6, 5, 10);
 
 INSERT INTO quiz (fkUsuario, acertos, erros, pontuacao) VALUES 
-(2, 10, 10, 10),
-(2, 4, 9, 10),
-(2, 5, 5, 10),
-(2, 5, 8, 10),
+(4, 10, 10, 9),
+(3, 4, 9, 9),
+(5, 5, 5, 9),
+(6, 5, 8, 11),
 (2, 5, 5, 10);
 
 SELECT * FROM usuario;
 SELECT * FROM quiz;
 
 SELECT AVG(acertos) FROM quiz WHERE fkUsuario = 1;
+SELECT ROUND(AVG(acertos), 2) FROM quiz;
 
 TRUNCATE usuario;
 TRUNCATE quiz;
+
+DROP TABLE usuario;
+DROP TABLE quiz;
+
+SELECT nome, MAX(pontuacao) AS pontuacao FROM usuario JOIN quiz ON id = fkUsuario 
+	GROUP BY nome ORDER BY pontuacao DESC LIMIT 5;
+SELECT nome, MAX(pontuacao) AS pontuacao FROM usuario JOIN quiz ON id = fkUsuario 
+	GROUP BY nome ORDER BY pontuacao DESC;
+

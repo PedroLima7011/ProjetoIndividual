@@ -4,15 +4,15 @@ function obterDados(req, res) {
     var id = req.params.id;
     console.log(id);
 
-    if(id == undefined){
+    if (id == undefined) {
         res.status(400).send("O id esta undefined");
-    }else{
+    } else {
         dadosModel.obterDados(id)
             .then(
                 function (resultadoDados) {
                     console.log(`\nResultados encontrados: ${resultadoDados.length}`);
                     console.log(`Resultados: ${JSON.stringify(resultadoDados)}`); // transforma JSON em String
-    
+
                     if (resultadoDados.length > 0) {
                         res.json(resultadoDados);
                     }
@@ -25,9 +25,28 @@ function obterDados(req, res) {
                 }
             );
     }
-
 }
 
+function obterDadosRanking(req, res) {
+
+    dadosModel.obterDadosRanking()
+        .then(
+            function (resultadoDadosRanking) {
+                console.log(`\nResultados encontrados: ${resultadoDadosRanking.length}`);
+                console.log(`Resultados: ${JSON.stringify(resultadoDadosRanking)}`); // transforma JSON em String
+
+                if (resultadoDadosRanking.length > 0) {
+                    res.json(resultadoDadosRanking);
+                }
+            }
+        ).catch(
+            function (erro) {
+                console.log(erro);
+                console.log("\nHouve um erro ao puxar os dados! Erro: ", erro.sqlMessage);
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
 
 function inserirDados(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
@@ -68,5 +87,6 @@ function inserirDados(req, res) {
 
 module.exports = {
     obterDados,
-    inserirDados
+    inserirDados,
+    obterDadosRanking
 }

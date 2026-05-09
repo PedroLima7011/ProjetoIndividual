@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="./css/style.css">
 </head>
 
-<body class="dashboard" onload="media(), obterDados()">
+<body class="dashboard" onload="media(), obterDados(), obterDadosRanking()">
 
     <nav>
         <div class="user">
@@ -59,16 +59,21 @@
 </body>
 <script>
     function media() {
-        let mediaUsuario = 18;
-        let mediaGeral = 15;
+        let mediaUsuario = 5;
+        let mediaGeral = 6;
 
-        // let mediaUsuario = Number(media_usuario.value);
-        // let mediaGeral = Number(media_geral.value);
+        // let mediaUsuario = media_usuario.value;
+        // let mediaGeral = media_geral.value;
 
         if (mediaUsuario > mediaGeral) { // Se a media do usuario passar a geral fica verde
             document.getElementById('media_usuario').style.color = "green";
             mensagem_usuario.innerHTML += `<br> Você está acima da média`
             document.getElementById('mensagem_usuario').style.color = "green";
+
+        } else if (mediaUsuario == mediaGeral) { // Se a media do usuario passar a geral fica verde
+            document.getElementById('media_usuario').style.color = "orange";
+            mensagem_usuario.innerHTML += `<br> Você está na média`
+            document.getElementById('mensagem_usuario').style.color = "orange";
 
         } else {
             document.getElementById('media_usuario').style.color = "red";
@@ -86,9 +91,7 @@
         let id = sessionStorage.ID_USUARIO;
         // Aqui seria a função que obteria os dados do banco de dados
         // No caso, aqui você colocaria o fetch que teria o endereço da sua rota que você criou na pasta /routes e chamaria a função plotarGraficoLinha nessa função. Exemplo:
-
         console.log(id)
-
 
         fetch(`/dados/obterDados/${id}`)
             .then(function (response) {
@@ -97,10 +100,7 @@
             .then(function (data) {
                 console.log(data);
                 if (data.length > 0) {
-                    plotarGraficoLinha(data);
-                    plotarGraficoBarra(data);
-                } else {
-
+                    plotarGraficoTentativas(data);
                 }
             })
             .catch(function (err) {
@@ -109,7 +109,7 @@
     }
 
     // Função para plotar o gráfico de linha
-    function plotarGraficoLinha(dados) {
+    function plotarGraficoTentativas(dados) {
         var acertos = [];
         var erros = [];
         var tentativas = [];
@@ -178,27 +178,48 @@
         });
     }
 
+    function obterDadosRanking() {
 
-    // Função para plotar o gráfico de barra
-    function plotarGraficoBarra(dados) {
+        fetch(`/dados/obterDadosRanking`)
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (data) {
+                console.log(data);
+                if (data.length > 0) {
+                    plotarGraficoRanking(data);
+                }
+            })
+            .catch(function (err) {
+                console.log(err);
+            })
+    }
+
+    // Função para plotar o gráfico de Ranking
+    function plotarGraficoRanking(dados) {
+        var pontuacao = [];
+        var nome = [];
+        var posicao = [];
+
+        //Preenchendo os arrays com os dados
+        for (var i = 0; i < dados.length; i++) {
+            pontuacao.push(dados[i].pontuacao);
+            nome.push(dados[i].nome);
+
+            posicao.push(`${i + 1} - ${nome[i]}`);
+        }
 
         var ctx = document.getElementById('mySecondChart').getContext('2d');
 
         var myChart = new Chart(ctx, {
             type: 'bar',
             data: {
-                labels: ['Acertos', 'Erros'],
+                labels: posicao,
                 datasets: [{
-                    label: 'Resultado Quiz',
-                    data: [dados.acertos, dados.erros],
-                    backgroundColor: [
-                        'rgba(0, 255, 0, 0.2)',
-                        'rgba(255, 0, 0, 0.2)'
-                    ],
-                    borderColor: [
-                        'green',
-                        'red'
-                    ],
+                    label: 'Leaderboard de Pontuação',
+                    data: pontuacao,
+                    backgroundColor: 'orange',
+                    borderColor: 'red',
                     borderWidth: 3
                 }]
             }
