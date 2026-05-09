@@ -33,12 +33,12 @@
 
             <div id="pontuacao" class="flex-colunar width-fit-content">
                 <div id="pontuacaoDuranteJogo" class="flex-colunar padding-8">
-                    <span class="width-fit-content">Quantidade de acertos: <span id="spanCertas"></span></span>
-                    <span class="width-fit-content">Quantidade de erros: <span id="spanErradas"></span></span>
+                    <span class="width-fit-content">Quantidade de acertos: <span id="spanAcertos"></span></span>
+                    <span class="width-fit-content">Quantidade de erros: <span id="spanErros"></span></span>
                 </div>
                 <div id="pontuacaoFinalJogo" class="flex-colunar padding-8">
                     <span id="pontuacaoFinal" class="width-fit-content">Pontuação Final:
-                        <span id="spanPontuacaoFinal">***</span>
+                        <span id="spanPontuacao">***</span>
                     </span>
                     <span id="msgFinal" class="width-fit-content">***</span>
                 </div>
@@ -192,10 +192,10 @@
 
     // variáveis globais    
     let numeroDaQuestaoAtual = 0
-    let pontuacaoFinal = 0
+    let pontuacao = 0
     let tentativaIncorreta = 0
-    let certas = 0
-    let erradas = 0
+    let acertos = 0
+    let erros = 0
     let quantidadeDeQuestoes = listaDeQuestoes.length
     // let isUltima = numeroDaQuestaoAtual == quantidadeDeQuestoes-1 ? true : false
 
@@ -286,10 +286,10 @@
             div_mensagem.innerHTML = "Atenção... essa é a ultima questão!"
             preencherHTMLcomQuestaoAtual(numeroDaQuestaoAtual)
         } else {
-            finalizarJogo()
-             setTimeout(() => {
-                        window.location = "dashboard.html";
-            }, "2000");
+            finalizarJogo();
+            // setTimeout(() => {
+            //     window.location = "dashboard.html";
+            // }, "2000");
         }
         limparCoresBackgroundOpcoes()
     }
@@ -320,9 +320,9 @@
         options.forEach((option) => {
             if (option.checked === true && option.value === respostaQuestaoAtual) {
                 document.getElementById(alternativaCorreta).classList.add("text-success-with-bg")
-                pontuacaoFinal++
-                certas++
-                document.getElementById("spanCertas").innerHTML = certas
+                pontuacao++
+                acertos++
+                document.getElementById("spanAcertos").innerHTML = acertos
                 numeroDaQuestaoAtual++
             } else if (option.checked && option.value !== respostaQuestaoAtual) {
                 const wrongLabelId = option.labels[0].id
@@ -330,8 +330,8 @@
                 document.getElementById(wrongLabelId).classList.add("text-danger-with-bg")
                 document.getElementById(alternativaCorreta).classList.add("text-success-with-bg")
                 tentativaIncorreta++
-                erradas++
-                document.getElementById("spanErradas").innerHTML = erradas
+                erros++
+                document.getElementById("spanErros").innerHTML = erros
                 numeroDaQuestaoAtual++
             }
         })
@@ -355,7 +355,7 @@
     function finalizarJogo() {
         let textoParaMensagemFinal = null
         let classComCoresParaMensagemFinal = null
-        const porcentagemFinalDeAcertos = pontuacaoFinal / quantidadeDeQuestoes
+        const porcentagemFinalDeAcertos = pontuacao / quantidadeDeQuestoes;
 
         if (porcentagemFinalDeAcertos <= 0.3) {
             textoParaMensagemFinal = "Parece que você não estudou..."
@@ -375,7 +375,7 @@
 
         document.getElementById('msgFinal').innerHTML = textoParaMensagemFinal
         document.getElementById('msgFinal').classList.add(classComCoresParaMensagemFinal)
-        document.getElementById('spanPontuacaoFinal').innerHTML = pontuacaoFinal
+        document.getElementById('spanPontuacao').innerHTML = pontuacao
 
         document.getElementById('jogo').classList.add("text-new-gray")
 
@@ -384,5 +384,45 @@
         // btnConcluir.disabled = true
         btnTentarNovamente.disabled = false
 
+        inserirDados();
+    }
+
+    function inserirDados() {
+
+        var fkUsuario = sessionStorage.ID_USUARIO;
+
+        // Enviando o valor da nova input
+        fetch("/dados/inserirDados", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                fkUsuarioServer: fkUsuario,
+                acertosServer: acertos,
+                errosServer: erros,
+                pontuacaoServer: pontuacao
+            }),
+        })
+            .then(function (resposta) {
+                console.log("resposta: ", resposta);
+
+                if (resposta.ok) {
+
+                    setTimeout(() => {
+                        window.location = "dashboard.html";
+                    }, "2000");
+
+                } else {
+                    throw "Houve um erro ao tentar realizar o cadastro!";
+                }
+            })
+            .catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+            });
+
+        return false;
     }
 </script>

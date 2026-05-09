@@ -89,6 +89,7 @@
 
         console.log(id)
 
+
         fetch(`/dados/obterDados/${id}`)
             .then(function (response) {
                 return response.json();
@@ -120,14 +121,24 @@
             somaAcertos += Number(dados[j].acertos);
         }
         mediaAcertos = somaAcertos / dados.length;
-        media_usuario.innerHTML = mediaAcertos;
+        media_usuario.innerHTML = mediaAcertos.toFixed(2);
 
         //Preenchendo os arrays com os dados
-        for (var i = dados.length - 5; i < dados.length; i++) {
-            acertos.push(dados[i].acertos);
-            erros.push(dados[i].erros);
+        if (dados.length > 0 & dados.length < 6) {
+            for (var i = 0; i < dados.length; i++) {
+                acertos.push(dados[i].acertos);
+                erros.push(dados[i].erros);
 
-            tentativas.push(`${i + 1}ª Tentativa`);
+                tentativas.push(`${i + 1}ª Tentativa`);
+            }
+
+        } else {
+            for (var i = dados.length - 5; i < dados.length; i++) {
+                acertos.push(dados[i].acertos);
+                erros.push(dados[i].erros);
+
+                tentativas.push(`${i + 1}ª Tentativa`);
+            }
         }
 
         // Capturando o elemento canvas pelo id 

@@ -29,13 +29,29 @@ CREATE TABLE quiz (
 );
 
 INSERT INTO quiz (fkUsuario, acertos, erros, pontuacao) VALUES 
-(1, 8, 5, 10),
+(1, 10, 10, 10),
 (1, 4, 9, 10),
 (1, 5, 5, 10),
 (1, 5, 8, 10),
 (1, 5, 5, 10);
+INSERT INTO quiz (fkUsuario, acertos, erros, pontuacao) VALUES 
+(1, 10, 10, 10),
+(1, 9, 9, 10),
+(1, 8, 5, 10),
+(1, 7, 8, 10),
+(1, 6, 5, 10);
+
+INSERT INTO quiz (fkUsuario, acertos, erros, pontuacao) VALUES 
+(2, 10, 10, 10),
+(2, 4, 9, 10),
+(2, 5, 5, 10),
+(2, 5, 8, 10),
+(2, 5, 5, 10);
 
 SELECT * FROM usuario;
 SELECT * FROM quiz;
 
+SELECT AVG(acertos) FROM quiz WHERE fkUsuario = 1;
+
 TRUNCATE usuario;
+TRUNCATE quiz;
