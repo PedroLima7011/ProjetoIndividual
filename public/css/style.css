@@ -1004,6 +1004,15 @@ footer .footer-links {
     margin: 0 0 35px 0;
 }
 
+#porcentagem_acertos {
+    margin: 20px 0 10px 0;
+}
+
+#porcentagem_mensagem {
+    font-size: 1.3vw;
+    margin: 0 0 25px 0;
+}
+
 .dashboard .chart-container {
     position: relative;
     display: flex;

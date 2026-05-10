@@ -265,7 +265,7 @@
         btnSubmeter.disabled = false
         btnProx.disabled = true
         btnConcluir.disabled = false
-        btnTentarNovamente.disabled = false
+        btnTentarNovamente.disabled = true
     }
 
     function preencherHTMLcomQuestaoAtual(index) {
@@ -395,8 +395,6 @@
     }
 
     function finalizarJogo() {
-        const porcentagemFinalDeAcertos = pontuacao / quantidadeDeQuestoes;
-
         document.getElementById('jogo').classList.add("text-new-gray")
 
         btnProx.disabled = true

@@ -43,6 +43,7 @@
             <div class="kpi-content">
                 <a>Porcentagem de acertos</a>
                 <div class="kpi-information" id="porcentagem_acertos"> </div>
+                <div id="porcentagem_mensagem"></div>
             </div>
         </div>
 
@@ -66,6 +67,9 @@
     </div>
 </body>
 <script>
+    div_nome.innerHTML = sessionStorage.NOME_USUARIO + ' ' + sessionStorage.SOBRENOME_USUARIO;
+    div_email.innerHTML = sessionStorage.EMAIL_USUARIO;
+
     function media() {
         let mediaUsuario = mediaAcertos;
         let mediaGeral = conta;
@@ -84,27 +88,25 @@
             document.getElementById('media_usuario').style.color = "red";
             mensagem_usuario.innerHTML += `<br> Você está abaixo da média`
             document.getElementById('mensagem_usuario').style.color = "red";
-
         }
     }
 
     function porcentagem() {
-        if (porcentagemFinalDeAcertos <= 0.3) {
-            textoParaMensagemFinal = "Parece que você não estudou..."
-            classComCoresParaMensagemFinal = "text-danger-with-bg"
-        }
-        else if (porcentagemFinalDeAcertos > 0.3 && porcentagemFinalDeAcertos < 0.9) {
-            textoParaMensagemFinal = "Pode melhorar na próxima, hein!"
-            classComCoresParaMensagemFinal = "text-warning-with-bg"
-        }
-        else if (porcentagemFinalDeAcertos >= 0.9) {
-            textoParaMensagemFinal = "Uau, parabéns!"
-            classComCoresParaMensagemFinal = "text-success-with-bg"
+        let porcentagemAcertos = (certas / 15) * 100;
+        porcentagem_acertos.innerHTML = porcentagemAcertos.toFixed(1) + "%";
+
+        console.log(porcentagemAcertos);
+
+        if (porcentagemAcertos <= 30) {
+            porcentagem_mensagem.innerHTML = "Parece que você não estudou...";
+        } else if (porcentagemAcertos > 30 && porcentagemAcertos < 70) {
+            porcentagem_mensagem.innerHTML = "Pode melhorar na próxima, hein!";
+        } else if (porcentagemAcertos == 100) {
+            porcentagem_mensagem.innerHTML = "Caramba! Gabaritou..";
+        } else {
+            porcentagem_mensagem.innerHTML = "Uau, parabéns!";
         }
     }
-
-    div_nome.innerHTML = sessionStorage.NOME_USUARIO + ' ' + sessionStorage.SOBRENOME_USUARIO;
-    div_email.innerHTML = sessionStorage.EMAIL_USUARIO;
 
     // Função chamada ao carregar a página para obter e processar os dados
     function obterDados() {
@@ -127,6 +129,8 @@
                 console.log(err);
             })
     }
+
+    let certas = 0;
     let mediaAcertos = 0;
     // Função para plotar o gráfico de linha
     function plotarGraficoTentativas(dados) {
@@ -138,6 +142,8 @@
 
         let somaAcertos = 0;
         mediaAcertos = 0;
+
+        certas = Number(dados[dados.length - 1].acertos);
 
         for (var j = 0; j < dados.length; j++) {
             somaAcertos += Number(dados[j].acertos);
@@ -236,6 +242,7 @@
                 }
             }
         });
+        porcentagem();
     }
 
     function obterDadosRanking() {
@@ -307,7 +314,6 @@
         });
 
         media();
-        porcentagem();
     }
 </script>
 
