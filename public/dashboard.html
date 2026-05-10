@@ -41,8 +41,8 @@
                 <div id="mensagem_usuario"></div>
             </div>
             <div class="kpi-content">
-                <a>Melhor jogador(a) do Quiz</a>
-                <div class="kpi-information" id="melhor_jogador"> Pedro </div>
+                <a>Porcentagem de acertos</a>
+                <div class="kpi-information" id="porcentagem_acertos"> </div>
             </div>
         </div>
 
@@ -85,6 +85,21 @@
             mensagem_usuario.innerHTML += `<br> Você está abaixo da média`
             document.getElementById('mensagem_usuario').style.color = "red";
 
+        }
+    }
+
+    function porcentagem() {
+        if (porcentagemFinalDeAcertos <= 0.3) {
+            textoParaMensagemFinal = "Parece que você não estudou..."
+            classComCoresParaMensagemFinal = "text-danger-with-bg"
+        }
+        else if (porcentagemFinalDeAcertos > 0.3 && porcentagemFinalDeAcertos < 0.9) {
+            textoParaMensagemFinal = "Pode melhorar na próxima, hein!"
+            classComCoresParaMensagemFinal = "text-warning-with-bg"
+        }
+        else if (porcentagemFinalDeAcertos >= 0.9) {
+            textoParaMensagemFinal = "Uau, parabéns!"
+            classComCoresParaMensagemFinal = "text-success-with-bg"
         }
     }
 
@@ -151,12 +166,12 @@
         if (dados.length > 0 & dados.length < 10) { // adicionando na lista pontuação para o gráfico de pontos
             for (var i = 0; i < dados.length; i++) {
                 pontuacao.push(dados[i].pontuacao);
-                tentativasP.push(`${i + 1}ª Tentativa`);
+                tentativasP.push(`${i + 1}ª`);
             }
         } else {
             for (var i = dados.length - 10; i < dados.length; i++) {
                 pontuacao.push(dados[i].pontuacao);
-                tentativasP.push(`${i + 1}ª Tentativa`);
+                tentativasP.push(`${i + 1}ª`);
             }
         }
 
@@ -203,10 +218,10 @@
             data: {
                 labels: tentativasP,
                 datasets: [{
-                    label: 'Evolução das suas pontuações',
+                    label: 'Pontuação das suas última 10 tentativas',
                     data: pontuacao,
-                    backgroundColor: 'orange',
-                    borderColor: 'yellow',
+                    backgroundColor: '#02042a',
+                    borderColor: '#02042a',
                     borderWidth: 3
                 }]
             },
@@ -292,6 +307,7 @@
         });
 
         media();
+        porcentagem();
     }
 </script>
 

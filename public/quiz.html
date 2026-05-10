@@ -31,7 +31,7 @@
             <a id="fraseQuiz">Preparado para começar o melhor <br> Quiz sobre basquete?</a>
             <button id="btnIniciarQuiz" onclick="iniciarQuiz()">INICIAR QUIZ</button>
 
-            <div id="pontuacao" class="flex-colunar width-fit-content">
+            <!-- <div id="pontuacao" class="flex-colunar width-fit-content">
                 <div id="pontuacaoDuranteJogo" class="flex-colunar padding-8">
                     <span class="width-fit-content">Quantidade de acertos: <span id="spanAcertos"></span></span>
                     <span class="width-fit-content">Quantidade de erros: <span id="spanErros"></span></span>
@@ -42,7 +42,7 @@
                     </span>
                     <span id="msgFinal" class="width-fit-content">***</span>
                 </div>
-            </div>
+            </div> -->
 
             <div id="jogo" class="width-fit-content flex-colunar">
 
@@ -83,8 +83,8 @@
                 <div class="botoes">
                     <button onclick="submeter()" id="btnSubmeter">Submeter resposta</button>
                     <button onclick="avancar()" id="btnProx" disabled>Avançar questão</button>
-                    <!-- <button onclick="finalizar()" id="btnConcluir" disabled>Finalizar Quiz</button> -->
                     <button onclick="tentarNovamente()" id="btnTentarNovamente" disabled>Tentar novamente</button>
+                    <button onclick="finalizar()" id="btnConcluir" disabled>Finalizar Quiz</button>
                 </div>
 
             </div>
@@ -245,12 +245,12 @@
     // let isUltima = numeroDaQuestaoAtual == quantidadeDeQuestoes-1 ? true : false
 
     function onloadEsconder() {
-        document.getElementById('pontuacao').style.display = "none"
+        // document.getElementById('pontuacao').style.display = "none"
         document.getElementById('jogo').style.display = "none"
     }
 
     function iniciarQuiz() {
-        document.getElementById('pontuacao').style.display = "flex"
+        // document.getElementById('pontuacao').style.display = "flex"
         document.getElementById('jogo').style.display = "flex"
         document.getElementById('btnIniciarQuiz').style.display = "none"
         document.getElementById('qtdQuestoes').innerHTML = quantidadeDeQuestoes
@@ -264,8 +264,8 @@
 
         btnSubmeter.disabled = false
         btnProx.disabled = true
-        // btnConcluir.disabled = true
-        btnTentarNovamente.disabled = true
+        btnConcluir.disabled = false
+        btnTentarNovamente.disabled = false
     }
 
     function preencherHTMLcomQuestaoAtual(index) {
@@ -302,7 +302,6 @@
             btnProx.disabled = false
 
             habilitarAlternativas(false)
-
             checarResposta()
         }
     }
@@ -331,6 +330,7 @@
             div_mensagem.innerHTML = "Atenção... essa é a ultima questão!"
             preencherHTMLcomQuestaoAtual(numeroDaQuestaoAtual)
         } else {
+            div_mensagem.innerHTML = "Acabou o questionário... Finalize ou façanovamente"
             finalizarJogo();
         }
         limparCoresBackgroundOpcoes()
@@ -338,7 +338,7 @@
 
     function tentarNovamente() {
         div_mensagem.innerHTML = ``
-
+        inserirDados();
         // atualiza a página
         window.location.reload()
     }
@@ -364,7 +364,7 @@
                 document.getElementById(alternativaCorreta).classList.add("text-success-with-bg")
                 pontuacao++
                 acertos++
-                document.getElementById("spanAcertos").innerHTML = acertos
+                // document.getElementById("spanAcertos").innerHTML = acertos
                 numeroDaQuestaoAtual++
             } else if (option.checked && option.value !== respostaQuestaoAtual) {
                 const wrongLabelId = option.labels[0].id
@@ -373,7 +373,7 @@
                 document.getElementById(alternativaCorreta).classList.add("text-success-with-bg")
                 tentativaIncorreta++
                 erros++
-                document.getElementById("spanErros").innerHTML = erros
+                // document.getElementById("spanErros").innerHTML = erros
                 numeroDaQuestaoAtual++
             }
         })
@@ -395,38 +395,23 @@
     }
 
     function finalizarJogo() {
-        let textoParaMensagemFinal = null
-        let classComCoresParaMensagemFinal = null
         const porcentagemFinalDeAcertos = pontuacao / quantidadeDeQuestoes;
-
-        if (porcentagemFinalDeAcertos <= 0.3) {
-            textoParaMensagemFinal = "Parece que você não estudou..."
-            classComCoresParaMensagemFinal = "text-danger-with-bg"
-        }
-        else if (porcentagemFinalDeAcertos > 0.3 && porcentagemFinalDeAcertos < 0.9) {
-            textoParaMensagemFinal = "Pode melhorar na próxima, hein!"
-            classComCoresParaMensagemFinal = "text-warning-with-bg"
-        }
-        else if (porcentagemFinalDeAcertos >= 0.9) {
-            textoParaMensagemFinal = "Uau, parabéns!"
-            classComCoresParaMensagemFinal = "text-success-with-bg"
-        }
-
-        textoParaMensagemFinal += "<br> Você acertou " + Math.round((porcentagemFinalDeAcertos) * 100) + "% das questões."
-
-
-        document.getElementById('msgFinal').innerHTML = textoParaMensagemFinal
-        document.getElementById('msgFinal').classList.add(classComCoresParaMensagemFinal)
-        document.getElementById('spanPontuacao').innerHTML = pontuacao
 
         document.getElementById('jogo').classList.add("text-new-gray")
 
         btnProx.disabled = true
         btnSubmeter.disabled = true
-        // btnConcluir.disabled = true
+        btnConcluir.disabled = false
         btnTentarNovamente.disabled = false
+    }
 
-        inserirDados();
+    function finalizar() {
+        setTimeout(() => {
+                        window.location = "dashboard.html";
+        }, "1000");
+        if (acertos > 0 || erros > 0) {
+            inserirDados();
+        }
     }
 
     function inserirDados() {
@@ -450,16 +435,6 @@
         })
             .then(function (resposta) {
                 console.log("resposta: ", resposta);
-
-                if (resposta.ok) {
-
-                    setTimeout(() => {
-                        window.location = "dashboard.html";
-                    }, "2000");
-
-                } else {
-                    throw "Houve um erro ao tentar realizar o cadastro!";
-                }
             })
             .catch(function (resposta) {
                 console.log(`#ERRO: ${resposta}`);
