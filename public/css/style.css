@@ -902,18 +902,20 @@ footer .footer-links {
     display: flex;
     flex-direction: row;
     align-items: center;
-    height: 100vh;
+    height: 150vh;
     margin: 0;
     background-color: rgb(97, 97, 107);
 }
 
 .dashboard nav {
+    position: fixed;
+    top: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
     height: 100vh;
-    width: 30vw;
+    width: 21vw;
     color: white;
     background-color: var(--AzulEscuro);
     border-right: solid 5px var(--Laranja);
@@ -953,9 +955,11 @@ footer .footer-links {
 }
 
 .dashboard .dashboard-content {
+    position: absolute;
     display: flex;
     flex-direction: column;
-    width: 87vw;
+    width: 78vw;
+    right: 0;
 }
 
 .dashboard .containers {
@@ -1009,7 +1013,6 @@ footer .footer-links {
     background: white;
     border-radius: 20px;
     padding: 20px 25px 0 25px;
-    border: solid 2x var(--Laranja);
 }
 
 :root {

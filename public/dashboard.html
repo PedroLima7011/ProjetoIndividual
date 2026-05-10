@@ -54,6 +54,14 @@
                 <canvas id="mySecondChart"></canvas>
             </div>
         </div>
+        <div class="containers">
+            <div class="chart-container">
+                <canvas id="myThirdChart"></canvas>
+            </div>
+            <div class="chart-container">
+                <canvas id="myFourthChart"></canvas>
+            </div>
+        </div>
 
     </div>
 </body>
@@ -113,6 +121,8 @@
         var acertos = [];
         var erros = [];
         var tentativas = [];
+        var pontuacao = [];
+        var tentativasP = [];
 
         let somaAcertos = 0;
         let mediaAcertos = 0;
@@ -171,7 +181,45 @@
                 scales: {
                     y: {
                         beginAtZero: true,
-                        max: 10
+                        max: 16
+                    }
+                }
+            }
+        });
+
+        if (dados.length > 0 & dados.length < 10) {
+            for (var i = 0; i < dados.length; i++) {
+                pontuacao.push(dados[i].pontuacao);
+                tentativasP.push(`${i + 1}ª Tentativa`);
+            }
+        } else {
+            for (var i = dados.length - 10; i < dados.length; i++) {
+                pontuacao.push(dados[i].pontuacao);                
+                tentativasP.push(`${i + 1}ª Tentativa`);
+            }
+        }
+
+        var ctx2 = document.getElementById('myThirdChart').getContext('2d');
+
+        var myChart2 = new Chart(ctx2, {
+            type: 'line',
+            data: {
+                labels: tentativasP,
+                datasets: [{
+                    label: 'Evolução das suas pontuações',
+                    data: pontuacao,
+                    backgroundColor: 'orange',
+                    borderColor: 'yellow',
+                    borderWidth: 3
+                }]
+            },
+            options: {
+                responsive: true,
+
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 20
                     }
                 }
             }
@@ -206,7 +254,7 @@
             pontuacao.push(dados[i].pontuacao);
             nome.push(dados[i].nome);
 
-            posicao.push(`${i + 1} - ${nome[i]}`);
+            posicao.push(`${i + 1}º - ${nome[i]}`);
         }
 
         var ctx = document.getElementById('mySecondChart').getContext('2d');
@@ -222,6 +270,16 @@
                     borderColor: 'red',
                     borderWidth: 3
                 }]
+            },
+            options: {
+                responsive: true,
+
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 20
+                    }
+                }
             }
         });
     }

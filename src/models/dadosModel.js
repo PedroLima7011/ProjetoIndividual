@@ -2,7 +2,7 @@ var database = require("../database/config")
 
 function obterDados(id) {
     var instrucaoSql = `
-       SELECT fkUsuario, acertos, erros FROM quiz WHERE fkUsuario = '${id}' ORDER BY idQuiz ASC;
+       SELECT fkUsuario, acertos, erros, pontuacao FROM quiz WHERE fkUsuario = '${id}' ORDER BY idQuiz ASC;
     `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
