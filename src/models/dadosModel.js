@@ -10,9 +10,9 @@ function obterDados(id) {
 
 function obterDadosRanking() {
     var instrucaoSql = `
-        SELECT nome, MAX(pontuacao) AS pontuacao FROM usuario 
+        SELECT AVG(acertos) AS mediaGeral, COUNT(idQuiz) AS quantidade, nome, MAX(pontuacao) AS pontuacao FROM usuario 
             JOIN quiz ON id = fkUsuario 
-        GROUP BY nome ORDER BY pontuacao DESC LIMIT 5;
+        GROUP BY nome ORDER BY pontuacao DESC;
     `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);

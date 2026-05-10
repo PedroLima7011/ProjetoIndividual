@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="./css/style.css">
 </head>
 
-<body class="dashboard" onload="media(), obterDados(), obterDadosRanking()">
+<body class="dashboard" onload="obterDados(), obterDadosRanking()">
 
     <nav>
         <div class="user">
@@ -33,7 +33,7 @@
         <div class="containers">
             <div class="kpi-content">
                 <a>Média geral de acertos</a>
-                <div class="kpi-information" id="media_geral"> 8 </div>
+                <div class="kpi-information" id="media_geral"></div>
             </div>
             <div class="kpi-content">
                 <a>Média de acertos do Usuário</a>
@@ -67,11 +67,8 @@
 </body>
 <script>
     function media() {
-        let mediaUsuario = 5;
-        let mediaGeral = 6;
-
-        // let mediaUsuario = media_usuario.value;
-        // let mediaGeral = media_geral.value;
+        let mediaUsuario = mediaAcertos;
+        let mediaGeral = conta;
 
         if (mediaUsuario > mediaGeral) { // Se a media do usuario passar a geral fica verde
             document.getElementById('media_usuario').style.color = "green";
@@ -115,7 +112,7 @@
                 console.log(err);
             })
     }
-
+    let mediaAcertos = 0;
     // Função para plotar o gráfico de linha
     function plotarGraficoTentativas(dados) {
         var acertos = [];
@@ -125,17 +122,17 @@
         var tentativasP = [];
 
         let somaAcertos = 0;
-        let mediaAcertos = 0;
+        mediaAcertos = 0;
 
         for (var j = 0; j < dados.length; j++) {
             somaAcertos += Number(dados[j].acertos);
         }
         mediaAcertos = somaAcertos / dados.length;
-        media_usuario.innerHTML = mediaAcertos.toFixed(2);
+        media_usuario.innerHTML = mediaAcertos.toFixed(2); // media de acertos usuario
 
         //Preenchendo os arrays com os dados
-        if (dados.length > 0 & dados.length < 6) {
-            for (var i = 0; i < dados.length; i++) {
+        if (dados.length > 0 & dados.length < 6) { // adicionando 5 valores para as listas acertos, erros e tentativas
+            for (var i = 0; i < dados.length; i++) { // para serem plotadas no gráfico
                 acertos.push(dados[i].acertos);
                 erros.push(dados[i].erros);
 
@@ -148,6 +145,18 @@
                 erros.push(dados[i].erros);
 
                 tentativas.push(`${i + 1}ª Tentativa`);
+            }
+        }
+
+        if (dados.length > 0 & dados.length < 10) { // adicionando na lista pontuação para o gráfico de pontos
+            for (var i = 0; i < dados.length; i++) {
+                pontuacao.push(dados[i].pontuacao);
+                tentativasP.push(`${i + 1}ª Tentativa`);
+            }
+        } else {
+            for (var i = dados.length - 10; i < dados.length; i++) {
+                pontuacao.push(dados[i].pontuacao);
+                tentativasP.push(`${i + 1}ª Tentativa`);
             }
         }
 
@@ -186,18 +195,6 @@
                 }
             }
         });
-
-        if (dados.length > 0 & dados.length < 10) {
-            for (var i = 0; i < dados.length; i++) {
-                pontuacao.push(dados[i].pontuacao);
-                tentativasP.push(`${i + 1}ª Tentativa`);
-            }
-        } else {
-            for (var i = dados.length - 10; i < dados.length; i++) {
-                pontuacao.push(dados[i].pontuacao);                
-                tentativasP.push(`${i + 1}ª Tentativa`);
-            }
-        }
 
         var ctx2 = document.getElementById('myThirdChart').getContext('2d');
 
@@ -243,19 +240,30 @@
             })
     }
 
+    let conta = 0;
     // Função para plotar o gráfico de Ranking
     function plotarGraficoRanking(dados) {
         var pontuacao = [];
         var nome = [];
         var posicao = [];
 
+        let mediaGeral = 0;
+        let quantidade = 0;
+        conta = 0;
+
         //Preenchendo os arrays com os dados
-        for (var i = 0; i < dados.length; i++) {
+        for (var i = 0; i < 5; i++) {
             pontuacao.push(dados[i].pontuacao);
             nome.push(dados[i].nome);
-
             posicao.push(`${i + 1}º - ${nome[i]}`);
         }
+
+        for (var i = 0; i < dados.length; i++) {
+            quantidade += Number(dados[i].quantidade);
+            mediaGeral += Number(dados[i].mediaGeral) * Number(dados[i].quantidade);
+        }
+        conta = mediaGeral / quantidade;
+        media_geral.innerHTML = conta.toFixed(2);
 
         var ctx = document.getElementById('mySecondChart').getContext('2d');
 
@@ -282,6 +290,8 @@
                 }
             }
         });
+
+        media();
     }
 </script>
 
