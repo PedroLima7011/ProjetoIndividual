@@ -55,12 +55,9 @@
                 <canvas id="mySecondChart"></canvas>
             </div>
         </div>
-        <div class="containers">
+        <div class="containers-grande">
             <div class="chart-container">
                 <canvas id="myThirdChart"></canvas>
-            </div>
-            <div class="chart-container">
-                <canvas id="myFourthChart"></canvas>
             </div>
         </div>
 
@@ -224,7 +221,7 @@
             data: {
                 labels: tentativasP,
                 datasets: [{
-                    label: 'Pontuação das suas última 10 tentativas',
+                    label: 'Pontuação',
                     data: pontuacao,
                     backgroundColor: '#02042a',
                     borderColor: '#02042a',
@@ -237,7 +234,13 @@
                 scales: {
                     y: {
                         beginAtZero: true,
-                        max: 20
+                        max: 20,
+                    },
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Últimas 10 entativas'
+                        }
                     }
                 }
             }
