@@ -277,10 +277,18 @@
         conta = 0;
 
         //Preenchendo os arrays com os dados
-        for (var i = 0; i < 5; i++) {
-            pontuacao.push(dados[i].pontuacao);
-            nome.push(dados[i].nome);
-            posicao.push(`${i + 1}º - ${nome[i]}`);
+        if (dados.length >= 5) {
+            for (var i = 0; i < 5; i++) {
+                pontuacao.push(dados[i].pontuacao);
+                nome.push(dados[i].nome);
+                posicao.push(`${i + 1}º - ${nome[i]}`);
+            }
+        } else {
+            for (var i = 0; i < dados.length; i++) {
+                pontuacao.push(dados[i].pontuacao);
+                nome.push(dados[i].nome);
+                posicao.push(`${i + 1}º - ${nome[i]}`);
+            }
         }
 
         for (var i = 0; i < dados.length; i++) {

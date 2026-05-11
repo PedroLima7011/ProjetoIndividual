@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PHA | Quiz</title>
-    <link rel="shortcut icon" href="./assets/imgs/icon.png" type="image/x-icon">
-    <link rel="stylesheet" href="./css/style.css">
+    <meta charset=" UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PHA | Quiz</title>
+<link rel="shortcut icon" href="./assets/imgs/icon.png" type="image/x-icon">
+<link rel="stylesheet" href="./css/style.css">
 </head>
 
 
@@ -22,7 +22,7 @@
             <li><a href="index.html">Home</a></li>
             <li><a href="index.html#rules">Regras</a></li>
             <li><a href="index.html#fundamentals">Como Jogar</a></li>
-            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="dashboard.html">Resultados</a></li>
         </ul>
     </nav>
 
@@ -328,11 +328,16 @@
         if (numeroDaQuestaoAtual < quantidadeDeQuestoes - 1) {
             preencherHTMLcomQuestaoAtual(numeroDaQuestaoAtual)
         } else if (numeroDaQuestaoAtual == quantidadeDeQuestoes - 1) {
-            div_mensagem.innerHTML = "Atenção... essa é a ultima questão!"
             preencherHTMLcomQuestaoAtual(numeroDaQuestaoAtual)
+            div_mensagem.innerHTML = "Atenção... Essa é a ultima questão!"
         } else {
-            div_mensagem.innerHTML = "Acabou o questionário... Finalize ou façanovamente"
+            div_mensagem.innerHTML = "Acabou o questionário... Finalize ou faça novamente"
             finalizarJogo();
+        }
+        
+        if (numeroDaQuestaoAtual == quantidadeDeQuestoes - 5) {
+            div_mensagem.innerHTML = "Atenção! A partir de agora está no modo difícil <br> cada questão irá valer 2 pontos.."
+            preencherHTMLcomQuestaoAtual(numeroDaQuestaoAtual)
         }
         limparCoresBackgroundOpcoes()
     }
@@ -365,6 +370,9 @@
                 document.getElementById(alternativaCorreta).classList.add("text-success-with-bg")
                 pontuacao++
                 acertos++
+                if (numeroDaQuestaoAtual >= 10) {
+                    pontuacao++
+                }
                 // document.getElementById("spanAcertos").innerHTML = acertos
                 numeroDaQuestaoAtual++
             } else if (option.checked && option.value !== respostaQuestaoAtual) {
@@ -406,7 +414,7 @@
 
     function finalizar() {
         setTimeout(() => {
-                        window.location = "dashboard.html";
+            window.location = "dashboard.html";
         }, "1000");
         if (acertos > 0 || erros > 0) {
             inserirDados();
