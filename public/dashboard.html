@@ -43,23 +43,26 @@
             </div>
 
             <div class="kpi-content">
-                <a>Porcentagem de acertos</a>
+                <a>Último desempenho</a>
                 <div class="kpi-information" id="porcentagem_acertos"> </div>
                 <div class="kpi-mensagem" id="porcentagem_mensagem"></div>
             </div>
         </div>
 
         <div class="containers">
+            <h3 id="acertosErros"> Resultados das últimas 5 tentativas </h3>
             <div class="chart-container">
                 <canvas id="myChart"></canvas>
             </div>
 
+            <h3 id="leaderboard"> Leaderboard de pontuação </h3>
             <div class="chart-container">
                 <canvas id="mySecondChart"></canvas>
             </div>
         </div>
 
         <div class="containers-grande">
+            <h3> Evolução das suas últimas 10 tentativas (pontuação)</h3>
             <div class="chart-container">
                 <canvas id="myThirdChart"></canvas>
             </div>
@@ -131,24 +134,28 @@
 
     function melhorPontuacao() {
         let pontuacaoUsuario = pontuacao[0];
-        for (let i = 0; i < pontuacao.length; i++) {
-            if(pontuacaoUsuario < pontuacao[i]) {
-                pontuacaoUsuario = pontuacao[i];
+        if (pontuacaoUsuario == undefined) {
+            pontuacaoUsuario = 0;
+        } else {
+            for (let i = 0; i < pontuacao.length; i++) {
+                if (pontuacaoUsuario < pontuacao[i]) {
+                    pontuacaoUsuario = pontuacao[i];
+                }
             }
         }
 
         let diferenca = 0;
         melhor_pontuacao.innerHTML = pontuacaoUsuario;
 
-        if (pontuacaoUsuario < pontuacao[0]) { 
-            diferenca = pontuacao[0] - pontuacaoUsuario;
+        if (pontuacaoUsuario < maiorPontuacao) {
+            diferenca = maiorPontuacao - pontuacaoUsuario;
             document.getElementById('melhor_pontuacao').style.color = "red";
-            pontuacao_mensagem.innerHTML += `<br> <b> Faltam ${diferenca} pontos para o Top 1`
+            pontuacao_mensagem.innerHTML += `<br> <b> Faltam ${diferenca} ponto(s) para o Top 1`
             document.getElementById('pontuacao_mensagem').style.color = "red";
 
         } else {
             document.getElementById('melhor_pontuacao').style.color = "green";
-            pontuacao_mensagem.innerHTML += `<br> <b> Você é o Top 1`
+            pontuacao_mensagem.innerHTML += `<br> <b> Uau, você é o Top 1..`
             document.getElementById('pontuacao_mensagem').style.color = "green";
         }
     }
@@ -173,23 +180,23 @@
             .catch(function (err) {
                 console.log(err);
             })
-        }
-        
-        let certas = 0;
-        let mediaAcertos = 0;
-        var pontuacao = [];
+    }
+
+    let certas = 0;
+    let mediaAcertos = 0;
+    var pontuacao = [];
     // Função para plotar o gráfico de linha
     function plotarGraficoTentativas(dados) {
         var acertos = [];
         var erros = [];
         var tentativas = [];
         var tentativasP = [];
-        
+
         let somaAcertos = 0;
         mediaAcertos = 0;
 
         certas = Number(dados[dados.length - 1].acertos);
-        
+
         for (var j = 0; j < dados.length; j++) {
             somaAcertos += Number(dados[j].acertos);
         }
@@ -226,6 +233,7 @@
             }
         }
 
+
         // Capturando o elemento canvas pelo id 
         var ctx = document.getElementById('myChart');
         // Criando o gráfico de linha usando o Chart.js
@@ -248,7 +256,7 @@
                         borderColor: 'red',
                         borderWidth: 3
                     }
-                    ]
+                ]
             },
             options: {
                 responsive: true,
@@ -295,9 +303,9 @@
         });
         porcentagem();
     }
-    
+
     function obterDadosRanking() {
-        
+
         fetch(`/dados/obterDadosRanking`)
             .then(function (response) {
                 return response.json();
@@ -314,6 +322,7 @@
     }
 
     let conta = 0;
+    let maiorPontuacao = 0;
     // Função para plotar o gráfico de Ranking
     function plotarGraficoRanking(dados) {
         var pontuacao = [];
@@ -337,23 +346,25 @@
                 posicao.push(`${i + 1}º - ${nome[i]}`);
             }
         }
-        
+
+        maiorPontuacao = pontuacao[0]
+
         for (var i = 0; i < dados.length; i++) {
             quantidade += Number(dados[i].quantidade);
             somaGeral += Number(dados[i].mediaGeral) * Number(dados[i].quantidade);
         }
-        
+
         conta = somaGeral / quantidade;
         media_geral.innerHTML = conta.toFixed(2);
-        
+
         var ctx = document.getElementById('mySecondChart').getContext('2d');
-        
+
         var myChart = new Chart(ctx, {
             type: 'bar',
             data: {
                 labels: posicao,
                 datasets: [{
-                    label: 'Leaderboard de Pontuação',
+                    label: 'Pontuação',
                     data: pontuacao,
                     backgroundColor: 'orange',
                     borderColor: 'red',
