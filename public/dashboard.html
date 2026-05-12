@@ -35,15 +35,17 @@
                 <a>Média geral de acertos</a>
                 <div class="kpi-information" id="media_geral"></div>
             </div>
+
             <div class="kpi-content">
                 <a>Média de acertos do Usuário</a>
                 <div class="kpi-information" id="media_usuario"></div>
-                <div id="mensagem_usuario"></div>
+                <div class="kpi-mensagem" id="mensagem_usuario"></div>
             </div>
+
             <div class="kpi-content">
                 <a>Porcentagem de acertos</a>
                 <div class="kpi-information" id="porcentagem_acertos"> </div>
-                <div id="porcentagem_mensagem"></div>
+                <div class="kpi-mensagem" id="porcentagem_mensagem"></div>
             </div>
         </div>
 
@@ -51,13 +53,21 @@
             <div class="chart-container">
                 <canvas id="myChart"></canvas>
             </div>
+
             <div class="chart-container">
                 <canvas id="mySecondChart"></canvas>
             </div>
         </div>
+
         <div class="containers-grande">
             <div class="chart-container">
                 <canvas id="myThirdChart"></canvas>
+            </div>
+
+            <div class="kpi-pontuacao">
+                <a>Sua melhor pontuação</a>
+                <div class="kpi-information" id="melhor_pontuacao"> </div>
+                <div class="kpi-mensagem" id="pontuacao_mensagem"></div>
             </div>
         </div>
 
@@ -68,22 +78,24 @@
     div_email.innerHTML = sessionStorage.EMAIL_USUARIO;
 
     function media() {
-        let mediaUsuario = mediaAcertos;
-        let mediaGeral = conta;
+        let mediaUsuario = 0;
+        let mediaGeralAcumulada = 0;
+        mediaUsuario = mediaAcertos.toFixed(2);
+        mediaGeralAcumulada = conta.toFixed(2);
 
-        if (mediaUsuario > mediaGeral) { // Se a media do usuario passar a geral fica verde
+        if (mediaUsuario > mediaGeralAcumulada) { // Se a media do usuario passar a geral fica verde
             document.getElementById('media_usuario').style.color = "green";
-            mensagem_usuario.innerHTML += `<br> Você está acima da média`
+            mensagem_usuario.innerHTML += `<br> <b> Você está acima da média`
             document.getElementById('mensagem_usuario').style.color = "green";
 
-        } else if (mediaUsuario == mediaGeral) { // Se a media do usuario passar a geral fica verde
-            document.getElementById('media_usuario').style.color = "orange";
-            mensagem_usuario.innerHTML += `<br> Você está na média`
-            document.getElementById('mensagem_usuario').style.color = "orange";
+        } else if (mediaUsuario == mediaGeralAcumulada) { // Se a media do usuario for igual fica laranja
+            document.getElementById('media_usuario').style.color = "#FC6625";
+            mensagem_usuario.innerHTML += `<br> <b> Você está na média`
+            document.getElementById('mensagem_usuario').style.color = "#FC6625";
 
         } else {
             document.getElementById('media_usuario').style.color = "red";
-            mensagem_usuario.innerHTML += `<br> Você está abaixo da média`
+            mensagem_usuario.innerHTML += `<br> <b> Você está abaixo da média`
             document.getElementById('mensagem_usuario').style.color = "red";
         }
     }
@@ -95,13 +107,49 @@
         console.log(porcentagemAcertos);
 
         if (porcentagemAcertos <= 30) {
-            porcentagem_mensagem.innerHTML = "Parece que você não estudou...";
+            porcentagem_mensagem.innerHTML = "<b> Parece que você não estudou...";
+            document.getElementById('porcentagem_acertos').style.color = "red";
+            document.getElementById('porcentagem_mensagem').style.color = "red";
+
         } else if (porcentagemAcertos > 30 && porcentagemAcertos < 70) {
-            porcentagem_mensagem.innerHTML = "Pode melhorar na próxima, hein!";
+            porcentagem_mensagem.innerHTML = "<b> Pode melhorar na próxima, hein!";
+            document.getElementById('porcentagem_acertos').style.color = "#FC6625";
+            document.getElementById('porcentagem_mensagem').style.color = "#FC6625";
+
         } else if (porcentagemAcertos == 100) {
-            porcentagem_mensagem.innerHTML = "Caramba! Gabaritou..";
+            porcentagem_mensagem.innerHTML = "<b> Caramba! Gabaritou..";
+            document.getElementById('porcentagem_acertos').style.color = "green";
+            document.getElementById('porcentagem_mensagem').style.color = "green";
+
         } else {
-            porcentagem_mensagem.innerHTML = "Uau, parabéns!";
+            porcentagem_mensagem.innerHTML = "<b> Uau, parabéns!";
+            document.getElementById('porcentagem_acertos').style.color = "green";
+            document.getElementById('porcentagem_mensagem').style.color = "green";
+
+        }
+    }
+
+    function melhorPontuacao() {
+        let pontuacaoUsuario = pontuacao[0];
+        for (let i = 0; i < pontuacao.length; i++) {
+            if(pontuacaoUsuario < pontuacao[i]) {
+                pontuacaoUsuario = pontuacao[i];
+            }
+        }
+
+        let diferenca = 0;
+        melhor_pontuacao.innerHTML = pontuacaoUsuario;
+
+        if (pontuacaoUsuario < pontuacao[0]) { 
+            diferenca = pontuacao[0] - pontuacaoUsuario;
+            document.getElementById('melhor_pontuacao').style.color = "red";
+            pontuacao_mensagem.innerHTML += `<br> <b> Faltam ${diferenca} pontos para o Top 1`
+            document.getElementById('pontuacao_mensagem').style.color = "red";
+
+        } else {
+            document.getElementById('melhor_pontuacao').style.color = "green";
+            pontuacao_mensagem.innerHTML += `<br> <b> Você é o Top 1`
+            document.getElementById('pontuacao_mensagem').style.color = "green";
         }
     }
 
@@ -125,23 +173,23 @@
             .catch(function (err) {
                 console.log(err);
             })
-    }
-
-    let certas = 0;
-    let mediaAcertos = 0;
+        }
+        
+        let certas = 0;
+        let mediaAcertos = 0;
+        var pontuacao = [];
     // Função para plotar o gráfico de linha
     function plotarGraficoTentativas(dados) {
         var acertos = [];
         var erros = [];
         var tentativas = [];
-        var pontuacao = [];
         var tentativasP = [];
-
+        
         let somaAcertos = 0;
         mediaAcertos = 0;
 
         certas = Number(dados[dados.length - 1].acertos);
-
+        
         for (var j = 0; j < dados.length; j++) {
             somaAcertos += Number(dados[j].acertos);
         }
@@ -200,7 +248,7 @@
                         borderColor: 'red',
                         borderWidth: 3
                     }
-                ]
+                    ]
             },
             options: {
                 responsive: true,
@@ -247,9 +295,9 @@
         });
         porcentagem();
     }
-
+    
     function obterDadosRanking() {
-
+        
         fetch(`/dados/obterDadosRanking`)
             .then(function (response) {
                 return response.json();
@@ -272,9 +320,8 @@
         var nome = [];
         var posicao = [];
 
-        let mediaGeral = 0;
+        let somaGeral = 0;
         let quantidade = 0;
-        conta = 0;
 
         //Preenchendo os arrays com os dados
         if (dados.length >= 5) {
@@ -290,16 +337,17 @@
                 posicao.push(`${i + 1}º - ${nome[i]}`);
             }
         }
-
+        
         for (var i = 0; i < dados.length; i++) {
             quantidade += Number(dados[i].quantidade);
-            mediaGeral += Number(dados[i].mediaGeral) * Number(dados[i].quantidade);
+            somaGeral += Number(dados[i].mediaGeral) * Number(dados[i].quantidade);
         }
-        conta = mediaGeral / quantidade;
+        
+        conta = somaGeral / quantidade;
         media_geral.innerHTML = conta.toFixed(2);
-
+        
         var ctx = document.getElementById('mySecondChart').getContext('2d');
-
+        
         var myChart = new Chart(ctx, {
             type: 'bar',
             data: {
@@ -324,7 +372,9 @@
             }
         });
 
-        media();
+        setTimeout(() => {
+            media(), melhorPontuacao()
+        }, 40);
     }
 </script>
 
