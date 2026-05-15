@@ -59,14 +59,16 @@ SELECT * FROM quiz;
 SELECT AVG(acertos) FROM quiz WHERE fkUsuario = 1;
 SELECT ROUND(AVG(acertos), 2) FROM quiz;
 
-TRUNCATE usuario;
-TRUNCATE quiz;
+-- TRUNCATE usuario;
+-- TRUNCATE quiz;
 
-DROP TABLE usuario;
-DROP TABLE quiz;
+-- DROP TABLE usuario;
+-- DROP TABLE quiz; 
 
-SELECT nome, MAX(pontuacao) AS pontuacao FROM usuario JOIN quiz ON id = fkUsuario 
+SELECT AVG(acertos), COUNT(idQuiz), nome, MAX(pontuacao) AS pontuacao FROM usuario JOIN quiz ON id = fkUsuario 
 	GROUP BY nome ORDER BY pontuacao DESC LIMIT 5;
+    
 SELECT nome, MAX(pontuacao) AS pontuacao FROM usuario JOIN quiz ON id = fkUsuario 
 	GROUP BY nome ORDER BY pontuacao DESC;
 
+SELECT fkUsuario, acertos, erros, pontuacao FROM quiz WHERE fkUsuario = 1 ORDER BY idQuiz ASC;

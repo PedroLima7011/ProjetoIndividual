@@ -82,9 +82,9 @@
 
     function media() {
         let mediaUsuario = 0;
+        mediaUsuario = Number(mediaAcertos.toFixed(2));
         let mediaGeralAcumulada = 0;
-        mediaUsuario = mediaAcertos.toFixed(2);
-        mediaGeralAcumulada = conta.toFixed(2);
+        mediaGeralAcumulada = Number(conta.toFixed(2));
 
         if (mediaUsuario > mediaGeralAcumulada) { // Se a media do usuario passar a geral fica verde
             document.getElementById('media_usuario').style.color = "green";
@@ -155,7 +155,7 @@
 
         } else {
             document.getElementById('melhor_pontuacao').style.color = "green";
-            pontuacao_mensagem.innerHTML += `<br> <b> Uau, você é o Top 1..`
+            pontuacao_mensagem.innerHTML += `<br> <b> Uau, você já está no topo..`
             document.getElementById('pontuacao_mensagem').style.color = "green";
         }
     }
@@ -279,9 +279,11 @@
                 datasets: [{
                     label: 'Pontuação',
                     data: pontuacao,
-                    backgroundColor: '#02042a',
-                    borderColor: '#02042a',
-                    borderWidth: 3
+                    backgroundColor: 'rgba(252, 102, 37, 0.4)',
+                    borderColor: '#FC6625',
+                    borderWidth: 3,
+                    fill: true,
+                    tension: 0.3
                 }]
             },
             options: {

@@ -169,7 +169,6 @@ function logar() {
 
 }
 
-/* Login */
 function obterDados() {
 
     fetch("/usuarios/obterDados", {
