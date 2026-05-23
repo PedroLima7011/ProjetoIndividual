@@ -91,7 +91,7 @@ header img {
     width: 80%;
     border-left: solid 4px var(--Laranja);
     border-right: solid 4px var(--Laranja);
-    animation: CarrosselAnimado 18s infinite;
+    animation: CarrosselAnimado 16s infinite;
 }
 
 .fundo img {
@@ -113,7 +113,7 @@ header img {
     transform: translate(-50%, -50%);
     /* Quando queremos centralizar algo a partir de seu centro */
     text-align: center;
-    font-size: 4vw;
+    font-size: 4.5vw;
     font-family: 'Bebas Neue';
 }
 
@@ -185,7 +185,7 @@ header img {
 .intro-title hr {
     background-color: var(--Laranja);
     padding: 0.2vw;
-    width: 98.4vw;
+    width: auto;
     border: none;
 }
 
@@ -282,7 +282,7 @@ header img {
     background-color: var(--Laranja);
     padding: 0.2vw;
     margin: 5vh 0 0 0;
-    width: 98.4vw;
+    width: 99.6%;
     border: none;
 }
 
@@ -352,7 +352,7 @@ header img {
     background-color: var(--Laranja);
     padding: 0.2vw;
     margin: 5vh 0 0 0;
-    width: 98.4vw;
+    width: 99.6%;
     border: none;
 }
 
@@ -752,6 +752,7 @@ footer .footer-links {
 .quiz {
     display: flex;
     flex-direction: row;
+    font-size: 18px;
 }
 
 .PosicaoQuiz {
@@ -837,7 +838,7 @@ footer .footer-links {
 
 .quiz .text-bold {
     font-weight: bold;
-    padding: 20px;
+    padding: 20px 0;
 }
 
 .quiz .text-success-with-bg {
@@ -924,18 +925,35 @@ footer .footer-links {
 .quiz ul {
     display: flex;
     flex-direction: column;
+    text-align: left;
     height: 30%;
-    width: 70%;
-    margin-bottom: 5vh;
+    width: 100%;
+    margin-bottom: 15vh;
 }
 
 .quiz li {
-    margin: 30px 0 0 30px;
+    padding: 15px 30px;
+    border: solid 1px #040d3f;
 }
 
 .quiz ul a {
-    font-size: 30px;
+    font-size: 25px;
     color: white;
+    transition: 1s;
+}
+
+.quiz ul a:hover {
+    color: var(--Laranja);
+    transition: 0.1s;
+    span {
+        color: var(--Laranja);
+        transition: 0.1s;
+    }
+}
+
+.quiz ul a span {
+    color: var(--AzulEscuro);
+    transition: 1s;
 }
 
 /*===========*/
@@ -984,26 +1002,44 @@ footer .footer-links {
 .dashboard ul {
     display: flex;
     flex-direction: column;
+    text-align: left;
     height: 30%;
-    width: 70%;
-    margin-bottom: 5vh;
+    width: 100%;
+    margin-bottom: 15vh;
 }
 
 .dashboard li {
-    margin: 30px 0 0 30px;
+    padding: 15px 30px;
+    border: solid 1px #040d3f;
 }
 
 .dashboard ul a {
-    font-size: 30px;
+    font-size: 25px;
     color: white;
+    transition: 1s;
 }
+
+.dashboard ul a:hover {
+    color: var(--Laranja);
+    transition: 0.1s;
+    span {
+        color: var(--Laranja);
+        transition: 0.1s;
+    }
+}
+
+.dashboard ul a span {
+    color: var(--AzulEscuro);
+    transition: 1s;
+}
+
 
 .dashboard .dashboard-content {
     position: absolute;
     display: flex;
     flex-direction: column;
     width: 78vw;
-    right: 0;   
+    right: 0;
 }
 
 .dashboard .containers {
@@ -1023,7 +1059,7 @@ footer .footer-links {
 .dashboard .containers #leaderboard {
     position: absolute;
     margin-left: 39vw;
-} 
+}
 
 .dashboard .kpi-content {
     display: flex;
@@ -1090,7 +1126,7 @@ footer .footer-links {
     justify-content: space-between;
     margin: 1vh;
     margin-top: 5vh;
-    padding: 1.5vw 2vw 1.5vw 2vw; 
+    padding: 1.5vw 2vw 1.5vw 2vw;
     width: 60%;
     height: 50%;
     text-align: center;
@@ -1103,7 +1139,6 @@ footer .footer-links {
     margin-left: 1.4vh;
     color: white;
 }
-
 
 .kpi-pontuacao {
     display: flex;
@@ -1132,6 +1167,39 @@ footer .footer-links {
 .kpi-pontuacao .kpi-information {
     font-size: 10vw;
     margin: 2vw 0 0 0;
+}
+
+/* Scroll bar */
+.home::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+}
+
+.home::-webkit-scrollbar-track {
+    /* Fundo da barra de rolagem (trilho) */
+    background: var(--AzulEscuro);
+}
+
+.home::-webkit-scrollbar-thumb {
+    /* O "botão" que você arrasta (thumb) */
+    background: var(--Laranja);
+    border-radius: 8px;
+}
+
+.dashboard::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+}
+
+.dashboard::-webkit-scrollbar-track {
+    /* Fundo da barra de rolagem (trilho) */
+    background: var(--AzulEscuro);
+}
+
+.dashboard::-webkit-scrollbar-thumb {
+    /* O "botão" que você arrasta (thumb) */
+    background: var(--Laranja);
+    border-radius: 8px;
 }
 
 :root {
