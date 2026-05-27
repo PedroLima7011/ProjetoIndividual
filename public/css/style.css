@@ -6,6 +6,9 @@
 }
 
 /* Página home */
+html {
+  scroll-behavior: smooth;
+}
 
 /* header*/
 header {

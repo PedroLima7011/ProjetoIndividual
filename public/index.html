@@ -7,20 +7,21 @@
     <title>PHA | Home</title>
     <link rel="shortcut icon" href="./assets/imgs/icon.png" type="image/x-icon">
     <link rel="stylesheet" href="./css/style.css">
+    <script src="./js/sessao.js"></script>
     <!-- fonte -->
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
 </head>
 
-<body class="home">
+<body class="home" onload="sessao()">
     <header>
         <img src="./assets/imgs/Logo_PHA.png">
         <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="#rules">Regras</a></li>
-            <li><a href="#fundamentals">Como Jogar</a></li>
-            <li><a href="login.html">Quiz</a></li>
-            <a href="login.html"><button>Login</button></a>
-            <a href="cadastro.html"><button>Cadastro</button></a>
+            <li><a href="#fundamentals">Fundamentos</a></li>
+            <li><a href="quiz.html">Quiz</a></li>
+            <a href="login.html" id="logar"><button>Login</button></a>
+            <a href="cadastro.html" id="cadastrar"><button>Cadastro</button></a>
         </ul>
     </header>
 

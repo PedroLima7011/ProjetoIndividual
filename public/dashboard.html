@@ -7,8 +7,8 @@
     <title>PHA | Dashboard</title>
     <link rel="shortcut icon" href="./assets/imgs/icon.png" type="image/x-icon">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
     <link rel="stylesheet" href="./css/style.css">
+    <script src="./js/sessao.js"></script>
 </head>
 
 <body class="dashboard" onload="obterDados(), obterDadosRanking()">
@@ -23,8 +23,9 @@
         <ul>
             <li><a href="index.html"><span>▶ </span> Home</a></li>
             <li><a href="index.html#rules"><span>▶ </span> Regras</a></li>
-            <li><a href="index.html#fundamentals"><span>▶ </span> Como Jogar</a></li>
+            <li><a href="index.html#fundamentals"><span>▶ </span> Fundamentos</a></li>
             <li><a href="quiz.html"><span>▶ </span> Quiz</a></li>
+            <li><a href="index.html" onclick="limparSessao()"><span>▶ </span> Sair</a></li>
         </ul>
     </nav>
 
