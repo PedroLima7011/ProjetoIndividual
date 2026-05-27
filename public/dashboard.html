@@ -18,7 +18,7 @@
             <img src="./assets/imgs/perfil-de-usuario-Ambas.png" alt="">
             <div id="div_nome"></div>
             <div id="div_email"></div>
-        </div> 
+        </div>
 
         <ul>
             <li><a href="index.html"><span>▶ </span> Home</a></li>
@@ -52,19 +52,19 @@
         <div class="containers">
             <h3 id="acertosErros"> Resultados das últimas 5 tentativas </h3>
             <div class="chart-container">
-                <canvas id="myChart"></canvas>
+                <canvas class="graficos" id="myChart"></canvas>
             </div>
 
             <h3 id="leaderboard"> Leaderboard de pontuação </h3>
             <div class="chart-container">
-                <canvas id="mySecondChart"></canvas>
+                <canvas class="graficos" id="mySecondChart"></canvas>
             </div>
         </div>
 
         <div class="containers-grande">
             <h3> Evolução das suas últimas 10 tentativas (pontuação)</h3>
             <div class="chart-container">
-                <canvas id="myThirdChart"></canvas>
+                <canvas class="graficos" id="myThirdChart"></canvas>
             </div>
 
             <div class="kpi-pontuacao">
@@ -104,7 +104,7 @@
     }
 
     function porcentagem() {
-        let porcentagemAcertos = (certas / 15) * 100;
+        let porcentagemAcertos = (certas / 18) * 100;
         porcentagem_acertos.innerHTML = porcentagemAcertos.toFixed(1) + "%";
 
         console.log(porcentagemAcertos);
@@ -264,7 +264,7 @@
                 scales: {
                     y: {
                         beginAtZero: true,
-                        max: 16
+                        max: 18
                     }
                 }
             }
@@ -272,37 +272,72 @@
 
         var ctx2 = document.getElementById('myThirdChart').getContext('2d');
 
-        var myChart2 = new Chart(ctx2, {
-            type: 'line',
-            data: {
-                labels: tentativasP,
-                datasets: [{
-                    label: 'Pontuação',
-                    data: pontuacao,
-                    backgroundColor: 'rgba(252, 102, 37, 0.4)',
-                    borderColor: '#FC6625',
-                    borderWidth: 3,
-                    fill: true,
-                    tension: 0.3
-                }]
-            },
-            options: {
-                responsive: true,
+        if (pontuacao.length == 1) {
+            var myChart2 = new Chart(ctx2, {
+                type: 'bar',
+                data: {
+                    labels: tentativasP,
+                    datasets: [{
+                        label: 'Pontuação',
+                        data: pontuacao,
+                        backgroundColor: 'rgba(252, 102, 37, 0.4)',
+                        borderColor: '#FC6625',
+                        borderWidth: 3,
+                        fill: true,
+                        tension: 0.3
+                    }]
+                },
+                options: {
+                    responsive: true,
 
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                        max: 20,
-                    },
-                    x: {
-                        title: {
-                            display: true,
-                            text: 'Últimas 10 entativas'
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 30,
+                        },
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Últimas 10 entativas'
+                            }
                         }
                     }
                 }
-            }
-        });
+            });
+        } else {
+            var myChart2 = new Chart(ctx2, {
+                type: 'line',
+                data: {
+                    labels: tentativasP,
+                    datasets: [{
+                        label: 'Pontuação',
+                        data: pontuacao,
+                        backgroundColor: 'rgba(252, 102, 37, 0.4)',
+                        borderColor: '#FC6625',
+                        borderWidth: 3,
+                        fill: true,
+                        tension: 0.3
+                    }]
+                },
+                options: {
+                    responsive: true,
+
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 30,
+                        },
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Últimas 10 entativas'
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
         porcentagem();
     }
 
@@ -379,7 +414,7 @@
                 scales: {
                     y: {
                         beginAtZero: true,
-                        max: 20
+                        max: 30
                     }
                 }
             }

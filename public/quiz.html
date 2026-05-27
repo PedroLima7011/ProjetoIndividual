@@ -85,7 +85,7 @@
     div_nome.innerHTML = sessionStorage.NOME_USUARIO + ' ' + sessionStorage.SOBRENOME_USUARIO;
     div_email.innerHTML = sessionStorage.EMAIL_USUARIO;
 
-    const listaDeQuestoes = [
+    const listaAuxiliar = [
 
         { // 1 - Pergunta
             pergunta: "Em qual ano o basquete foi criado?",
@@ -93,7 +93,8 @@
             alternativaB: "1891",
             alternativaC: "2001",
             alternativaD: "1994",
-            alternativaCorreta: "alternativaB"
+            alternativaCorreta: "alternativaB",
+            pontos: 1
         },
 
         { // 2 - Pergunta
@@ -102,7 +103,8 @@
             alternativaB: "Aros modernos",
             alternativaC: "Cestas de pêssego",
             alternativaD: "Não havia uma cesta",
-            alternativaCorreta: "alternativaC"
+            alternativaCorreta: "alternativaC",
+            pontos: 2
         },
 
         { // 3 - Pergunta
@@ -111,7 +113,8 @@
             alternativaB: "30 segundos",
             alternativaC: "24 segundos",
             alternativaD: "15 segundos",
-            alternativaCorreta: "alternativaC"
+            alternativaCorreta: "alternativaC",
+            pontos: 1
         },
 
         { // 4 - Pergunta
@@ -120,7 +123,8 @@
             alternativaB: "2 pontos",
             alternativaC: "3 pontos",
             alternativaD: "4 pontos",
-            alternativaCorreta: "alternativaC"
+            alternativaCorreta: "alternativaC",
+            pontos: 1
         },
 
         { // 5 - Pergunta
@@ -129,7 +133,8 @@
             alternativaB: "6 jogadores",
             alternativaC: "5 jogadores",
             alternativaD: "4 jogadores",
-            alternativaCorreta: "alternativaC"
+            alternativaCorreta: "alternativaC",
+            pontos: 1
         },
 
         { // 6 - Pergunta
@@ -138,7 +143,8 @@
             alternativaB: "3 quartos",
             alternativaC: "4 quartos",
             alternativaD: "5 quartos",
-            alternativaCorreta: "alternativaC"
+            alternativaCorreta: "alternativaC",
+            pontos: 1
         },
 
         { // 7 - Pergunta
@@ -147,7 +153,8 @@
             alternativaB: "10 minutos",
             alternativaC: "12 minutos",
             alternativaD: "15 minutos",
-            alternativaCorreta: "alternativaB"
+            alternativaCorreta: "alternativaB",
+            pontos: 1
         },
 
         { // 8 - Pergunta
@@ -156,7 +163,8 @@
             alternativaB: "Ele dá passos sem quicar a bola",
             alternativaC: "Ele segura a bola por muito tempo",
             alternativaD: "Ele passa a bola errado",
-            alternativaCorreta: "alternativaB"
+            alternativaCorreta: "alternativaB",
+            pontos: 1
         },
 
         { // 9 - Pergunta
@@ -165,7 +173,8 @@
             alternativaB: "Ubiratan",
             alternativaC: "Oscar Schmidt",
             alternativaD: "Janeth",
-            alternativaCorreta: "alternativaC"
+            alternativaCorreta: "alternativaC",
+            pontos: 1
         },
 
         { // 10 - Pergunta
@@ -174,7 +183,8 @@
             alternativaB: "Drible",
             alternativaC: "Rebote",
             alternativaD: "Bloqueio",
-            alternativaCorreta: "alternativaB"
+            alternativaCorreta: "alternativaB",
+            pontos: 1
         },
 
         { // 11 - Pergunta
@@ -183,7 +193,8 @@
             alternativaB: "Não podia chutar a bola",
             alternativaC: "Não podia passar a bola para os colegas de equipe",
             alternativaD: "Correr com a bola",
-            alternativaCorreta: "alternativaC"
+            alternativaCorreta: "alternativaC",
+            pontos: 2
         },
 
         { // 12 - Pergunta
@@ -192,7 +203,8 @@
             alternativaB: "Logo de inicio, o esporte caiu no gosto dos homens e somente depois, as mulheres começaram a praticar",
             alternativaC: "Em 1912 foi convocada a primeira seleção brasileira",
             alternativaD: "O país foi campeão dos jogos Latino-Americanos, logo quando havia sido convocado",
-            alternativaCorreta: "alternativaD"
+            alternativaCorreta: "alternativaD",
+            pontos: 2
         },
 
         { // 13 - Pergunta
@@ -201,7 +213,8 @@
             alternativaB: "Pedir substituição",
             alternativaC: "Retornar com a bola ao campo de defesa",
             alternativaD: "Realizar passes",
-            alternativaCorreta: "alternativaC"
+            alternativaCorreta: "alternativaC",
+            pontos: 2
         },
 
         { // 14 - Pergunta
@@ -210,7 +223,8 @@
             alternativaB: "O jogo é encerrado",
             alternativaC: "O adversário ganha direito a dois lances livres",
             alternativaD: "O técnico é expulso",
-            alternativaCorreta: "alternativaC"
+            alternativaCorreta: "alternativaC",
+            pontos: 2
         },
 
         { // 15 - Pergunta
@@ -219,9 +233,54 @@
             alternativaB: "2 lances livres",
             alternativaC: "3 lances livres",
             alternativaD: "4 lances livres",
-            alternativaCorreta: "alternativaC"
+            alternativaCorreta: "alternativaC",
+            pontos: 2
+        },
+
+        { // 16 - Pergunta
+            pergunta: "Qual era o principal objetivo de James Naismith ao criar o basquete?",
+            alternativaA: "Criar um esporte para ser jogado ao ar livre",
+            alternativaB: "Preparar atletas para as Olimpíadas",
+            alternativaC: "Manter os alunos aquecidos durante o inverno",
+            alternativaD: "Substituir o futebol americano",
+            alternativaCorreta: "alternativaC",
+            pontos: 3
+        },
+
+        { // 17 - Pergunta
+            pergunta: "O que acontecia quando uma equipe cometia três infrações consecutivas nas regras iniciais do basquete?",
+            alternativaA: "O jogador era expulso",
+            alternativaB: "A equipe perdia um ponto",
+            alternativaC: "A posse de bola passava para o adversário",
+            alternativaD: "O jogo era interrompido",
+            alternativaCorreta: "alternativaC",
+            pontos: 3
+        },
+
+        { // 18 - Pergunta
+            pergunta: "Qual jogador brasileiro participou de cinco edições dos Jogos Olímpicos?",
+            alternativaA: "Ubiratan",
+            alternativaB: "Oscar Schmidt",
+            alternativaC: "Wlamir Marques",
+            alternativaD: "Marcel",
+            alternativaCorreta: "alternativaB",
+            pontos: 3
         }
     ]
+
+    let listaDeQuestoes = []
+
+    while (listaAuxiliar.length > 0) { // embaralha as questões
+        let tamanho = listaAuxiliar.length;
+        let numQuestao = Math.floor(Math.random() * tamanho);
+
+        if (listaAuxiliar[numQuestao] != '' && listaAuxiliar != null && listaAuxiliar != undefined) {
+
+            listaDeQuestoes.push(listaAuxiliar[numQuestao]);
+            listaAuxiliar.splice(numQuestao, 1);
+        }
+    }
+    console.log(listaDeQuestoes)
 
     // variáveis globais    
     let numeroDaQuestaoAtual = 0
@@ -238,6 +297,8 @@
     }
 
     function iniciarQuiz() {
+        div_mensagem.innerHTML = "Atenção! Algumas questãos irão valer mais pontos <br> dependendo do nível de dificuldade"
+
         // document.getElementById('pontuacao').style.display = "flex"
         document.getElementById('jogo').style.display = "flex"
         document.getElementById('btnIniciarQuiz').style.display = "none"
@@ -321,11 +382,7 @@
             div_mensagem.innerHTML = "Acabou o questionário... Finalize ou faça novamente"
             finalizarJogo();
         }
-        
-        if (numeroDaQuestaoAtual == quantidadeDeQuestoes - 5) {
-            div_mensagem.innerHTML = "Atenção! A partir de agora está no modo difícil <br> cada questão irá valer 2 pontos.."
-            preencherHTMLcomQuestaoAtual(numeroDaQuestaoAtual)
-        }
+
         limparCoresBackgroundOpcoes()
     }
 
@@ -354,19 +411,16 @@
         // verifica se resposta assinalada é correta
         options.forEach((option) => {
             if (option.checked === true && option.value === respostaQuestaoAtual) {
-                document.getElementById(alternativaCorreta).classList.add("text-success-with-bg")
-                pontuacao++
+                document.getElementById(alternativaCorreta).classList.add("text-warning-with-bg")
+                pontuacao += listaDeQuestoes[numeroDaQuestaoAtual].pontos
                 acertos++
-                if (numeroDaQuestaoAtual >= 10) {
-                    pontuacao++
-                }
+                console.log(pontuacao)
                 // document.getElementById("spanAcertos").innerHTML = acertos
                 numeroDaQuestaoAtual++
             } else if (option.checked && option.value !== respostaQuestaoAtual) {
                 const wrongLabelId = option.labels[0].id
 
-                document.getElementById(wrongLabelId).classList.add("text-danger-with-bg")
-                document.getElementById(alternativaCorreta).classList.add("text-success-with-bg")
+                document.getElementById(wrongLabelId).classList.add("text-warning-with-bg")
                 tentativaIncorreta++
                 erros++
                 // document.getElementById("spanErros").innerHTML = erros
@@ -378,8 +432,7 @@
     function limparCoresBackgroundOpcoes() {
         const options = document.getElementsByName("option");
         options.forEach((option) => {
-            document.getElementById(option.labels[0].id).classList.remove("text-danger-with-bg")
-            document.getElementById(option.labels[0].id).classList.remove("text-success-with-bg")
+            document.getElementById(option.labels[0].id).classList.remove("text-warning-with-bg")
         })
     }
 
