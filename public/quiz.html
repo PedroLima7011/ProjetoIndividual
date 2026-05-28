@@ -456,11 +456,11 @@
 
     function finalizar() {
         setTimeout(() => {
+            if (acertos > 0 || erros > 0) {
+                inserirDados();
+            }
             window.location = "dashboard.html";
-        }, "1000");
-        if (acertos > 0 || erros > 0) {
-            inserirDados();
-        }
+        }, "1000"); 
     }
 
     function inserirDados() {

@@ -1,3 +1,5 @@
+let senhaValida = false;
+
 function verificarSenha() { // Para a senha ser forte, ela tem que cumprir 3 critérios 
     let senha = input_senha.value; // ter letras Maiusculas, minuscula e ter pelo menos 8 caracteres
     let tamanho = senha.length >= 8;
@@ -11,8 +13,10 @@ function verificarSenha() { // Para a senha ser forte, ela tem que cumprir 3 cri
 
     if (criterios == 3) {
         div_mensagem.innerHTML = `<span class="senha"> Senha Forte!`  // atingiu todos os critérios de segurança
-    } else if (criterios == 2 && senha.length > 4) {
+        senhaValida = true;
+    } else if (criterios == 2 && senha.length > 5) {
         div_mensagem.innerHTML = `<span class="senha">Senha Média. Utilize maiúsculas, minúsculas <br> e pelo menos 8 caracteres.`  // atingiu 2 critérios de segurança
+        senhaValida = true;
     } else if (criterios == 2) {
         div_mensagem.innerHTML = `<span class="senha">Senha Fraca. Utilize maiúsculas, minúsculas <br> e pelo menos 8 caracteres.`  // atingiu 2 critérios de segurança
     } else if (criterios == 1) {
@@ -20,6 +24,8 @@ function verificarSenha() { // Para a senha ser forte, ela tem que cumprir 3 cri
     } else {
         div_mensagem.innerHTML = `<span class="senha">Senha Insegura. Utilize maiúsculas, minúsculas <br> e pelo menos 8 caracteres.`  // não atingiu nenhum critério de segurança  
     }
+
+    return senhaValida;
 }
 
 /* Cadastro */
@@ -37,6 +43,8 @@ function cadastrar() {
     for (let i = 0; i < finalEmail.length; i++) {
         if (email.endsWith(finalEmail[i])) {
             validoEmail = true;
+        } else if (email.includes('@') && email.indexOf('@') > 0 && email.lastIndexOf('.') > email.indexOf('@') + 1 && email.lastIndexOf('.') < email.length - 1) {
+            validoEmail = true;
         }
     }
 
@@ -49,7 +57,7 @@ function cadastrar() {
             if (validoEmail == true) {
                 criterios++; /* 3° critério */
 
-                if (senha != '') {
+                if (senhaValida) {
                     criterios++; /* 4° critério */
 
                     if (confirmarSenha == senha) {
@@ -60,17 +68,14 @@ function cadastrar() {
                         div_mensagem.innerHTML = `<span class="erro"> As senhas não coincidem`;
                     }
                 } else {
-                    div_mensagem.innerHTML = `<span class="erro"> Insira uma senha`;
+                    div_mensagem.innerHTML = `<span class="erro"> Insira uma senha válida`;
                 }
-
             } else {
                 div_mensagem.innerHTML = `<span class="erro"> Insira um email válido`;
             }
-
         } else {
             div_mensagem.innerHTML = `<span class="erro"> Insira seu sobrenome`;
         }
-
     } else {
         div_mensagem.innerHTML = `<span class="erro"> Insira seu nome`;
     }
@@ -115,7 +120,6 @@ function cadastrar() {
 
         return false;
     }
-
 }
 
 /* Login */
@@ -166,7 +170,6 @@ function logar() {
     })
 
     return false;
-
 }
 
 function obterDados() {
@@ -205,5 +208,4 @@ function obterDados() {
     })
 
     return false;
-
 }
