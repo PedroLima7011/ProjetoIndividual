@@ -29,44 +29,43 @@ CREATE TABLE quiz (
 );
 
 INSERT INTO usuario (nome, sobrenome, email, senha) VALUES 
-('Arthur', 'Lima', 'arthur@gmail.com', 'aa'),
-('Sema', 'Lima', 'sema@gmail.com', 'aa'),
-('Souza', 'Barbosa', 'lima@gmail.com', 'aa');
+('Pedro', 'Lima', 'pedro@gmail.com', 'aa'),
+('Naju', 'Barbosa', 'naju@gmail.com', 'aa'),
+('Dayvid', 'José', 'dayvid@gmail.com', 'senha123'),
+('Lucas', 'Veneroso', 'veneroso@gmail.com', 'veneroso'),
+('David', 'Lima', 'david@gmail.com', '12345');
 
 INSERT INTO quiz (fkUsuario, acertos, erros, pontuacao) VALUES 
-(1, 10, 10, 10),
-(1, 4, 9, 10),
-(1, 5, 5, 10),
-(1, 5, 8, 10),
-(1, 5, 5, 10);
-INSERT INTO quiz (fkUsuario, acertos, erros, pontuacao) VALUES 
-(1, 10, 10, 10),
-(1, 9, 9, 10),
-(1, 8, 5, 10),
-(1, 7, 8, 10),
-(1, 6, 5, 10);
+(1, 14, 4, 22),
+(1, 9, 9, 15),
+(1, 12, 6, 19),
+(1, 16, 2, 24),
+(1, 18, 0, 30);
 
 INSERT INTO quiz (fkUsuario, acertos, erros, pontuacao) VALUES 
-(4, 10, 10, 9),
-(3, 4, 9, 9),
-(5, 5, 5, 9),
-(6, 5, 8, 11),
-(2, 5, 5, 10);
+(2, 13, 5, 21),
+(3, 8, 10, 13),
+(4, 11, 7, 18),
+(5, 15, 3, 25),
+(2, 15, 3, 27);
 
 SELECT * FROM usuario;
 SELECT * FROM quiz;
 
 SELECT AVG(acertos) FROM quiz WHERE fkUsuario = 1;
+
 SELECT ROUND(AVG(acertos), 2) FROM quiz;
 
 -- TRUNCATE usuario;
--- TRUNCATE quiz;
+-- TRUNCATE quiz; 
 
 -- DROP TABLE usuario;
 -- DROP TABLE quiz; 
 
-SELECT AVG(acertos), COUNT(idQuiz), nome, MAX(pontuacao) AS pontuacao FROM usuario JOIN quiz ON id = fkUsuario 
-	GROUP BY nome ORDER BY pontuacao DESC LIMIT 5;
+-- DROP DATABASE ProjetoIndividual; 
+
+SELECT AVG(acertos), COUNT(idQuiz), nome, sobrenome, MAX(pontuacao) AS pontuacao FROM usuario JOIN quiz ON id = fkUsuario 
+	GROUP BY nome, sobrenome ORDER BY pontuacao DESC LIMIT 5;
     
 SELECT nome, MAX(pontuacao) AS pontuacao FROM usuario JOIN quiz ON id = fkUsuario 
 	GROUP BY nome ORDER BY pontuacao DESC;
