@@ -136,7 +136,7 @@
     function melhorPontuacao() {
         let pontuacaoUsuario = pontuacao[0];
         if (pontuacaoUsuario == undefined) {
-            pontuacaoUsuario = 0;
+               window.location = 'quiz.html'           
         } else {
             for (let i = 0; i < pontuacao.length; i++) {
                 if (pontuacaoUsuario < pontuacao[i]) {

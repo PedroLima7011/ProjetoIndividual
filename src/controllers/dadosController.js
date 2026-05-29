@@ -13,9 +13,7 @@ function obterDados(req, res) {
                     console.log(`\nResultados encontrados: ${resultadoDados.length}`);
                     console.log(`Resultados: ${JSON.stringify(resultadoDados)}`); // transforma JSON em String
 
-                    if (resultadoDados.length > 0) {
-                        res.json(resultadoDados);
-                    }
+                    res.json(resultadoDados);
                 }
             ).catch(
                 function (erro) {

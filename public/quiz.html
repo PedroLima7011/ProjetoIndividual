@@ -11,7 +11,7 @@
 </head>
 
 
-<body onload="validarSessao(); onloadEsconder()" class="quiz">
+<body onload="validarSessao(), onloadEsconder(), obterDados()" class="quiz">
     <nav>
         <div class="user">
             <img src="./assets/imgs/perfil-de-usuario-Ambas.png" alt="">
@@ -23,7 +23,7 @@
             <li><a href="index.html"><span>▶ </span> Home</a></li>
             <li><a href="index.html#rules"><span>▶ </span> Regras</a></li>
             <li><a href="index.html#fundamentals"><span>▶ </span> Fundamentos</a></li>
-            <li><a href="dashboard.html"><span>▶ </span> Resultados</a></li>
+            <li id="resultadosHref"><a href="dashboard.html"><span>▶ </span> Resultados</a></li>
             <li><a href="index.html" onclick="limparSessao()"><span>▶ </span> Sair</a></li>
         </ul>
     </nav>
@@ -72,7 +72,7 @@
 
                 <div class="botoes">
                     <button onclick="submeter()" id="btnSubmeter">Submeter</button>
-                    <button onclick="avancar()" id="btnProx" disabled>Avançar</button>
+                    <!-- <button onclick="avancar()" id="btnProx" disabled>Avançar</button> -->
                     <button onclick="tentarNovamente()" id="btnTentarNovamente" disabled>Tentar novamente</button>
                     <button onclick="finalizar()" id="btnConcluir" disabled>Finalizar</button>
                 </div>
@@ -303,7 +303,11 @@
 
         // document.getElementById('pontuacao').style.display = "flex"
         document.getElementById('jogo').style.display = "flex"
+        
         document.getElementById('btnIniciarQuiz').style.display = "none"
+        document.getElementById('btnTentarNovamente').style.display = "none"
+        document.getElementById('btnConcluir').style.display = "none"
+
         document.getElementById('qtdQuestoes').innerHTML = quantidadeDeQuestoes
 
         document.getElementById('imagemQuiz').style.display = "none"
@@ -314,7 +318,7 @@
         preencherHTMLcomQuestaoAtual(0)
 
         btnSubmeter.disabled = false
-        btnProx.disabled = true
+        // btnProx.disabled = true
         btnConcluir.disabled = true
         btnTentarNovamente.disabled = true
     }
@@ -350,10 +354,12 @@
             div_mensagem.innerHTML = "Não há alternativas escolhidas. Escolha uma opção."
         } else {
             btnSubmeter.disabled = true
-            btnProx.disabled = false
+            // btnProx.disabled = false
 
             habilitarAlternativas(false)
             checarResposta()
+
+            avancar();
         }
     }
 
@@ -370,7 +376,7 @@
     function avancar() {
         div_mensagem.innerHTML = ``
 
-        btnProx.disabled = true
+        // btnProx.disabled = true
         btnSubmeter.disabled = false
 
         desmarcarRadioButtons()
@@ -448,10 +454,14 @@
     function finalizarJogo() {
         document.getElementById('jogo').classList.add("text-new-gray")
 
-        btnProx.disabled = true
+        // btnProx.disabled = true
         btnSubmeter.disabled = true
         btnConcluir.disabled = false
         btnTentarNovamente.disabled = false
+
+        document.getElementById('btnSubmeter').style.display = "none"
+        document.getElementById('btnTentarNovamente').style.display = "block"
+        document.getElementById('btnConcluir').style.display = "block"
     }
 
     function finalizar() {
@@ -490,5 +500,29 @@
             });
 
         return false;
+    }
+
+     // Função chamada ao carregar a página para obter e processar os dados
+    function obterDados() {
+        let id = sessionStorage.ID_USUARIO;
+        // Aqui seria a função que obteria os dados do banco de dados
+        // No caso, aqui você colocaria o fetch que teria o endereço da sua rota que você criou na pasta /routes e chamaria a função plotarGraficoLinha nessa função. Exemplo:
+        console.log(id)
+
+        fetch(`/dados/obterDados/${id}`)
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (data) {
+                console.log(data);
+                if (data.length > 0) {
+                    plotarGraficoTentativas(data);
+                } else {
+                    resultadosHref.style.display = 'none'
+                }
+            })
+            .catch(function (err) {
+                console.log(err);
+            })
     }
 </script>

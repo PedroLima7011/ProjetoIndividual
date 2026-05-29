@@ -16,7 +16,6 @@ function verificarSenha() { // Para a senha ser forte, ela tem que cumprir 3 cri
         senhaValida = true;
     } else if (criterios == 2 && senha.length > 5) {
         div_mensagem.innerHTML = `<span class="senha">Senha Média. Utilize maiúsculas, minúsculas <br> e pelo menos 8 caracteres.`  // atingiu 2 critérios de segurança
-        senhaValida = true;
     } else if (criterios == 2) {
         div_mensagem.innerHTML = `<span class="senha">Senha Fraca. Utilize maiúsculas, minúsculas <br> e pelo menos 8 caracteres.`  // atingiu 2 critérios de segurança
     } else if (criterios == 1) {
