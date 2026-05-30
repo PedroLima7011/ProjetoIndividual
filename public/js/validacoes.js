@@ -149,10 +149,11 @@ function logar() {
                 sessionStorage.NOME_USUARIO = json.nome;
                 sessionStorage.ID_USUARIO = json.id;
 
+                div_mensagem.innerHTML = `<span class="realizado"> Login efetuado com sucesso! Acessando sua conta...`;
+
                 setTimeout(function () {
                     window.location = "quiz.html";
-                }, 1000); // apenas para exibir o loading
-
+                }, 1500); 
             });
 
         } else {

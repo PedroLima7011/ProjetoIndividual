@@ -7,7 +7,7 @@
 
 /* Página home */
 html {
-  scroll-behavior: smooth;
+    scroll-behavior: smooth;
 }
 
 /* header*/
@@ -102,10 +102,12 @@ header img {
     width: 100%;
     filter: brightness(20%);
     object-fit: cover;
+    transition: 0.5s ease-in-out;
 }
 
 .fundoHome img:hover {
     filter: brightness(50%);
+    transition: 0.5s ease-in-out;
 }
 
 .fundoHome h1 {
@@ -193,7 +195,7 @@ header img {
 }
 
 /* Informações sobre a história basquete */
-.content-history {
+.content-historia {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -204,7 +206,7 @@ header img {
     margin-top: 7vh;
 }
 
-.content-history .content-section {
+.content-historia .content-section {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -216,25 +218,26 @@ header img {
     border-radius: 33px;
     background-color: var(--AzulEscuro);
     text-align: justify;
+    transition: 0.5s ease-in-out;
 }
 
-.content-history .content-section:hover {
+.content-historia .content-section:hover {
     transform: translateY(-12px);
-    transition: 0.5s;
+    transition: 0.5s ease-in-out;
     box-shadow: 0 0 20px 5px var(--AzulEscuro);
 }
 
-.content-history .content-section span {
+.content-historia .content-section span {
     font-size: 2vw;
     font-weight: bold;
 }
 
-.content-history .content-section p {
+.content-historia .content-section p {
     padding: 1.5vw;
     font-size: 1.3vw;
 }
 
-.content-history .content-section #image-section-1 {
+.content-historia .content-section #image-section-1 {
     /* Como surgiu */
     height: 50vh;
     width: 45vw;
@@ -242,7 +245,7 @@ header img {
     border-left: solid 1px white;
 }
 
-.content-history .content-section #image-section-2 {
+.content-historia .content-section #image-section-2 {
     /* Como era jogado */
     height: 65vh;
     width: 50vw;
@@ -250,7 +253,7 @@ header img {
     border-right: solid 1px white;
 }
 
-.content-history .content-section #image-section-3 {
+.content-historia .content-section #image-section-3 {
     /* Chegada ao Brasil */
     height: 62vh;
     width: 50vw;
@@ -258,7 +261,7 @@ header img {
     border-left: solid 1px white;
 }
 
-.content-history .content-section #image-section-4 {
+.content-historia .content-section #image-section-4 {
     /* Crescimento */
     height: 65vh;
     width: 50vw;
@@ -266,7 +269,7 @@ header img {
     border-right: solid 1px white;
 }
 
-.content-history .content-section #image-section-5 {
+.content-historia .content-section #image-section-5 {
     /* Oscar */
     height: 65vh;
     width: 50vw;
@@ -274,14 +277,14 @@ header img {
     border-left: solid 1px white;
 }
 
-.content-history .content-section #image-section-6 {
+.content-historia .content-section #image-section-6 {
     /* Schmidt */
     height: 65vh;
     width: 50vw;
     border-radius: 0 30px 30px 0;
 }
 
-.content-history hr {
+.content-historia hr {
     background-color: var(--Laranja);
     padding: 0.2vw;
     margin: 5vh 0 0 0;
@@ -290,7 +293,7 @@ header img {
 }
 
 /* Regras do basquete */
-.content-rules {
+.content-regras {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -300,7 +303,7 @@ header img {
     color: white;
 }
 
-.content-rules .content-group {
+.content-regras .content-grupo {
     display: flex;
     flex-direction: row;
     width: 80%;
@@ -311,7 +314,7 @@ header img {
     margin-top: 4vh;
 }
 
-.content-rules .content-section {
+.content-regras .content-section {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -322,16 +325,16 @@ header img {
     border-right: solid 7px var(--Laranja);
     border-radius: 33px;
     background-color: var(--AzulEscuro);
-    transition: 0.5s;
+    transition: 0.5s ease-in-out;
 }
 
-.content-rules .content-section:hover {
+.content-regras .content-section:hover {
     transform: translateY(-12px);
-    transition: 0.5s;
+    transition: 0.5s ease-in-out;
     box-shadow: 0 0 20px 5px var(--AzulEscuro);
 }
 
-.content-rules #image {
+.content-regras #image {
     height: 35vh;
     width: 30vw;
     border-radius: 30px;
@@ -341,17 +344,17 @@ header img {
     object-fit: cover;
 }
 
-.content-rules .content-section span {
+.content-regras .content-section span {
     font-size: 2vw;
     font-weight: bold;
 }
 
-.content-rules .content-section p {
+.content-regras .content-section p {
     padding: 1.2vw;
     font-size: 1.3vw;
 }
 
-.content-rules hr {
+.content-regras hr {
     background-color: var(--Laranja);
     padding: 0.2vw;
     margin: 5vh 0 0 0;
@@ -360,7 +363,7 @@ header img {
 }
 
 /* Fundamentos do basquete */
-.content-fundamentals {
+.content-fundamentos {
     display: flex;
     flex-direction: row;
     width: 100%;
@@ -370,7 +373,7 @@ header img {
     color: white;
 }
 
-.content-fundamentals .content-group {
+.content-fundamentos .content-grupo {
     display: flex;
     flex-direction: row;
     width: 50%;
@@ -380,7 +383,7 @@ header img {
     margin: 8vh 0;
 }
 
-.content-fundamentals .content-group .content-text {
+.content-fundamentos .content-grupo .content-text {
     display: flex;
     flex-direction: row;
     width: 85%;
@@ -392,21 +395,21 @@ header img {
     border-radius: 30px;
     border-left: solid 7px var(--Laranja);
     border-right: solid 7px var(--Laranja);
-    transition: 0.5s;
+    transition: 0.5s ease-in-out;
 }
 
-.content-fundamentals .content-group .content-text:hover {
+.content-fundamentos .content-grupo .content-text:hover {
     transform: translateY(-10px);
-    transition: 0.5s;
+    transition: 0.5s ease-in-out;
     box-shadow: 0 0 20px 5px var(--AzulEscuro);
 }
 
-.content-fundamentals span {
+.content-fundamentos span {
     font-size: 2vw;
     font-weight: bold;
 }
 
-.content-fundamentals p {
+.content-fundamentos p {
     padding: 3vw;
     font-size: 1.3vw;
 }
@@ -422,12 +425,12 @@ header img {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    transition: 0.5s;
+    transition: 0.5s ease-in-out;
 }
 
 .content-quiz-card:hover {
     transform: translateY(-10px);
-    transition: 0.5s;
+    transition: 0.5s ease-in-out;
     box-shadow: 0 0 20px 5px var(--AzulEscuro);
 }
 
@@ -475,7 +478,7 @@ footer img {
     padding: 4vw 0 3vw 4vw;
 }
 
-footer .footer-info {
+footer .footer-informacao {
     display: flex;
     flex-direction: column;
     width: 55%;
@@ -483,7 +486,7 @@ footer .footer-info {
     margin-right: 2vw;
 }
 
-footer .footer-column {
+footer .footer-coluna {
     display: flex;
     width: 100%;
     margin-top: 2vw;
@@ -513,7 +516,7 @@ footer .footer-links {
 }
 
 /* Tela de Cadastro/Login, estilizando ambas juntas */
-.authentication {
+.conta {
     display: flex;
     flex-direction: row;
 }
@@ -602,7 +605,7 @@ footer .footer-links {
 
 
 /* Tela de cadastro */
-.Cadastro .background_cadastro {
+.Cadastro .backgroundCadastro {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -672,7 +675,7 @@ footer .footer-links {
 }
 
 /*Tela de Login*/
-.Login .background_login {
+.Login .backgroundLogin {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1091,7 +1094,7 @@ footer .footer-links {
     margin: 0 0 30px 0;
 }
 
-.kpi-content .kpi-information {
+.kpi-content .kpi-informacao {
     font-size: 6vw;
     margin: 0 0 4vw 0;
     height: 100px;
@@ -1176,7 +1179,7 @@ footer .footer-links {
     margin: 0 0 2.7vw 0;
 }
 
-.kpi-pontuacao .kpi-information {
+.kpi-pontuacao .kpi-informacao {
     font-size: 10vw;
     margin: 2vw 0 0 0;
 }

@@ -22,8 +22,8 @@
 
         <ul>
             <li><a href="index.html"><span>▶ </span> Home</a></li>
-            <li><a href="index.html#rules"><span>▶ </span> Regras</a></li>
-            <li><a href="index.html#fundamentals"><span>▶ </span> Fundamentos</a></li>
+            <li><a href="index.html#regras"><span>▶ </span> Regras</a></li>
+            <li><a href="index.html#fundamentos"><span>▶ </span> Fundamentos</a></li>
             <li><a href="quiz.html"><span>▶ </span> Quiz</a></li>
             <li><a href="index.html" onclick="limparSessao()"><span>▶ </span> Sair</a></li>
         </ul>
@@ -34,18 +34,18 @@
         <div class="containers">
             <div class="kpi-content">
                 <a>Média geral de acertos</a>
-                <div class="kpi-information" id="media_geral"></div>
+                <div class="kpi-informacao" id="media_geral"></div>
             </div>
 
             <div class="kpi-content">
                 <a>Média de acertos do Usuário</a>
-                <div class="kpi-information" id="media_usuario"></div>
+                <div class="kpi-informacao" id="media_usuario"></div>
                 <div class="kpi-mensagem" id="mensagem_usuario"></div>
             </div>
 
             <div class="kpi-content">
                 <a>Último desempenho</a>
-                <div class="kpi-information" id="porcentagem_acertos"> </div>
+                <div class="kpi-informacao" id="porcentagem_acertos"> </div>
                 <div class="kpi-mensagem" id="porcentagem_mensagem"></div>
             </div>
         </div>
@@ -70,7 +70,7 @@
 
             <div class="kpi-pontuacao">
                 <a>Sua melhor pontuação</a>
-                <div class="kpi-information" id="melhor_pontuacao"> </div>
+                <div class="kpi-informacao" id="melhor_pontuacao"> </div>
                 <div class="kpi-mensagem" id="pontuacao_mensagem"></div>
             </div>
         </div>
@@ -97,7 +97,7 @@
             mensagem_usuario.innerHTML += `<br> <b> Você está na média`
             document.getElementById('mensagem_usuario').style.color = "#FC6625";
 
-        } else {
+        } else { // Se a media do usuario for menor que a geral fica vermelha
             document.getElementById('media_usuario').style.color = "red";
             mensagem_usuario.innerHTML += `<br> <b> Você está abaixo da média`
             document.getElementById('mensagem_usuario').style.color = "red";
@@ -110,12 +110,12 @@
 
         console.log(porcentagemAcertos);
 
-        if (porcentagemAcertos <= 30) {
+        if (porcentagemAcertos <= 50) {
             porcentagem_mensagem.innerHTML = "<b> Parece que você não estudou...";
             document.getElementById('porcentagem_acertos').style.color = "red";
             document.getElementById('porcentagem_mensagem').style.color = "red";
 
-        } else if (porcentagemAcertos > 30 && porcentagemAcertos < 70) {
+        } else if (porcentagemAcertos > 50 && porcentagemAcertos < 70) {
             porcentagem_mensagem.innerHTML = "<b> Pode melhorar na próxima, hein!";
             document.getElementById('porcentagem_acertos').style.color = "#FC6625";
             document.getElementById('porcentagem_mensagem').style.color = "#FC6625";
@@ -209,7 +209,6 @@
             for (var i = 0; i < dados.length; i++) { // para serem plotadas no gráfico
                 acertos.push(dados[i].acertos);
                 erros.push(dados[i].erros);
-
                 tentativas.push(`${i + 1}ª Tentativa`);
             }
 
@@ -217,7 +216,6 @@
             for (var i = dados.length - 5; i < dados.length; i++) {
                 acertos.push(dados[i].acertos);
                 erros.push(dados[i].erros);
-
                 tentativas.push(`${i + 1}ª Tentativa`);
             }
         }
@@ -234,10 +232,8 @@
             }
         }
 
-
-        // Capturando o elemento canvas pelo id 
         var ctx = document.getElementById('myChart');
-        // Criando o gráfico de linha usando o Chart.js
+
         var myChart = new Chart(ctx, {
             type: 'bar', // Tipo de gráfico: Barra
             data: { // Dados para o gráfico
@@ -375,13 +371,13 @@
             for (var i = 0; i < 5; i++) {
                 pontuacao.push(dados[i].pontuacao);
                 nome.push(dados[i].nome);
-                posicao.push(`${i + 1}º - ${nome[i]}`);
+                posicao.push(`${i + 1}º- ${nome[i]} ${dados[i].sobrenome[0]}.`);
             }
         } else {
             for (var i = 0; i < dados.length; i++) {
                 pontuacao.push(dados[i].pontuacao);
                 nome.push(dados[i].nome);
-                posicao.push(`${i + 1}º - ${nome[i]}`);
+                posicao.push(`${i + 1}º- ${nome[i]} ${dados[i].sobrenome[0]}.`);
             }
         }
 

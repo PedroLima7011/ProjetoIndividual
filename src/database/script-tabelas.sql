@@ -29,11 +29,11 @@ CREATE TABLE quiz (
 );
 
 INSERT INTO usuario (nome, sobrenome, email, senha) VALUES 
-('Pedro', 'Lima', 'pedro@gmail.com', 'aa'),
-('Naju', 'Barbosa', 'naju@gmail.com', 'aa'),
-('Dayvid', 'José', 'dayvid@gmail.com', 'senha123'),
-('Lucas', 'Veneroso', 'veneroso@gmail.com', 'veneroso'),
-('David', 'Lima', 'david@gmail.com', '12345');
+('Pedro', 'Lima', 'pedro@gmail.com', 'Pedro123'),
+('Naju', 'Barbosa', 'naju@gmail.com', 'Anajulia'),
+('Dayvid', 'José', 'dayvid@gmail.com', 'Senha123'),
+('Lucas', 'Veneroso', 'veneroso@gmail.com', 'Veneroso'),
+('David', 'Lima', 'david@gmail.com', 'David123');
 
 INSERT INTO quiz (fkUsuario, acertos, erros, pontuacao) VALUES 
 (1, 14, 4, 22),
@@ -52,7 +52,7 @@ INSERT INTO quiz (fkUsuario, acertos, erros, pontuacao) VALUES
 SELECT * FROM usuario;
 SELECT * FROM quiz;
 
-SELECT AVG(acertos) FROM quiz WHERE fkUsuario = 1;
+SELECT ROUND(AVG(acertos), 2) FROM quiz GROUP BY fkUsuario;
 
 SELECT ROUND(AVG(acertos), 2) FROM quiz;
 
@@ -64,10 +64,23 @@ SELECT ROUND(AVG(acertos), 2) FROM quiz;
 
 -- DROP DATABASE ProjetoIndividual; 
 
-SELECT AVG(acertos), COUNT(idQuiz), nome, sobrenome, MAX(pontuacao) AS pontuacao FROM usuario JOIN quiz ON id = fkUsuario 
-	GROUP BY nome, sobrenome ORDER BY pontuacao DESC LIMIT 5;
-    
-SELECT nome, MAX(pontuacao) AS pontuacao FROM usuario JOIN quiz ON id = fkUsuario 
-	GROUP BY nome ORDER BY pontuacao DESC;
+SELECT fkUsuario, acertos, erros, pontuacao FROM quiz WHERE fkUsuario = '${id}' ORDER BY idQuiz ASC;
 
-SELECT fkUsuario, acertos, erros, pontuacao FROM quiz WHERE fkUsuario = 1 ORDER BY idQuiz ASC;
+SELECT AVG(acertos) AS mediaGeral, COUNT(idQuiz) AS quantidade, nome, sobrenome, MAX(pontuacao) AS pontuacao FROM usuario 
+            JOIN quiz ON id = fkUsuario 
+        GROUP BY nome, sobrenome ORDER BY pontuacao DESC;
+        
+-- KPI último desempenhado
+SELECT ((acertos / 18) * 100) FROM usuario 
+	JOIN quiz ON id = fkUsuario 
+		WHERE nome = 'Pedro' ORDER BY idQuiz DESC LIMIT 1;
+        
+SELECT nome, TRUNCATE(((acertos / 18) * 100), 2) FROM usuario 
+	JOIN quiz ON id = fkUsuario
+		WHERE nome = 'David' ORDER BY idQuiz DESC LIMIT 1;
+
+-- Leaderboard
+SELECT nome, MAX(pontuacao) FROM quiz 
+	JOIN usuario ON fkUsuario = id 
+		GROUP BY nome, sobrenome 
+	ORDER BY MAX(pontuacao) DESC LIMIT 5;
