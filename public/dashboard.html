@@ -33,18 +33,18 @@
 
         <div class="containers">
             <div class="kpi-content">
-                <a>Média geral de acertos</a>
+                <a><b>Média geral de acertos</b></a>
                 <div class="kpi-informacao" id="media_geral"></div>
             </div>
 
             <div class="kpi-content">
-                <a>Média de acertos do Usuário</a>
+                <a><b>Sua média de acertos</b></a>
                 <div class="kpi-informacao" id="media_usuario"></div>
                 <div class="kpi-mensagem" id="mensagem_usuario"></div>
             </div>
 
             <div class="kpi-content">
-                <a>Último desempenho</a>
+                <a><b>Último desempenho</b></a>
                 <div class="kpi-informacao" id="porcentagem_acertos"> </div>
                 <div class="kpi-mensagem" id="porcentagem_mensagem"></div>
             </div>
@@ -69,7 +69,7 @@
             </div>
 
             <div class="kpi-pontuacao">
-                <a>Sua melhor pontuação</a>
+                <a><b>Sua melhor pontuação</b></a>
                 <div class="kpi-informacao" id="melhor_pontuacao"> </div>
                 <div class="kpi-mensagem" id="pontuacao_mensagem"></div>
             </div>
@@ -111,7 +111,7 @@
         console.log(porcentagemAcertos);
 
         if (porcentagemAcertos <= 50) {
-            porcentagem_mensagem.innerHTML = "<b> Parece que você não estudou...";
+            porcentagem_mensagem.innerHTML = "<b> Parece que você não foi tão bem...";
             document.getElementById('porcentagem_acertos').style.color = "red";
             document.getElementById('porcentagem_mensagem').style.color = "red";
 
